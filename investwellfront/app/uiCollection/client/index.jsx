@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useRef} from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { v4 as uuid } from 'uuid';
 import Table from './tableInvoice.jsx';
 import axios from 'axios';
@@ -148,7 +148,7 @@ export default function Index() {
 
     }
 
-    const downloadPdf = async() => {
+    const downloadPdf = async () => {
         const data = {
             "advisoryCompanyName": contentEditableRef.current[0].innerText,
             "invoice Heading": contentEditableRef.current[1].innerText,
@@ -170,12 +170,11 @@ export default function Index() {
             "conclusionMessage": contentEditableRef.current[13].innerText,
 
         }
-
-         await axios
-          .post("/insertData", {data})
-          .then((response) => {
-            console.log(response)
-          })
+        await axios
+            .post("/insertData", { data })
+            .then((response) => {
+                console.log(response)
+            })
     }
     return (
         <div className='main-div'>
@@ -196,21 +195,21 @@ export default function Index() {
                             </div>
 
                             <div className='clientInvoiceDetails textRight'>
-                                <div contentEditable="true"  ref={(text) => contentEditableRef.current.push(text)}>06 April 2023</div>
-                                <div contentEditable="true"  ref={(text) => contentEditableRef.current.push(text)}>Invoice #2334889</div>
-                                <div contentEditable="true"  ref={(text) => contentEditableRef.current.push(text)}>PO 456001200</div>
+                                <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>06 April 2023</div>
+                                <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Invoice #2334889</div>
+                                <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>PO 456001200</div>
                             </div>
                         </div>
 
                         <div className="personalInfo">
                             <div className="personalInfoLeftBox">
-                                <div contentEditable="true"  ref={(text) => contentEditableRef.current.push(text)}>(123)456789</div>
-                                <div contentEditable="true"  ref={(text) => contentEditableRef.current.push(text)}>email@yourcompany.com</div>
+                                <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>(123)456789</div>
+                                <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>email@yourcompany.com</div>
                             </div>
 
                             <div className="personalInfoRightBox textRight">
-                                <div contentEditable="true"  ref={(text) => contentEditableRef.current.push(text)}>Att. Ms. Jane Doe</div>
-                                <div contentEditable="true"  ref={(text) => contentEditableRef.current.push(text)}>Client Company Name</div>
+                                <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Att. Ms. Jane Doe</div>
+                                <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Client Company Name</div>
                             </div>
                         </div>
 
@@ -240,9 +239,9 @@ export default function Index() {
                         subTotal={subTotal}
                         totalWithTax={totalWithTax}
                         CurrencySymbol={CurrencySymbol}
-                        handleCurrencySymbolChange={handleCurrencySymbolChange} 
+                        handleCurrencySymbolChange={handleCurrencySymbolChange}
                         contentEditableRef={contentEditableRef}
-                        />
+                    />
                     <div className="greetings" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>
                         <span>Many thanks! I look forward to doing business with you again in due course. </span>
                         <br /><span></span>

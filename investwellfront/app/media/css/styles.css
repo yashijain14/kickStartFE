@@ -287,15 +287,3 @@ button{
     position: relative;
     right: 35px;
 }
-
-@media  screen and (max-width: 768px) {
-    .leftSideBox, table{
-        width: 90%;
-        display: block;
-    }
-    .main-div {
-        width: 90%;
-        margin: auto;
-        font-family: none;
-    }
-}
