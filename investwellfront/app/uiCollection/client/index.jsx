@@ -137,10 +137,13 @@ export default function Index() {
                         if (openingBracket !== -1 && closingBracket !== -1) {
                             return { ...currency, currencySymbol: currSymbol, [fieldName]: value };
                         }
+                        else{
+                            return { ...currency, currencySymbol: '', [fieldName]: value };
+                        }
                     }
                 }
                 else {
-                    return { ...currency, currencySymbol: '', [fieldName]: value };
+                    return { ...currency, currencySymbol: '',  [fieldName]: value };
                 }
                 return CurrencySymbol;
             })
@@ -161,6 +164,8 @@ export default function Index() {
             "clientName": contentEditableRef.current[8].innerText,
             "clientCompanyName": contentEditableRef.current[9].innerText,
             "userMessage": contentEditableRef.current[10].innerText,
+            "unitPriceName":CurrencySymbol[0].currencyName,
+            "currencySymbol":CurrencySymbol[0].currencySymbol,
             "items": items,
             "tax": taxes,
             "subTotalName": contentEditableRef.current[11].innerText,
@@ -170,6 +175,7 @@ export default function Index() {
             "conclusionMessage": contentEditableRef.current[13].innerText,
 
         }
+        console.log("hii", data)
         await axios
             .post("/insertData", { data })
             .then((response) => {
