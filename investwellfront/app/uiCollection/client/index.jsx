@@ -46,23 +46,28 @@ export default function Index() {
     }, [items, taxes])
 
 
-    const addItem = () => {
-        setItems((prev) => {
-            return [...prev, {
-                itemID: uuid(),
-                itemDescription: "item",
-                quantity: 1,
-                unitPrice: 100,
-                lineTotal: 100
-            }]
-        })
+    const modifyItem = (delItemID = null) => {
+        if (delItemID) {
+            setItems(items.filter(item => item.itemID != delItemID))
+        }
+        else {
+            setItems((prev) => {
+                return [...prev, {
+                    itemID: uuid(),
+                    itemDescription: "item",
+                    quantity: 1,
+                    unitPrice: 100,
+                    lineTotal: 100
+                }]
+            })
+        }
     }
 
     const handleItemChange = (e, changeItemID) => {
         const fieldName = e.target.name;
         const value = e.target.value;
         setItems(
-            items.map((item) => {
+           items.map && items.map((item) => {
                 if (item.itemID == changeItemID) {
                     if (fieldName == 'quantity' || fieldName == 'unitPrice') {
 
@@ -79,31 +84,25 @@ export default function Index() {
         );
     }
 
-    const deleteItem = (delItemID) => {
-        setItems(items.filter(item => item.itemID != delItemID))
-    }
-
-    const addTax = () => {
-        const newTaxAmount = Math.round(subTotal * 0.2)
-        setTaxes((prev) => {
-            return [...prev, {
+    const modifyTax = (delTaxID = null) => {
+        const newTaxAmount = Math.round(subTotal * 0.2);
+        if (delTaxID) {
+            setTaxes(taxes.filter(tax => tax.taxID !== delTaxID));
+        } else {
+            setTaxes(prev => [...prev, {
                 taxID: uuid(),
                 taxName: 'Tax Name',
                 taxPercentage: 20,
                 taxAmount: newTaxAmount
-            }]
-        })
-    }
-
-    const deleteTax = (delTaxID) => {
-        setTaxes(taxes.filter(tax => tax.taxID != delTaxID))
-    }
+            }]);
+        }
+    };
 
     const handleTaxChange = (e, changeTaxID) => {
         const fieldName = e.target.name;
         const value = e.target.value
         setTaxes(
-            taxes.map((tax) => {
+           taxes.map && taxes.map((tax) => {
                 if (tax.taxID == changeTaxID) {
                     if (fieldName == "taxPercentage") {
 
@@ -119,7 +118,7 @@ export default function Index() {
         );
     }
 
-    const handleCurrencySymbolChange = (e, changeCurrecySymbol) => {
+    const handleCurrencySymbolChange = (e, changeCurrecySymbolID) => {
 
 
         const fieldName = e.target.name;
@@ -131,19 +130,19 @@ export default function Index() {
 
 
         setCurrencySymbol(
-            CurrencySymbol.map((currency) => {
-                if (currency.curID == changeCurrecySymbol) {
+            CurrencySymbol.map && CurrencySymbol.map((currency) => {
+                if (currency.curID == changeCurrecySymbolID) {
                     if (fieldName == "currencyName") {
                         if (openingBracket !== -1 && closingBracket !== -1) {
                             return { ...currency, currencySymbol: currSymbol, [fieldName]: value };
                         }
-                        else{
+                        else {
                             return { ...currency, currencySymbol: '', [fieldName]: value };
                         }
                     }
                 }
                 else {
-                    return { ...currency, currencySymbol: '',  [fieldName]: value };
+                    return { ...currency, currencySymbol: '', [fieldName]: value };
                 }
                 return CurrencySymbol;
             })
@@ -164,8 +163,8 @@ export default function Index() {
             "clientName": contentEditableRef.current[8].innerText,
             "clientCompanyName": contentEditableRef.current[9].innerText,
             "userMessage": contentEditableRef.current[10].innerText,
-            "unitPriceName":CurrencySymbol[0].currencyName,
-            "currencySymbol":CurrencySymbol[0].currencySymbol,
+            "unitPriceName": CurrencySymbol[0].currencyName,
+            "currencySymbol": CurrencySymbol[0].currencySymbol,
             "items": items,
             "tax": taxes,
             "subTotalName": contentEditableRef.current[11].innerText,
@@ -175,7 +174,6 @@ export default function Index() {
             "conclusionMessage": contentEditableRef.current[13].innerText,
 
         }
-        console.log("hii", data)
         await axios
             .post("/insertData", { data })
             .then((response) => {
@@ -235,12 +233,12 @@ export default function Index() {
                     <br />
                     <br />
 
-                    <Table key="child1" items={items}
-                        taxes={taxes} addItem={addItem}
+                    <Table key="child1"
+                        items={items}
+                        taxes={taxes} 
+                        modifyItem={modifyItem}
                         handleItemChange={handleItemChange}
-                        deleteItem={deleteItem}
-                        addTax={addTax}
-                        deleteTax={deleteTax}
+                        modifyTax={modifyTax}
                         handleTaxChange={handleTaxChange}
                         subTotal={subTotal}
                         totalWithTax={totalWithTax}

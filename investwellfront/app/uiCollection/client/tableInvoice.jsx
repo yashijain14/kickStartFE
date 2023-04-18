@@ -11,7 +11,7 @@ function Table(props) {
                         <th>Item</th>
                         <th>Quantity</th>
                         <th>
-                            {props.CurrencySymbol.map((currency, index) => (
+                            {props.CurrencySymbol && props.CurrencySymbol.map((currency, index) => (
 
                                 < input
                                     type="text"
@@ -33,7 +33,7 @@ function Table(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.items.map((item, index) => (
+                    {props.items && props.items.map((item, index) => (
                         <tr key={item.taxID}>
                             <td className='number'>{index + 1}</td>
                             <td>
@@ -72,14 +72,14 @@ function Table(props) {
                                 {props.CurrencySymbol[0].currencySymbol} {item.lineTotal}
                             </td>
                             <td>
-                                <button className="remove" onClick={() => props.deleteItem(item.itemID)}>❌</button>
+                                <button className="remove" onClick={() => props.modifyItem(item.itemID)}>❌</button>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table><br />
 
-            <button className="addNewItem" onClick={() => props.addItem()}>+ Add Line Item</button>
+            <button className="addNewItem" onClick={() => props.modifyItem()}>+ Add Line Item</button>
             <div className="subtotal">
                 <div className="subtotalLeft subTotalName" contentEditable="true" ref={(text) => props.contentEditableRef.current.push(text)}>Sub Total </div>
                 <span className='subtotalValue'><b>{props.CurrencySymbol[0].currencySymbol} {props.subTotal} </b></span>
@@ -87,17 +87,17 @@ function Table(props) {
 
             <table>
 
-                {props.taxes.map((tax) => (
+                {props.taxes && props.taxes.map((tax) => (
                     <tr>
                         <td><input contentEditable="true" name="taxName" onChange={(e) => props.handleTaxChange(e, tax.taxID)} value={tax.taxName} className='textBold' /></td>
                         <td><input contentEditable="true" name="taxPercentage" onChange={(e) => props.handleTaxChange(e, tax.taxID)} value={tax.taxPercentage} className=' taxPosition textBold' /> <span className='percentagePosition'><b>%</b></span></td>
                         <td name="taxAmount" className='textRight textBold'>{props.CurrencySymbol[0].currencySymbol} {tax.taxAmount}</td>
                         <td>
-                            <button className="remove" onClick={() => props.deleteTax(tax.taxID)}>❌</button>
+                            <button className="remove" onClick={() => props.modifyTax(tax.taxID)}>❌</button>
                         </td>
                     </tr>
                 ))}
-                <tr><button className="addNewItem" onClick={() => props.addTax()}>+ Add tax</button></tr><br />
+                <tr><button className="addNewItem" onClick={() => props.modifyTax()}>+ Add tax</button></tr><br />
                 <tr>
                     <td contentEditable="true" className='totalWithTaxName' ref={(text) => props.contentEditableRef.current.push(text)}><b>Total</b></td>
                     <td></td>
