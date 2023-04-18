@@ -40,7 +40,7 @@ function Table(props) {
                                 <input
                                     type="text"
                                     name="itemDescription"
-                                    value={item.itemDescription}
+                                    value={item.description}
                                     onChange={(e) => {
                                     props.handleItemChange(e, item.itemID)
                                     }

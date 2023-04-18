@@ -53,7 +53,7 @@ export default function Index() {
             setItems((prev) => {
                 return [...prev, {
                     itemID: uuid(),
-                    itemDescription: "item",
+                    description: "item",
                     quantity: 1,
                     unitPrice: 100,
                     lineTotal: 100
