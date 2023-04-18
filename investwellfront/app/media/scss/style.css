@@ -1,0 +1,486 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #F1F5FA;
+}
+
+.outerContainer {
+  width: 100%;
+  display: inline-block;
+  position: absolute;
+  padding: 20px;
+}
+.outerContainer .info {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15x;
+  font-weight: 400;
+  color: #626161;
+  word-spacing: 5px;
+  margin: 30px 43px;
+}
+.outerContainer .filterArea {
+  margin: 30px 40px 40px 40px;
+  width: 95%;
+  padding: 50px 40px 50px 20px;
+  background-color: #FFFFFF;
+  border: 3px solid #eaebed;
+}
+.outerContainer .filterArea .proceedButton {
+  display: block;
+  margin: 0 auto 0 40%;
+  background-color: #5275E9;
+  border: none;
+  font-size: 20px;
+  color: #FFFFFF;
+  padding: 10px;
+  width: 8%;
+  border-radius: 5px;
+}
+.outerContainer .filterArea .searchField {
+  display: inline-block;
+  vertical-align: text-top;
+  background-color: #FFFFFF;
+  width: 30%;
+  margin: 10px 20px;
+}
+.outerContainer .filterArea .searchField .schemeLabel {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  display: block;
+}
+.outerContainer .filterArea .searchField .dropdownInputOuter {
+  position: relative;
+  width: 500px;
+  border: 1px solid #eaebed;
+  border-radius: 4px;
+}
+.outerContainer .filterArea .searchField .dropdownInputOuter .dropdownInput {
+  padding: 10px;
+  width: 400px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.outerContainer .filterArea .searchField .dropdownInputOuter .down {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.outerContainer .filterArea .searchField .dropDown {
+  border: 1px solid grey;
+  width: 64%;
+  display: block;
+  overflow-y: auto;
+  height: 250px;
+  z-index: 1;
+}
+.outerContainer .filterArea .searchField .dropDown .dropDown-row {
+  cursor: pointer;
+  text-align: start;
+  margin: 2px 0;
+  background-color: white;
+  padding: 4px;
+  margin-bottom: 1px;
+  font-size: 18px;
+}
+.outerContainer .filterArea .searchField .dropDown .dropDown-row:nth-child(even) {
+  background-color: #efeff0;
+}
+.outerContainer .filterArea .searchField .dropDown:empty {
+  border: none;
+}
+.outerContainer .portfolioOverlap {
+  margin: 30px 40px 30px 40px;
+  width: 96%;
+  padding: auto;
+  background-color: #FFFFFF;
+  border: 3px solid #eaebed;
+  display: block;
+  position: relative;
+  z-index: -2;
+}
+.outerContainer .portfolioOverlap .leftDiv {
+  display: inline-block;
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #eaebed;
+  border-radius: 2px;
+  width: 43%;
+  margin: 25px 20px 25px 20px;
+  padding: 0px;
+  height: 60vh;
+}
+.outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft {
+  display: inline-block;
+  position: absolute;
+  border: 2px solid #39B0DC;
+  width: 65%;
+  height: 65%;
+  padding: 0px;
+  margin: 100px 14px 0px 7px;
+  border-radius: 7px;
+  z-index: 1;
+  overflow: visible;
+}
+.outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft .vennDiagramLeftLabel {
+  display: inline-block;
+  position: absolute;
+  background-color: #39B0DC;
+  width: 100px;
+  height: 25px;
+  padding: 3px 0px;
+  margin: 0px 200px 10px 14px;
+  border-radius: 4px;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  z-index: 0;
+}
+.outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft .leftLabel {
+  float: left;
+  text-align: center;
+  margin: 100px 50px 0 -5px;
+  width: -moz-min-content;
+  width: min-content;
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 800;
+  transform: rotate(-90deg);
+}
+.outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft .graphA {
+  position: absolute;
+  margin: 21% 0% 0% 18%;
+}
+.outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft .graphALabel {
+  position: absolute;
+  margin: 47% 0% 0% 5%;
+  width: 33%;
+  text-align: center;
+  color: #626161;
+}
+.outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft .commonGraphA {
+  position: absolute;
+  margin: 21% 0% 0% 53%;
+}
+.outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft .commonGraphB {
+  position: absolute;
+  margin: 21% 0% 0% 73%;
+}
+.outerContainer .portfolioOverlap .leftDiv .commonGraphLabel {
+  position: absolute;
+  margin: 59% 0% 0% -78%;
+  color: #626161;
+}
+.outerContainer .portfolioOverlap .leftDiv .vennDiagramRight {
+  display: inline-block;
+  position: relative;
+  border: 2px solid #F15562;
+  width: 70%;
+  height: 70%;
+  padding: 0px;
+  margin: 19px 20px 0px 23px;
+  border-radius: 7px;
+  z-index: 10;
+  float: right;
+}
+.outerContainer .portfolioOverlap .leftDiv .vennDiagramRight .vennDiagramRightLabel {
+  display: inline-block;
+  position: relative;
+  background-color: #F15562;
+  width: 100px;
+  height: 25px;
+  padding: 3px 0px;
+  margin-left: 70%;
+  margin-top: 0;
+  border-radius: 4px;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  z-index: 5;
+}
+.outerContainer .portfolioOverlap .leftDiv .vennDiagramRight .graphB {
+  position: absolute;
+  margin: 30% 0% 0% 68%;
+}
+.outerContainer .portfolioOverlap .leftDiv .vennDiagramRight .graphBLabel {
+  position: absolute;
+  margin: 54.5% 0% 0% 57%;
+  width: 31%;
+  text-align: center;
+  color: #626161;
+}
+.outerContainer .portfolioOverlap .leftDiv .vennLabel {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  position: absolute;
+  margin-top: 500px;
+  margin-left: 5px;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv {
+  display: inline-block;
+  background-color: #ffffff;
+  width: 53.2%;
+  margin: 5px 0px 0px 0px;
+  height: 59.2vh;
+  padding: 0px;
+  vertical-align: top;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer {
+  display: inline-block;
+  border: 2px solid #eaebed;
+  width: 47%;
+  height: 44.5%;
+  padding: 0px;
+  margin: 19px 14px 0px 7px;
+  border-radius: 4px;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivFirst {
+  display: inline;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivFirst .commonStockDiv {
+  background-color: rgb(59, 209, 71);
+  width: 24%;
+  height: 12vh;
+  border-radius: 90px;
+  padding: 30px 0px 18px 17.5px;
+  display: inline-block;
+  margin: 70px 10px 20px 20px;
+  float: left;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivFirst .commonStockDiv .commonStockIcon {
+  margin: 8px 0px 0px 15px;
+  width: 40px;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivFirst .commonStock {
+  float: right;
+  font-size: 50px;
+  margin: 18% 2% 0 0;
+  font-weight: 550;
+  direction: rtl;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivFirst .commonStock .text {
+  display: inline;
+  float: right;
+  font-size: 17px;
+  margin: 1% -2% 0 0;
+  font-weight: 550;
+  direction: ltr;
+  word-spacing: 3px;
+  color: #626161;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivSecond {
+  display: inline;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivSecond .unCommonStockDiv {
+  background-color: blue;
+  width: 24%;
+  height: 12vh;
+  border-radius: 90px;
+  padding: 30px 0px 18px 17.5px;
+  display: inline-block;
+  margin: 70px 10px 20px 20px;
+  float: left;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivSecond .unCommonStockDiv .unCommonStockIcon {
+  margin: 2px 0px 0px 7px;
+  width: 60px;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivSecond .unCommonStockA {
+  float: right;
+  font-size: 50px;
+  margin: 3% 2% 0 0;
+  font-weight: 550;
+  direction: rtl;
+  display: inline;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivSecond .unCommonStockA .text {
+  display: inline;
+  float: right;
+  font-size: 17px;
+  margin: 1% -2% 0 0;
+  font-weight: 550;
+  direction: ltr;
+  word-spacing: 3px;
+  color: #626161;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivSecond .totalStockA {
+  float: right;
+  font-size: 50px;
+  margin: 3% 2% 0 0;
+  font-weight: 550;
+  direction: rtl;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivSecond .totalStockA .text {
+  display: inline;
+  float: right;
+  font-size: 17px;
+  margin: 1% -2% 0 0;
+  font-weight: 550;
+  direction: ltr;
+  word-spacing: 3px;
+  color: #626161;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivThird {
+  display: inline;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivThird .unCommonStockDiv {
+  background-color: rgb(235, 42, 28);
+  width: 24%;
+  height: 12vh;
+  border-radius: 90px;
+  padding: 30px 0px 18px 17.5px;
+  display: inline-block;
+  margin: 70px 10px 20px 20px;
+  float: left;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivThird .unCommonStockDiv .unCommonStockIcon {
+  margin: 2px 0px 0px 7px;
+  width: 60px;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivThird .unCommonStockA {
+  float: right;
+  font-size: 50px;
+  margin: 3% 2% 0 0;
+  font-weight: 550;
+  direction: rtl;
+  display: inline;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivThird .unCommonStockA .text {
+  display: inline;
+  float: right;
+  font-size: 17px;
+  margin: 1% -2% 0 0;
+  font-weight: 550;
+  direction: ltr;
+  word-spacing: 3px;
+  color: #626161;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivThird .totalStockA {
+  float: right;
+  font-size: 50px;
+  margin: 3% 2% 0 0;
+  font-weight: 550;
+  direction: rtl;
+}
+.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivThird .totalStockA .text {
+  display: inline;
+  float: right;
+  font-size: 17px;
+  margin: 1% -2% 0 0;
+  font-weight: 550;
+  direction: ltr;
+  word-spacing: 3px;
+  color: #626161;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.outerContainer .tableLabel {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15x;
+  font-weight: 600;
+  color: #626161;
+  word-spacing: 5px;
+  margin: 20px 40px 0px 40px;
+}
+.outerContainer .tableScroll {
+  position: relative;
+  background-color: white;
+  height: 600px;
+  display: block;
+  overflow: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px 40px 0px 40px;
+  border: 3px solid #eaebed;
+}
+.outerContainer .tableScroll .styledTable {
+  width: 100%;
+  font-size: 20px;
+  border: 2px solid border-color;
+  background-color: rgb(255, 255, 255);
+  border-collapse: collapse;
+}
+.outerContainer .tableScroll .styledTable .tableHeading {
+  background-color: white;
+  font-size: 18px;
+  border-bottom: 3px solid #C7C8C8;
+  padding: 10px 0 5px 20px;
+  text-align: left;
+  color: #626161;
+  position: sticky;
+  top: 0px;
+}
+.outerContainer .tableScroll .styledTable .tableRow .tableData {
+  font-size: 18px;
+  padding: 5px 5px 5px 20px;
+}
+.outerContainer .tableScroll .styledTable .tableRow .tableData .icons {
+  float: left;
+  margin: 2px 0 0 6px;
+  vertical-align: top;
+}
+.outerContainer .tableScroll .styledTable .tableRow .progressColoumn {
+  width: 35%;
+  padding: 0 30px 0 17px;
+}
+.outerContainer .tableScroll .styledTable .tableRow:nth-child(even) {
+  background-color: #efeff0;
+}
+.outerContainer .loader {
+  vertical-align: middle;
+  border: 6px solid #f3f3f3;
+  /* Light grey */
+  border-top: 6px solid #3498db;
+  /* Blue */
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  margin: auto;
+  display: inline-block;
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.outerContainer .bar {
+  text-align: center;
+  vertical-align: center;
+  line-height: 1vh;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.outerContainer .bar .percentTag {
+  font-size: 100px;
+  font-weight: bold;
+}
+.outerContainer .bar .barGraphRight {
+  display: inline-block;
+  width: 20px;
+  height: 7px;
+  border-radius: 2px 0px 0px 2px;
+  margin: 0.2px 0px;
+  font-size: 2px;
+}
+.outerContainer .bar .barGraphLeft {
+  display: inline-block;
+  width: 20px;
+  height: 7px;
+  border-radius: 0px 2px 2px 0px;
+  margin: 0.2px 0px;
+  font-size: 2px;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,582 @@
+$font : Arial, Helvetica, sans-serif;
+$main-color: #F1F5FA;
+$border-color: #eaebed;
+$button-color: #5275E9;
+$text-color:#626161;
+
+* {
+    box-sizing: border-box;
+    font-family: $font;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: $main-color;
+    
+}
+.outerContainer {
+    width:100%;
+    display:inline-block;
+    position: absolute;
+    padding: 20px;
+
+    .info{
+        font-family: $font;
+        font-size: 15x;
+        font-weight:400;
+        color:$text-color;
+        word-spacing: 5px;
+        margin:30px 43px;
+    }
+    .filterArea{
+        margin: 30px 40px 40px 40px;
+        width: 95%;
+        padding: 50px 40px 50px 20px;
+        background-color: #FFFFFF;
+        border: 3px solid $border-color;
+        .proceedButton{
+            display: block;
+            margin: 0 auto 0 40%;
+            background-color: $button-color;
+            border: none;
+            font-size: 20px;
+            color: #FFFFFF;
+            padding: 10px;
+            width: 8%;
+            border-radius: 5px;
+        }
+        .searchField{
+            display: inline-block;
+            vertical-align: text-top;
+            background-color: #FFFFFF;
+            width: 30%;
+            margin: 10px 20px;
+
+            .schemeLabel{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 20px;
+                display: block;
+            }
+        .dropdownInputOuter{
+            position: relative;
+            width: 500px;
+            border: 1px solid #eaebed;
+            border-radius: 4px;
+
+            .dropdownInput{
+                // position: relative;
+                padding: 10px;
+                width: 400px;
+                border: none;
+                border-radius: 4px;
+                font-size: 16px;
+            }
+             .down {
+                border: solid black;
+                border-width: 0 3px 3px 0;
+                display: inline-block;
+                padding: 3px;
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+              }
+        }
+            .dropDown{
+                border:1px solid grey;
+                // background-color: white;
+                width:64%;
+                // overflow: visible !important;
+                display: block;
+                overflow-y: auto;
+                height:250px;
+                z-index: 1;
+                .dropDown-row {
+                   
+                    cursor: pointer;
+                    text-align: start;
+                    margin: 2px 0;
+                    background-color: white;
+                    padding: 4px;
+                    margin-bottom: 1px;
+                    font-size: 18px;
+                  }
+                  .dropDown-row:nth-child(even){
+                    background-color: #efeff0;
+                  }
+            }
+            .dropDown:empty{
+                border:none;
+            }
+           
+            
+            
+        }
+    }
+
+    .portfolioOverlap{
+        margin:30px 40px 30px 40px;
+        width:96%;
+        padding: auto;
+        background-color: #FFFFFF;
+        border: 3px solid $border-color;
+        display: block;
+        position: relative;
+        z-index:-2;
+        .leftDiv{
+            display: inline-block;
+            position: relative;
+            background-color: #ffffff;
+            border: 1px solid $border-color;
+            border-radius: 2px;
+            width:43%;
+            margin: 25px 20px 25px 20px;
+            padding: 0px;
+            height: 60vh;
+            .vennDiagramLeft{
+                display: inline-block;
+                position: absolute;
+                border: 2px solid #39B0DC;
+                width: 65%;
+                height: 65%;
+                padding: 0px;
+                margin: 100px 14px 0px 7px;
+                border-radius: 7px;
+                z-index: 1;
+                overflow: visible;
+                .vennDiagramLeftLabel{
+                    display: inline-block;
+                    position: absolute;
+                    background-color: #39B0DC;
+                    width: 100px;
+                    height: 25px;
+                    padding: 3px 0px;
+                    margin: 0px 200px 10px 14px;
+                    border-radius: 4px;
+                    color: #FFFFFF;
+                    text-align: center;
+                    font-size: 15px;
+                    z-index: 0;
+                }
+                .leftLabel{
+                    float: left;
+                    text-align: center;
+                    margin: 100px 50px 0 -5px;
+                    width: min-content;
+                    // margin-left: -30px;
+                    // margin-top: 50px;
+                    font-size: 12px;
+                    letter-spacing: 3px;
+                    font-weight: 800;
+                    transform: rotate(-90deg);
+                }
+                .graphA{
+                    position: absolute;
+                    margin: 21% 0% 0% 18%;
+                   
+                }
+                .graphALabel{
+                    position: absolute;
+                    margin: 47% 0% 0% 5%;
+                    width: 33%;
+                    text-align: center;
+                    color:$text-color
+
+                    
+                }
+                .commonGraphA{
+                   position: absolute;
+                   margin: 21% 0% 0% 53%;   
+                    
+                }
+                .commonGraphB{
+                   position: absolute;
+                   margin: 21% 0% 0% 73%;
+                   
+                    
+                }
+       
+            }
+          
+            .commonGraphLabel{
+                position: absolute;
+                margin: 59% 0% 0% -78%;
+                color:$text-color
+
+                
+            }
+            
+            .vennDiagramRight{
+                display: inline-block;
+                position: relative;
+                border: 2px solid #F15562;
+                width: 70%;
+                height: 70%;
+                padding: 0px;
+                margin: 19px 20px 0px 23px;
+                border-radius: 7px;
+                z-index: 10;
+                float: right;
+                .vennDiagramRightLabel{
+                    display: inline-block;
+                    position: relative;
+                    background-color: #F15562;
+                    width: 100px;
+                    height: 25px;
+                    padding: 3px 0px;
+                    margin-left:70%;
+                    margin-top: 0;
+                    border-radius: 4px;
+                    color: #FFFFFF;
+                    text-align: center;
+                    font-size: 15px;
+                    z-index: 5;
+                }
+                .graphB{
+                    position: absolute;
+                    margin: 30% 0% 0% 68%;
+                    
+                }
+                .graphBLabel{
+                    position: absolute;
+                    margin: 54.5% 0% 0% 57%;
+                    width: 31%;
+                    text-align: center;
+                    color:$text-color
+                
+                    
+                }
+            }
+            .vennLabel{
+                font-family: $font;
+                font-size: 12px;
+                position: absolute;
+                margin-top:500px ;
+                margin-left: 5px;
+            }
+       
+            .rightDiv {
+                display: inline-block;
+                background-color: #ffffff;
+                width: 53.2%;
+                margin: 5px 0px 0px 0px;
+                height: 59.2vh;
+                padding: 0px;
+                vertical-align: top;
+                .rightContainer {
+                    display: inline-block;
+                    border: 2px solid #eaebed;
+                    width: 47%;
+                    height: 44.5%;
+                    padding: 0px;
+                    margin: 19px 14px 0px 7px;
+                    border-radius: 4px;
+    
+                    .outerDivFirst {
+                        display: inline;
+    
+                        .commonStockDiv {
+                            background-color: rgb(59, 209, 71);
+                            width: 24%;
+                            height: 12vh;
+                            border-radius: 90px;
+                            padding: 30px 0px 18px 17.5px;
+                            display: inline-block;
+                            margin: 70px 10px 20px 20px;
+                            float: left;
+    
+                            .commonStockIcon {
+                                margin: 8px 0px 0px 15px;
+                                width: 40px;
+                            }
+                        }
+    
+                        .commonStock {
+                            float: right;
+                            font-size: 50px;
+                            margin: 18% 2% 0 0;
+                            font-weight: 550;
+                            direction: rtl;
+    
+                            .text {
+                                display: inline;
+                                float: right;
+                                font-size: 17px;
+                                margin: 1% -2% 0 0;
+                                font-weight: 550;
+                                direction: ltr;
+                                word-spacing: 3px;
+                                color: $text-color;
+                                font-family: $font;
+                            }
+    
+                        }
+    
+                    }
+    
+                    .outerDivSecond {
+                        display: inline;
+    
+                        .unCommonStockDiv {
+                            background-color: blue;
+                            width: 24%;
+                            height: 12vh;
+                            border-radius: 90px;
+                            padding: 30px 0px 18px 17.5px;
+                            display: inline-block;
+                            margin: 70px 10px 20px 20px;
+                            float: left;
+    
+                            .unCommonStockIcon {
+                                margin: 2px 0px 0px 7px;
+                                width: 60px;
+                            }
+                        }
+    
+                        .unCommonStockA {
+                            float: right;
+                            font-size: 50px;
+                            margin: 3% 2% 0 0;
+                            font-weight: 550;
+                            // position: relative;
+                            direction: rtl;
+                            display: inline;
+    
+                            .text {
+                                display: inline;
+                                float: right;
+                                font-size: 17px;
+                                margin: 1% -2% 0 0;
+                                font-weight: 550;
+                                direction: ltr;
+                                word-spacing: 3px;
+                                color: $text-color;
+                                font-family: $font;
+                            }
+                        }
+    
+                        .totalStockA {
+                            float: right;
+                            font-size: 50px;
+                            margin: 3% 2% 0 0;
+                            font-weight: 550;
+                            // position: relative;
+                            direction: rtl;
+    
+                            .text {
+                                display: inline;
+                                float: right;
+                                font-size: 17px;
+                                margin: 1% -2% 0 0;
+                                font-weight: 550;
+                                direction: ltr;
+                                word-spacing: 3px;
+                                color: $text-color;
+                                font-family: $font;
+                            }
+                        }
+    
+    
+    
+    
+                    }
+    
+                    .outerDivThird {
+                        display: inline;
+    
+                        .unCommonStockDiv {
+                            background-color: rgb(235, 42, 28);
+                            width: 24%;
+                            height: 12vh;
+                            border-radius: 90px;
+                            padding: 30px 0px 18px 17.5px;
+                            display: inline-block;
+                            margin: 70px 10px 20px 20px;
+                            float: left;
+    
+                            .unCommonStockIcon {
+                                margin: 2px 0px 0px 7px;
+                                width: 60px;
+                            }
+                        }
+    
+                        .unCommonStockA {
+                            float: right;
+                            font-size: 50px;
+                            margin: 3% 2% 0 0;
+                            font-weight: 550;
+                            // position: relative;
+                            direction: rtl;
+                            display: inline;
+    
+                            .text {
+                                display: inline;
+                                float: right;
+                                font-size: 17px;
+                                margin: 1% -2% 0 0;
+                                font-weight: 550;
+                                direction: ltr;
+                                word-spacing: 3px;
+                                color: $text-color;
+                                font-family: $font;
+                            }
+                        }
+    
+                        .totalStockA {
+                            float: right;
+                            font-size: 50px;
+                            margin: 3% 2% 0 0;
+                            font-weight: 550;
+                            // position: relative;
+                            direction: rtl;
+    
+                            .text {
+                                display: inline;
+                                float: right;
+                                font-size: 17px;
+                                margin: 1% -2% 0 0;
+                                font-weight: 550;
+                                direction: ltr;
+                                word-spacing: 3px;
+                                color: $text-color;
+                                font-family: $font;
+                            }
+                        }
+    
+    
+    
+    
+                    }
+                }
+    
+    
+            }
+    
+        }
+        
+    }
+   
+    .tableLabel {
+        font-family: $font;
+        font-size: 15x;
+        font-weight: 600;
+        color: $text-color;
+        word-spacing: 5px;
+        margin: 20px 40px 0px 40px;
+    }
+
+        .tableScroll {
+            position: relative;
+            background-color: white;
+            height: 600px;
+            display: block;
+            overflow: auto;
+            font-family:Arial, Helvetica, sans-serif;
+            margin: 20px 40px 0px 40px;
+            border: 3px solid $border-color;
+           
+            .styledTable {
+                width:100%;
+                font-size: 20px;
+                border: 2px solid border-color;
+                background-color: rgb(255, 255, 255);
+                border-collapse: collapse;
+                
+                    .tableHeading {
+                        background-color: white;
+                        font-size: 18px;
+                        border-bottom: 3px solid #C7C8C8;
+                        padding: 10px 0 5px 20px;
+                        text-align: left;
+                        color:$text-color;
+                        position: sticky;
+                        top: 0px;
+                        
+                    }
+                    // .scroll{
+                    //     overflow: auto;
+                    //   display: block;
+                    //   height: 600px;
+                    // }
+                    .tableRow{
+                        
+                    .tableData {
+                            
+                        font-size: 18px;
+                        padding: 5px 5px 5px 20px;
+
+                        .icons {
+                            float: left;
+                            margin: 2px 0 0 6px;
+                            vertical-align: top;
+                        }
+                    }
+
+                    .progressColoumn {
+                        width: 35%;
+                        padding: 0 30px 0 17px;
+                    }
+
+            }
+            .tableRow:nth-child(even) {
+                background-color: #efeff0;
+            }
+        }
+
+    }
+    .loader {
+        vertical-align: middle;
+        border: 6px solid #f3f3f3;
+        /* Light grey */
+        border-top: 6px solid #3498db;
+        /* Blue */
+        border-radius: 50%;
+        width: 90px;
+        height: 90px;
+        margin: auto;
+        display: inline-block;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .bar{
+        text-align:center;
+        vertical-align: center;
+        line-height: 1vh;
+        width: fit-content;
+        .percentTag{
+            font-size: 100px;
+            font-weight: bold;
+        }
+    .barGraphRight{
+        // display: inline-block;
+        // background-color: #C7C8C8;
+        // padding: 5px;
+        // width: 45px;
+        // margin: 5px;
+        // border-radius: 3px;
+        display: inline-block;
+        width:20px;
+        height: 7px;
+        border-radius: 2px 0px 0px 2px ;
+        margin:0.2px 0px;
+        font-size: 2px;
+    }
+    .barGraphLeft{
+        display: inline-block;
+        width:20px;
+        height:7px;
+        border-radius: 0px 2px 2px 0px ;
+        margin:0.2px 0px;
+        font-size: 2px;
+    }
+}
+}
