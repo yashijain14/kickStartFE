@@ -16,8 +16,8 @@ function Table(props) {
                                     name="currencyName"
                                     value={props.price.unitPriceName}
                                     className='textBold'
-                                    onChange={(e) => {
-                                    props.handleCurrencySymbolChange(e)
+                                    onChange={(event) => {
+                                    props.handlePriceChange(event)
                                     }
                                     }
                                 />
@@ -36,8 +36,8 @@ function Table(props) {
                                     type="text"
                                     name="itemDescription"
                                     value={item.itemDescription}
-                                    onChange={(e) => {
-                                    props.handleItemChange(e, item.itemID)
+                                    onChange={(event) => {
+                                    props.modifyItems("changeItem", event, item.itemID)
                                     }
                                     }
                                 />
@@ -47,8 +47,8 @@ function Table(props) {
                                     type="number"
                                     name="quantity"
                                     value={item.quantity}
-                                    onChange={(e) => {
-                                    props.handleItemChange(e, item.itemID)
+                                    onChange={(event) => {
+                                    props.modifyItems("changeItem", event, item.itemID)
                                     }}
                                 />
                             </td>
@@ -57,24 +57,24 @@ function Table(props) {
                                     type="number"
                                     name="unitPrice"
                                     value={item.unitPrice}
-                                    onChange={(e) => {
-                                    props.handleItemChange(e, item.itemID)
+                                    onChange={(event) => {
+                                    props.modifyItems("changeItem", event, item.itemID)
                                     }}
 
                                 />
                             </td>
-                            <td type="number" name="lineTotal" onChange={(e) => props.handleItemChange(e, item.itemID)}>
+                            <td type="number" name="lineTotal">
                                 {props.price.currencySymbol} {item.lineTotal}
                             </td>
                             <td>
-                                <button className="remove" onClick={() => props.deleteItem(item.itemID)}>❌</button>
+                                <button className="remove" onClick={(event) => props.modifyItems("deleteItem", event, item.itemID)}>❌</button>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table><br />
 
-            <button className="addNewItem" onClick={() => props.addItem()}>+ Add Line Item</button>
+            <button className="addNewItem" onClick={() => props.modifyItems("addItem")}>+ Add Line Item</button>
             <div className="subtotal">
                 <div className="subtotalLeft subTotalName" contentEditable="true" ref={(text) => props.contentEditableRef.current.push(text)}>Sub Total </div>
                 <span className='subtotalValue'><b>{props.price.currencySymbol} {props.subTotal} </b></span>
@@ -84,15 +84,15 @@ function Table(props) {
 
                 {props.taxes.map((tax) => (
                     <tr>
-                        <td><input contentEditable="true" name="taxName" onChange={(e) => props.handleTaxChange(e, tax.taxID)} value={tax.taxName} className='textBold' /></td>
-                        <td><input contentEditable="true" name="taxPercentage" onChange={(e) => props.handleTaxChange(e, tax.taxID)} value={tax.taxPercentage} className=' taxPosition textBold' /> <span className='percentagePosition'><b>%</b></span></td>
+                        <td><input contentEditable="true" name="taxName" onChange={(event) => props.modifyTaxes("changeTax", event, tax.taxID)} value={tax.taxName} className='textBold' /></td>
+                        <td><input contentEditable="true" name="taxPercentage" onChange={(event) => props.modifyTaxes("changeTax", event, tax.taxID)} value={tax.taxPercentage} className=' taxPosition textBold' /> <span className='percentagePosition'><b>%</b></span></td>
                         <td name="taxAmount" className='textRight textBold'>{props.price.currencySymbol} {tax.taxAmount}</td>
                         <td>
-                            <button className="remove" onClick={() => props.deleteTax(tax.taxID)}>❌</button>
+                            <button className="remove" onClick={(event) => props.modifyTaxes("deleteTax", event, tax.taxID)}>❌</button>
                         </td>
                     </tr>
                 ))}
-                <tr><button className="addNewItem" onClick={() => props.addTax()}>+ Add tax</button></tr><br />
+                <tr><button className="addNewItem" onClick={() => props.modifyTaxes("addTax")}>+ Add tax</button></tr><br />
                 <tr>
                     <td contentEditable="true" className='totalWithTaxName' ref={(text) => props.contentEditableRef.current.push(text)}><b>Total</b></td>
                     <td></td>

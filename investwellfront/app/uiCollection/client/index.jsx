@@ -23,10 +23,12 @@ export default function Index() {
 
     const [subTotal, setsubTotal] = useState(100)
     const [totalWithTax, setTotalWithTax] = useState(120)
+
     const [price, setPrice] = useState({
         unitPriceName: 'Unit price (₹)',
         currencySymbol: '₹'
     })
+
     useEffect(() => {
         const newSubTotal = items.reduce((accumulator, item) => accumulator + item.lineTotal, 0)
         setsubTotal(newSubTotal);
@@ -43,84 +45,78 @@ export default function Index() {
     }, [items, taxes])
 
 
-    const addItem = () => {
-        setItems((prev) => {
-            return [...prev, {
-                itemID: uuid(),
-                description: "item",
-                quantity: 1,
-                unitPrice: 100,
-                lineTotal: 100
-            }]
-        })
-    }
-
-    const handleItemChange = (e, changeItemID) => {
-        const fieldName = e.target.name;
-        const value = e.target.value;
-        setItems(
-            items.map((item) => {
-                if (item.itemID == changeItemID) {
-                    if (fieldName == 'quantity' || fieldName == 'unitPrice') {
-                        const otherFieldName = fieldName == 'quantity' ? 'unitPrice' : 'quantity';
-                        const newLineTotal = value * item[otherFieldName];
-                        return { ...item, ['lineTotal']: newLineTotal, [fieldName]: value };
-
-                    } else {
-                        return { ...item, [fieldName]: value };
-                    }
-                }
-                return item;
+    const modifyItems = (eventName, event=null, currItemID=null) => {
+        if(eventName=="addItem"){
+            setItems((prev) => {
+                return [...prev, {
+                    itemID: uuid(),
+                    description: "item",
+                    quantity: 1,
+                    unitPrice: 100,
+                    lineTotal: 100
+                }]
             })
-        );
-    }
+        }else if(eventName=="deleteItem"){
+            setItems(items.filter(item => item.itemID != currItemID))
+        }else{
+            const fieldName = event.target.name;
+            const value = event.target.value;
+            setItems(
+                items.map((item) => {
+                    if (item.itemID == currItemID) {
+                        if (fieldName == 'quantity' || fieldName == 'unitPrice') {
+                            const otherFieldName = fieldName == 'quantity' ? 'unitPrice' : 'quantity';
+                            const newLineTotal = value * item[otherFieldName];
+                            return { ...item, ['lineTotal']: newLineTotal, [fieldName]: value };
 
-    const deleteItem = (delItemID) => {
-        setItems(items.filter(item => item.itemID != delItemID))
-    }
-
-    const addTax = () => {
-        const newTaxAmount = Math.round(subTotal * 0.2)
-        setTaxes((prev) => {
-            return [...prev, {
-                taxID: uuid(),
-                taxName: 'Tax Name',
-                taxPercentage: 20,
-                taxAmount: newTaxAmount
-            }]
-        })
-    }
-
-    const deleteTax = (delTaxID) => {
-        setTaxes(taxes.filter(tax => tax.taxID != delTaxID))
-    }
-
-    const handleTaxChange = (e, changeTaxID) => {
-        const fieldName = e.target.name;
-        const value = e.target.value
-        setTaxes(
-            taxes.map((tax) => {
-                if (tax.taxID == changeTaxID) {
-                    if (fieldName == "taxPercentage") {
-
-                        const newTaxAmount = Math.round(value * subTotal / 100);
-                        return { ...tax, taxAmount: newTaxAmount, [fieldName]: value };
-
-                    } else {
-                        return { ...tax, [fieldName]: value };
+                        } else {
+                            return { ...item, [fieldName]: value };
+                        }
                     }
-                }
-                return tax;
-            })
-        );
+                    return item;
+                })
+            );
+        }
     }
 
-    const handleCurrencySymbolChange = (e) => {
-        const value = e.target.value
+    const modifyTaxes = (eventName, event=null, currTaxID=null) => {
+        if(eventName=="addTax"){
+            const newTaxAmount = Math.round(subTotal * 0.2)
+            setTaxes((prev) => {
+                return [...prev, {
+                    taxID: uuid(),
+                    taxName: 'Tax Name',
+                    taxPercentage: 20,
+                    taxAmount: newTaxAmount
+                }]
+            })
+        }else if(eventName=="deleteTax"){
+            setTaxes(taxes.filter(tax => tax.taxID != currTaxID))
+        }else{
+            const fieldName = event.target.name;
+            const value = event.target.value
+            setTaxes(
+                taxes.map((tax) => {
+                    if (tax.taxID == currTaxID) {
+                        if (fieldName == "taxPercentage") {
+                            const newTaxAmount = Math.round(value * subTotal / 100);
+                            return { ...tax, taxAmount: newTaxAmount, [fieldName]: value };
+                        } else {
+                            return { ...tax, [fieldName]: value };
+                        }
+                    }
+                    return tax;
+                })
+            );
+        }
+    }
 
+
+    const handlePriceChange = (event) => {
+        const value = event.target.value
         const openingBracket = value.indexOf('(');
         const closingBracket = value.indexOf(')');
-        if(openingBracket==-1 || closingBracket==-1){
+        if(openingBracket==-1 || closingBracket==-1 || openingBracket>closingBracket){
             setPrice({
                 unitPriceName: value,
                 currencySymbol: ''
@@ -215,16 +211,13 @@ export default function Index() {
                     <br />
 
                     <Table key="child1" items={items}
-                        taxes={taxes} addItem={addItem}
-                        handleItemChange={handleItemChange}
-                        deleteItem={deleteItem}
-                        addTax={addTax}
-                        deleteTax={deleteTax}
-                        handleTaxChange={handleTaxChange}
+                        taxes={taxes} 
+                        modifyItems={modifyItems}
+                        modifyTaxes={modifyTaxes}
                         subTotal={subTotal}
                         totalWithTax={totalWithTax}
                         price={price}
-                        handleCurrencySymbolChange={handleCurrencySymbolChange}
+                        handlePriceChange={handlePriceChange}
                         contentEditableRef={contentEditableRef}
                     />
                     <div className="greetings" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>
