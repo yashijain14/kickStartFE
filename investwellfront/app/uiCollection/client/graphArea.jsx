@@ -1,5 +1,5 @@
 import React from 'react'
-import Bar from '../shared/stackedGraph.jsx'
+import StackedGraph from '../shared/stackedGraph.jsx'
 
 export default function GraphArea(props) {
   
@@ -10,15 +10,15 @@ export default function GraphArea(props) {
               <div className='vennDiagramLeftLabel'>SCHEME A</div>
               <div className='leftLabel'>%  WEIGHT</div>
               <div className='graphA'>
-                <Bar  value = {props.values.holdingAOnlyNetAsset} colorGraph={props.colorGraph} color = {"#39B0DC"}/>
+                <StackedGraph  value = {props.values.holdingAOnlyNetAsset} colorGraph={props.colorGraph} color = {"#39B0DC"}/>
                 
               </div> 
               <div className='graphALabel'>IN SCHEME A NOT IN SCHEME B</div>
               <div className='commonGraphA'>
-              <Bar  value = {props.values.commonHoldingA} colorGraph={props.colorGraph} color = {"#39B0DC"}/>
+              <StackedGraph  value = {props.values.commonHoldingA} colorGraph={props.colorGraph} color = {"#39B0DC"}/>
               </div>
               <div className='commonGraphB'>
-          <Bar  value = {props.values.commonHoldingsB} colorGraph={props.colorGraph} color = {"#F15562"}/>
+          <StackedGraph  value = {props.values.commonHoldingsB} colorGraph={props.colorGraph} color = {"#F15562"}/>
 
           </div>
         </div>
@@ -29,7 +29,7 @@ export default function GraphArea(props) {
           <span className='commonGraphLabel'>COMMON STOCKS</span>
 
           <div className='graphB'>
-          <Bar  value = {props.values.holdingBOnlyNetAsset} colorGraph={props.colorGraph} color = {"#F15562"}/>
+          <StackedGraph  value = {props.values.holdingBOnlyNetAsset} colorGraph={props.colorGraph} color = {"#F15562"}/>
          
 
           </div>

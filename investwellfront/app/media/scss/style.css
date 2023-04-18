@@ -224,7 +224,7 @@ body {
   margin-top: 500px;
   margin-left: 5px;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv {
+.outerContainer .portfolioOverlap .rightDiv {
   display: inline-block;
   background-color: #ffffff;
   width: 53.2%;
@@ -233,7 +233,7 @@ body {
   padding: 0px;
   vertical-align: top;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer {
   display: inline-block;
   border: 2px solid #eaebed;
   width: 47%;
@@ -242,10 +242,10 @@ body {
   margin: 19px 14px 0px 7px;
   border-radius: 4px;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivFirst {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivFirst {
   display: inline;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivFirst .commonStockDiv {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivFirst .commonStockDiv {
   background-color: rgb(59, 209, 71);
   width: 24%;
   height: 12vh;
@@ -255,18 +255,18 @@ body {
   margin: 70px 10px 20px 20px;
   float: left;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivFirst .commonStockDiv .commonStockIcon {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivFirst .commonStockDiv .commonStockIcon {
   margin: 8px 0px 0px 15px;
   width: 40px;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivFirst .commonStock {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivFirst .commonStock {
   float: right;
   font-size: 50px;
   margin: 18% 2% 0 0;
   font-weight: 550;
   direction: rtl;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivFirst .commonStock .text {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivFirst .commonStock .text {
   display: inline;
   float: right;
   font-size: 17px;
@@ -277,10 +277,10 @@ body {
   color: #626161;
   font-family: Arial, Helvetica, sans-serif;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivSecond {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivSecond {
   display: inline;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivSecond .unCommonStockDiv {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivSecond .unCommonStockDiv {
   background-color: blue;
   width: 24%;
   height: 12vh;
@@ -290,11 +290,11 @@ body {
   margin: 70px 10px 20px 20px;
   float: left;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivSecond .unCommonStockDiv .unCommonStockIcon {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivSecond .unCommonStockDiv .unCommonStockIcon {
   margin: 2px 0px 0px 7px;
   width: 60px;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivSecond .unCommonStockA {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivSecond .unCommonStockA {
   float: right;
   font-size: 50px;
   margin: 3% 2% 0 0;
@@ -302,7 +302,7 @@ body {
   direction: rtl;
   display: inline;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivSecond .unCommonStockA .text {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivSecond .unCommonStockA .text {
   display: inline;
   float: right;
   font-size: 17px;
@@ -313,14 +313,14 @@ body {
   color: #626161;
   font-family: Arial, Helvetica, sans-serif;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivSecond .totalStockA {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivSecond .totalStockA {
   float: right;
   font-size: 50px;
   margin: 3% 2% 0 0;
   font-weight: 550;
   direction: rtl;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivSecond .totalStockA .text {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivSecond .totalStockA .text {
   display: inline;
   float: right;
   font-size: 17px;
@@ -331,10 +331,10 @@ body {
   color: #626161;
   font-family: Arial, Helvetica, sans-serif;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivThird {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivThird {
   display: inline;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivThird .unCommonStockDiv {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivThird .unCommonStockDiv {
   background-color: rgb(235, 42, 28);
   width: 24%;
   height: 12vh;
@@ -344,11 +344,11 @@ body {
   margin: 70px 10px 20px 20px;
   float: left;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivThird .unCommonStockDiv .unCommonStockIcon {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivThird .unCommonStockDiv .unCommonStockIcon {
   margin: 2px 0px 0px 7px;
   width: 60px;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivThird .unCommonStockA {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivThird .unCommonStockA {
   float: right;
   font-size: 50px;
   margin: 3% 2% 0 0;
@@ -356,7 +356,7 @@ body {
   direction: rtl;
   display: inline;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivThird .unCommonStockA .text {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivThird .unCommonStockA .text {
   display: inline;
   float: right;
   font-size: 17px;
@@ -367,14 +367,14 @@ body {
   color: #626161;
   font-family: Arial, Helvetica, sans-serif;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivThird .totalStockA {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivThird .totalStockA {
   float: right;
   font-size: 50px;
   margin: 3% 2% 0 0;
   font-weight: 550;
   direction: rtl;
 }
-.outerContainer .portfolioOverlap .leftDiv .rightDiv .rightContainer .outerDivThird .totalStockA .text {
+.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivThird .totalStockA .text {
   display: inline;
   float: right;
   font-size: 17px;

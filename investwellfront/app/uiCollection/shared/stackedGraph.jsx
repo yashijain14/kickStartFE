@@ -30,7 +30,7 @@ export default function StackedGraph(props) {
               style={{
                 backgroundColor:
                 ((item + 1) <= colorGraph(props.value)) ? props.color : white,
-                 
+              
               }}
             ></span>
           </div>
