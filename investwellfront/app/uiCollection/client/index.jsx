@@ -23,12 +23,10 @@ export default function Index() {
 
     const [subTotal, setsubTotal] = useState(100)
     const [totalWithTax, setTotalWithTax] = useState(120)
-    const [CurrencySymbol, setCurrencySymbol] = useState([{
-        curID: uuid(),
-        currencyName: 'Unit price (₹)',
+    const [price, setPrice] = useState({
+        unitPriceName: 'Unit price (₹)',
         currencySymbol: '₹'
-    }])
-
+    })
     useEffect(() => {
         const newSubTotal = items.reduce((accumulator, item) => accumulator + item.lineTotal, 0)
         setsubTotal(newSubTotal);
@@ -45,28 +43,23 @@ export default function Index() {
     }, [items, taxes])
 
 
-    const modifyItem = (delItemID = null) => {
-        if (delItemID) {
-            setItems(items.filter(item => item.itemID != delItemID))
-        }
-        else {
-            setItems((prev) => {
-                return [...prev, {
-                    itemID: uuid(),
-                    description: "item",
-                    quantity: 1,
-                    unitPrice: 100,
-                    lineTotal: 100
-                }]
-            })
-        }
+    const addItem = () => {
+        setItems((prev) => {
+            return [...prev, {
+                itemID: uuid(),
+                description: "item",
+                quantity: 1,
+                unitPrice: 100,
+                lineTotal: 100
+            }]
+        })
     }
 
     const handleItemChange = (e, changeItemID) => {
         const fieldName = e.target.name;
         const value = e.target.value;
         setItems(
-           items.map && items.map((item) => {
+            items.map((item) => {
                 if (item.itemID == changeItemID) {
                     if (fieldName == 'quantity' || fieldName == 'unitPrice') {
                         const otherFieldName = fieldName == 'quantity' ? 'unitPrice' : 'quantity';
@@ -82,25 +75,31 @@ export default function Index() {
         );
     }
 
-    const modifyTax = (delTaxID = null) => {
-        const newTaxAmount = Math.round(subTotal * 0.2);
-        if (delTaxID) {
-            setTaxes(taxes.filter(tax => tax.taxID !== delTaxID));
-        } else {
-            setTaxes(prev => [...prev, {
+    const deleteItem = (delItemID) => {
+        setItems(items.filter(item => item.itemID != delItemID))
+    }
+
+    const addTax = () => {
+        const newTaxAmount = Math.round(subTotal * 0.2)
+        setTaxes((prev) => {
+            return [...prev, {
                 taxID: uuid(),
                 taxName: 'Tax Name',
                 taxPercentage: 20,
                 taxAmount: newTaxAmount
-            }]);
-        }
-    };
+            }]
+        })
+    }
+
+    const deleteTax = (delTaxID) => {
+        setTaxes(taxes.filter(tax => tax.taxID != delTaxID))
+    }
 
     const handleTaxChange = (e, changeTaxID) => {
         const fieldName = e.target.name;
         const value = e.target.value
         setTaxes(
-           taxes.map && taxes.map((tax) => {
+            taxes.map((tax) => {
                 if (tax.taxID == changeTaxID) {
                     if (fieldName == "taxPercentage") {
 
@@ -116,36 +115,23 @@ export default function Index() {
         );
     }
 
-    const handleCurrencySymbolChange = (e, changeCurrecySymbolID) => {
-
-
-        const fieldName = e.target.name;
+    const handleCurrencySymbolChange = (e) => {
         const value = e.target.value
 
         const openingBracket = value.indexOf('(');
         const closingBracket = value.indexOf(')');
-        const currSymbol = value.substr(openingBracket + 1, closingBracket - openingBracket - 1);
-
-
-        setCurrencySymbol(
-            CurrencySymbol.map && CurrencySymbol.map((currency) => {
-                if (currency.curID == changeCurrecySymbolID) {
-                    if (fieldName == "currencyName") {
-                        if (openingBracket !== -1 && closingBracket !== -1) {
-                            return { ...currency, currencySymbol: currSymbol, [fieldName]: value };
-                        }
-                        else {
-                            return { ...currency, currencySymbol: '', [fieldName]: value };
-                        }
-                    }
-                }
-                else {
-                    return { ...currency, currencySymbol: '', [fieldName]: value };
-                }
-                return CurrencySymbol;
+        if(openingBracket==-1 || closingBracket==-1){
+            setPrice({
+                unitPriceName: value,
+                currencySymbol: ''
             })
-        );
-
+        }else{
+            const currSymbol = value.substr(openingBracket + 1, closingBracket - openingBracket - 1);
+            setPrice({
+                unitPriceName: value,
+                currencySymbol: currSymbol
+            })
+        }
     }
 
     const downloadPdf = async () => {
@@ -161,8 +147,8 @@ export default function Index() {
             "clientName": contentEditableRef.current[8].innerText,
             "clientCompanyName": contentEditableRef.current[9].innerText,
             "userMessage": contentEditableRef.current[10].innerText,
-            "unitPriceName": CurrencySymbol[0].currencyName,
-            "currencySymbol": CurrencySymbol[0].currencySymbol,
+            "unitPriceName":price.unitPriceName,
+            "currencySymbol":price.currencySymbol,
             "items": items,
             "taxes": taxes,
             "subTotalName": contentEditableRef.current[11].innerText,
@@ -171,7 +157,7 @@ export default function Index() {
             "totalWithTax": totalWithTax,
             "conclusionMessage": contentEditableRef.current[13].innerText,
         }
-        
+        console.log(data)
         const temp = JSON.stringify(data)
         window.open(`http://localhost:5000/downloadInvoice?data=${temp}`)
     }
@@ -228,16 +214,16 @@ export default function Index() {
                     <br />
                     <br />
 
-                    <Table key="child1"
-                        items={items}
-                        taxes={taxes} 
-                        modifyItem={modifyItem}
+                    <Table key="child1" items={items}
+                        taxes={taxes} addItem={addItem}
                         handleItemChange={handleItemChange}
-                        modifyTax={modifyTax}
+                        deleteItem={deleteItem}
+                        addTax={addTax}
+                        deleteTax={deleteTax}
                         handleTaxChange={handleTaxChange}
                         subTotal={subTotal}
                         totalWithTax={totalWithTax}
-                        CurrencySymbol={CurrencySymbol}
+                        price={price}
                         handleCurrencySymbolChange={handleCurrencySymbolChange}
                         contentEditableRef={contentEditableRef}
                     />
