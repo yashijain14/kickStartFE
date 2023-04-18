@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { v4 as uuid } from 'uuid';
 import Table from './tableInvoice.jsx';
-import axios from 'axios';
 
 export default function Index() {
 
@@ -9,7 +8,7 @@ export default function Index() {
 
     const [items, setItems] = useState([{
         itemID: uuid(),
-        itemDescription: "item",
+        description: "item",
         quantity: 1,
         unitPrice: 100,
         lineTotal: 100
@@ -50,7 +49,7 @@ export default function Index() {
         setItems((prev) => {
             return [...prev, {
                 itemID: uuid(),
-                itemDescription: "item",
+                description: "item",
                 quantity: 1,
                 unitPrice: 100,
                 lineTotal: 100
@@ -65,7 +64,6 @@ export default function Index() {
             items.map((item) => {
                 if (item.itemID == changeItemID) {
                     if (fieldName == 'quantity' || fieldName == 'unitPrice') {
-
                         const otherFieldName = fieldName == 'quantity' ? 'unitPrice' : 'quantity';
                         const newLineTotal = value * item[otherFieldName];
                         return { ...item, ['lineTotal']: newLineTotal, [fieldName]: value };
@@ -154,7 +152,7 @@ export default function Index() {
     const downloadPdf = async () => {
         const data = {
             "advisoryCompanyName": contentEditableRef.current[0].innerText,
-            "invoice Heading": contentEditableRef.current[1].innerText,
+            "invoiceHeading": contentEditableRef.current[1].innerText,
             "address": contentEditableRef.current[2].innerText,
             "contactNo": contentEditableRef.current[6].innerText,
             "email": contentEditableRef.current[7].innerText,
@@ -167,20 +165,16 @@ export default function Index() {
             "unitPriceName":CurrencySymbol[0].currencyName,
             "currencySymbol":CurrencySymbol[0].currencySymbol,
             "items": items,
-            "tax": taxes,
+            "taxes": taxes,
             "subTotalName": contentEditableRef.current[11].innerText,
             "subTotal": subTotal,
             "totalWithTaxName": contentEditableRef.current[12].innerText,
             "totalWithTax": totalWithTax,
             "conclusionMessage": contentEditableRef.current[13].innerText,
-
         }
-        console.log("hii", data)
-        await axios
-            .post("/insertData", { data })
-            .then((response) => {
-                console.log(response)
-            })
+        
+        const temp = JSON.stringify(data)
+        window.open(`http://localhost:5000/downloadInvoice?data=${temp}`)
     }
     return (
         <div className='main-div'>
@@ -202,7 +196,7 @@ export default function Index() {
 
                             <div className='clientInvoiceDetails textRight'>
                                 <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>06 April 2023</div>
-                                <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Invoice #2334889</div>
+                                <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Invoice 2334889</div>
                                 <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>PO 456001200</div>
                             </div>
                         </div>
