@@ -33,8 +33,7 @@ export default function Index() {
         const newSubTotal = items.reduce((accumulator, item) => accumulator + item.lineTotal, 0)
         setsubTotal(newSubTotal);
         setTaxes(taxes.map((tax) => {
-            const newTaxAmount = Math.round((tax.taxPercentage * newSubTotal) / 100)
-            return { ...tax, taxAmount: newTaxAmount }
+            return { ...tax, taxAmount: Math.round((tax.taxPercentage * newSubTotal) / 100) }
         }))
     }, [items])
 
@@ -88,13 +87,12 @@ export default function Index() {
     const modifyTaxes = (eventName, event, currTaxID) => {
         switch (eventName) {
             case "addTax":
-                const newTaxAmount = Math.round(subTotal * 0.2)
                 setTaxes((prev) => {
                     return [...prev, {
                         taxID: uuid(),
                         taxName: 'Tax Name',
                         taxPercentage: 20,
-                        taxAmount: newTaxAmount
+                        taxAmount: Math.round(subTotal * 0.2)
                     }]
                 })
                 break;
