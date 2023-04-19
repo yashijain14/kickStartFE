@@ -78,7 +78,7 @@ export default function Index() {
                         return item;
                     })
                 );
-                break;    
+                break;
             default:
                 break;
         }
@@ -115,7 +115,7 @@ export default function Index() {
                         return tax;
                     })
                 );
-                break;    
+                break;
             default:
                 break;
         }
@@ -125,18 +125,16 @@ export default function Index() {
         const value = event.target.value
         const openingBracket = value.indexOf('(');
         const closingBracket = value.indexOf(')');
-        if(openingBracket==-1 || closingBracket==-1 || openingBracket>closingBracket){
-            setPrice({
-                unitPriceName: value,
-                currencySymbol: ''
-            })
-        }else{
-            const currSymbol = value.substr(openingBracket + 1, closingBracket - openingBracket - 1);
-            setPrice({
-                unitPriceName: value,
-                currencySymbol: currSymbol
-            })
-        }
+
+        const currSymbol = openingBracket > -1 && closingBracket > -1 && openingBracket < closingBracket
+            ? value.substring(openingBracket + 1, closingBracket)
+            : '';
+
+        setPrice({
+            unitPriceName: value,
+            currencySymbol: currSymbol
+        })
+
     }
 
     const downloadPdf = () => {
@@ -152,8 +150,8 @@ export default function Index() {
             "clientName": contentEditableRef.current[8].innerText,
             "clientCompanyName": contentEditableRef.current[9].innerText,
             "userMessage": contentEditableRef.current[10].innerText,
-            "unitPriceName":price.unitPriceName,
-            "currencySymbol":price.currencySymbol,
+            "unitPriceName": price.unitPriceName,
+            "currencySymbol": price.currencySymbol,
             "items": items,
             "taxes": taxes,
             "subTotalName": contentEditableRef.current[11].innerText,
@@ -220,7 +218,7 @@ export default function Index() {
                     <br />
 
                     <Table key="child1" items={items}
-                        taxes={taxes} 
+                        taxes={taxes}
                         modifyItems={modifyItems}
                         modifyTaxes={modifyTaxes}
                         subTotal={subTotal}
