@@ -14,7 +14,7 @@ export default function StackedGraph(props) {
   
     return (
       <>
-        <span className="percentTag" style={{ color: props.color, fontWeight: "bold" }}>{props.value}%
+        <span style={{ color: props.color, fontWeight: "bold" }}>{props.value}%
         </span>
         {divArray.map((item, index) => (
           <div className="bar" key={index}>

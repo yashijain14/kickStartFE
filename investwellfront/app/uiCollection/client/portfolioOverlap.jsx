@@ -9,9 +9,9 @@ export default function PortfolioOverlap(props) {
       <div className='portfolioOverlap'>
             <GraphArea values={props.data.vennDiagram}/>
             <div className='rightDiv'>
-              <div className='rightContainer'><DonutChart values={props.data.overlapValue.overlapPercentage} /></div>
+              <div className='rightContainerA'><DonutChart values={props.data.overlapValue.overlapPercentage} /></div>
 
-              <div className='rightContainer'>
+              <div className='rightContainerB'>
                 <div className='outerDivFirst'>
                   <div className='commonStockDiv'><img src={UpperLogo} className='commonStockIcon' ></img></div>
                   <span className='commonStock'>{props.data.overlapValue.commonHoldings}<br />
@@ -22,13 +22,13 @@ export default function PortfolioOverlap(props) {
 
 
 
-              <div className='rightContainer'>
+              <div className='rightContainerC'>
                 <div className='outerDivSecond'>
                   <div className='unCommonStockDiv'><img src={LowerLogo} className='unCommonStockIcon' ></img></div>
-                  <span className='unCommonStockA'>{props.data.overlapValue.uncommonHoldingsInA}<br />
+                  <span className='unCommonStockA'>{props.data.overlapValue.unCommonHoldingsInA}<br />
                     <div className='text'>#uncommon stocks in A</div>
                   </span>
-                  <span className='totalStockA'>{props.data.overlapValue.totalHoldingsinA}<br />
+                  <span className='totalStockA'>{props.data.overlapValue.totalHoldingsInA}<br />
                     <div className='text'>#total stocks in A</div>
                   </span>
                 </div>
@@ -36,7 +36,7 @@ export default function PortfolioOverlap(props) {
 
 
 
-              <div className='rightContainer'>
+              <div className='rightContainerD'>
                 <div className='outerDivThird'>
                   <div className='unCommonStockDiv'><img src={LowerLogo} className='unCommonStockIcon' ></img></div>
                   <span className='unCommonStockA'>{props.data.overlapValue.unCommonHoldingsInB}<br />

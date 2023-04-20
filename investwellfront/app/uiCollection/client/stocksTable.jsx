@@ -22,12 +22,12 @@ export default function StocksTable(props) {
                 <td className='progressColoumn tableData'>
                   <ProgressBar
                     bgcolor="#5275E9"
-                    progress={item.netAssetA >= 1 ? (item.netAssetA + item.netAssetB) * 10 / (item.netAssetB < 1 ? 1 : item.netAssetB) : item.netAssetA * 10}
+                    progress={item.netAssetA >= 1 ? Math.min((item.netAssetA + item.netAssetB) * 10 / (item.netAssetB < 1 ? 1 : item.netAssetB),100) : item.netAssetA * 10}
                     height={7}
                     value={item.netAssetA} />
                   <ProgressBar
                     bgcolor="#F8432B"
-                    progress={item.netAssetB >= 1 ? (item.netAssetA + item.netAssetB) * 10 / (item.netAssetA < 1 ? 1 : item.netAssetA) : item.netAssetB * 10}
+                    progress={item.netAssetB >= 1 ? Math.min((item.netAssetA + item.netAssetB) * 10 / (item.netAssetA < 1 ? 1 : item.netAssetA),100) : item.netAssetB * 10}
                     height={7}
                     value={item.netAssetB} /></td>
                 <td className='tableData'><SquareIcon style={{ color: '#F8432B', width: '15px', float: 'left' }} /><span className='icons'>{item.holdingsB}</span></td>

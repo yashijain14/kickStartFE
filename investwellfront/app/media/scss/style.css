@@ -12,8 +12,8 @@ body {
 .outerContainer {
   width: 100%;
   display: inline-block;
-  position: absolute;
-  padding: 20px;
+  position: relative;
+  padding: 1%;
 }
 .outerContainer .info {
   font-family: Arial, Helvetica, sans-serif;
@@ -24,62 +24,62 @@ body {
   margin: 30px 43px;
 }
 .outerContainer .filterArea {
-  margin: 30px 40px 40px 40px;
-  width: 95%;
-  padding: 50px 40px 50px 20px;
+  position: relative;
+  width: 98%;
+  padding: 2.66% 1% 2.66% 1%;
+  margin: 0% 1% 2% 1%;
   background-color: #FFFFFF;
   border: 3px solid #eaebed;
 }
 .outerContainer .filterArea .proceedButton {
-  display: block;
-  margin: 0 auto 0 40%;
+  margin: 0 0 0 40%;
   background-color: #5275E9;
   border: none;
+  border-radius: 5px;
   font-size: 20px;
   color: #FFFFFF;
   padding: 10px;
   width: 8%;
-  border-radius: 5px;
 }
 .outerContainer .filterArea .searchField {
   display: inline-block;
-  vertical-align: text-top;
+  vertical-align: top;
   background-color: #FFFFFF;
-  width: 30%;
-  margin: 10px 20px;
+  width: 50%;
+  height: 7.5em;
 }
 .outerContainer .filterArea .searchField .schemeLabel {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  display: block;
+  font-size: 1.3rem;
 }
 .outerContainer .filterArea .searchField .dropdownInputOuter {
-  position: relative;
-  width: 500px;
-  border: 1px solid #eaebed;
+  position: absolute;
+  width: 36%;
+  border: 3px solid #eaebed;
   border-radius: 4px;
+  height: 16%;
 }
 .outerContainer .filterArea .searchField .dropdownInputOuter .dropdownInput {
-  padding: 10px;
-  width: 400px;
+  position: absolute;
+  padding: 1.5%;
+  width: 100%;
   border: none;
   border-radius: 4px;
   font-size: 16px;
 }
-.outerContainer .filterArea .searchField .dropdownInputOuter .down {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+.outerContainer .filterArea .searchField .dropdownInputOuter .svg {
+  margin: 1% 1% 0% 0%;
+  float: right;
+  position: relative;
 }
 .outerContainer .filterArea .searchField .dropDown {
   border: 1px solid grey;
-  width: 64%;
+  position: absolute;
+  width: 35.8%;
+  margin: 2.2% 0 0 0.1%;
   display: block;
   overflow-y: auto;
-  height: 250px;
+  height: 18em;
   z-index: 1;
 }
 .outerContainer .filterArea .searchField .dropDown .dropDown-row {
@@ -98,56 +98,50 @@ body {
   border: none;
 }
 .outerContainer .portfolioOverlap {
-  margin: 30px 40px 30px 40px;
-  width: 96%;
-  padding: auto;
+  margin: 1% 1% 0 1%;
+  width: 98%;
+  height: 27vw;
   background-color: #FFFFFF;
   border: 3px solid #eaebed;
   display: block;
   position: relative;
-  z-index: -2;
+  z-index: 0;
 }
 .outerContainer .portfolioOverlap .leftDiv {
-  display: inline-block;
-  position: relative;
+  position: absolute;
   background-color: #ffffff;
   border: 1px solid #eaebed;
-  border-radius: 2px;
-  width: 43%;
-  margin: 25px 20px 25px 20px;
-  padding: 0px;
-  height: 60vh;
+  border-radius: 2%;
+  width: 42.58vw;
+  margin: 1.5% 0% 0% 1.5%;
+  height: 24vw;
+}
+.outerContainer .portfolioOverlap .leftDiv .vennDiagramLeftLabel {
+  display: inline-block;
+  position: absolute;
+  background-color: #39B0DC;
+  border-radius: 4px;
+  color: #FFFFFF;
+  padding: 0.5rem;
+  width: 15%;
+  margin: 6% 0% 0% 7%;
+  text-align: center;
+  z-index: 1;
 }
 .outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft {
   display: inline-block;
   position: absolute;
   border: 2px solid #39B0DC;
   width: 65%;
-  height: 65%;
-  padding: 0px;
-  margin: 100px 14px 0px 7px;
-  border-radius: 7px;
-  z-index: 1;
-  overflow: visible;
+  height: 75%;
+  padding: 0%;
+  margin: 8% 0% 2% 1%;
+  border-radius: 3%;
 }
-.outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft .vennDiagramLeftLabel {
-  display: inline-block;
-  position: absolute;
-  background-color: #39B0DC;
-  width: 100px;
-  height: 25px;
-  padding: 3px 0px;
-  margin: 0px 200px 10px 14px;
-  border-radius: 4px;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 15px;
-  z-index: 0;
-}
-.outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft .leftLabel {
+.outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft .sideLabel {
   float: left;
   text-align: center;
-  margin: 100px 50px 0 -5px;
+  margin: 15% 0% 0 -2%;
   width: -moz-min-content;
   width: min-content;
   font-size: 12px;
@@ -157,231 +151,255 @@ body {
 }
 .outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft .graphA {
   position: absolute;
-  margin: 21% 0% 0% 18%;
+  margin: 20% 0% 0% 30%;
 }
 .outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft .graphALabel {
   position: absolute;
-  margin: 47% 0% 0% 5%;
-  width: 33%;
+  margin: 12vw 0 0 4.5vw;
+  width: 9vw;
   text-align: center;
   color: #626161;
+  font-size: 0.85vw;
 }
 .outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft .commonGraphA {
   position: absolute;
-  margin: 21% 0% 0% 53%;
+  margin: 20% 0% 0% 65%;
 }
 .outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft .commonGraphB {
   position: absolute;
-  margin: 21% 0% 0% 73%;
+  margin: 20% 0% 0% 80%;
 }
-.outerContainer .portfolioOverlap .leftDiv .commonGraphLabel {
+.outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft .commonGraphLabel {
   position: absolute;
-  margin: 59% 0% 0% -78%;
+  margin: 12vw 0 0 16.5vw;
+  width: 9vw;
+  text-align: center;
   color: #626161;
+  font-size: 0.85vw;
 }
-.outerContainer .portfolioOverlap .leftDiv .vennDiagramRight {
+.outerContainer .portfolioOverlap .leftDiv .vennDiagramRightLabel {
   display: inline-block;
-  position: relative;
-  border: 2px solid #F15562;
-  width: 70%;
-  height: 70%;
-  padding: 0px;
-  margin: 19px 20px 0px 23px;
-  border-radius: 7px;
-  z-index: 10;
-  float: right;
-}
-.outerContainer .portfolioOverlap .leftDiv .vennDiagramRight .vennDiagramRightLabel {
-  display: inline-block;
-  position: relative;
+  position: absolute;
   background-color: #F15562;
-  width: 100px;
-  height: 25px;
-  padding: 3px 0px;
-  margin-left: 70%;
-  margin-top: 0;
   border-radius: 4px;
   color: #FFFFFF;
+  padding: 0.5rem;
+  width: 15%;
+  margin: 0.5% 0% 0% 75%;
   text-align: center;
-  font-size: 15px;
-  z-index: 5;
+  z-index: 1;
+}
+.outerContainer .portfolioOverlap .leftDiv .vennDiagramRight {
+  position: relative;
+  border: 2px solid #F15562;
+  width: 60%;
+  height: 75%;
+  padding: 0px;
+  margin: 2% 2% 0% 1%;
+  border-radius: 3%;
+  float: right;
 }
 .outerContainer .portfolioOverlap .leftDiv .vennDiagramRight .graphB {
   position: absolute;
-  margin: 30% 0% 0% 68%;
+  margin: 32% 0% 0% 60%;
 }
 .outerContainer .portfolioOverlap .leftDiv .vennDiagramRight .graphBLabel {
   position: absolute;
-  margin: 54.5% 0% 0% 57%;
-  width: 31%;
+  margin: 15vw 0 0 12vw;
+  width: 9vw;
   text-align: center;
   color: #626161;
+  font-size: 0.85vw;
 }
 .outerContainer .portfolioOverlap .leftDiv .vennLabel {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   position: absolute;
-  margin-top: 500px;
-  margin-left: 5px;
+  margin: 53% 0% 0% 3%;
 }
 .outerContainer .portfolioOverlap .rightDiv {
-  display: inline-block;
+  position: absolute;
   background-color: #ffffff;
   width: 53.2%;
-  margin: 5px 0px 0px 0px;
-  height: 59.2vh;
-  padding: 0px;
+  margin: 0.1vw 0 0 44.35vw;
+  height: 26.2vw;
   vertical-align: top;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer {
-  display: inline-block;
+.outerContainer .portfolioOverlap .rightDiv .rightContainerA {
+  position: absolute;
   border: 2px solid #eaebed;
   width: 47%;
-  height: 44.5%;
-  padding: 0px;
-  margin: 19px 14px 0px 7px;
+  height: 11.25vw;
+  margin: 1.05vw 0 0 0.4vw;
   border-radius: 4px;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivFirst {
+.outerContainer .portfolioOverlap .rightDiv .rightContainerA .recharts-surface {
+  width: 100%;
+  height: 100%;
+}
+.outerContainer .portfolioOverlap .rightDiv .rightContainerB {
+  position: absolute;
+  /* display: inline-block; */
+  border: 2px solid #eaebed;
+  width: 47%;
+  height: 11.25vw;
+  /* padding: 0px; */
+  margin: 2% 0 0 25.5vw;
+  border-radius: 4px;
+}
+.outerContainer .portfolioOverlap .rightDiv .rightContainerB .outerDivFirst {
   display: inline;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivFirst .commonStockDiv {
+.outerContainer .portfolioOverlap .rightDiv .rightContainerB .outerDivFirst .commonStockDiv {
   background-color: rgb(59, 209, 71);
+  position: absolute;
   width: 24%;
-  height: 12vh;
-  border-radius: 90px;
-  padding: 30px 0px 18px 17.5px;
-  display: inline-block;
-  margin: 70px 10px 20px 20px;
+  height: 5.5vw;
+  border-radius: 90%;
+  padding: 6.75% 0 4% 4%;
+  /* display: inline-block; */
+  margin: 15.7% 2.25% 4.5% 4.5%;
   float: left;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivFirst .commonStockDiv .commonStockIcon {
-  margin: 8px 0px 0px 15px;
-  width: 40px;
+.outerContainer .portfolioOverlap .rightDiv .rightContainerB .outerDivFirst .commonStockDiv .commonStockIcon {
+  position: absolute;
+  margin: 3% 0 0 7%;
+  width: 50%;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivFirst .commonStock {
+.outerContainer .portfolioOverlap .rightDiv .rightContainerB .outerDivFirst .commonStock {
   float: right;
-  font-size: 50px;
+  font-size: 2.7vw;
   margin: 18% 2% 0 0;
   font-weight: 550;
   direction: rtl;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivFirst .commonStock .text {
-  display: inline;
+.outerContainer .portfolioOverlap .rightDiv .rightContainerB .outerDivFirst .commonStock .text {
   float: right;
-  font-size: 17px;
-  margin: 1% -2% 0 0;
-  font-weight: 550;
+  font-size: 35.5%;
   direction: ltr;
-  word-spacing: 3px;
+  word-spacing: 0.25rem;
   color: #626161;
   font-family: Arial, Helvetica, sans-serif;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivSecond {
+.outerContainer .portfolioOverlap .rightDiv .rightContainerC {
+  position: absolute;
+  border: 2px solid #eaebed;
+  width: 47%;
+  height: 11.25vw;
+  margin: 14.2vw 0 0 0.4vw;
+  border-radius: 4px;
+}
+.outerContainer .portfolioOverlap .rightDiv .rightContainerC .outerDivSecond {
   display: inline;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivSecond .unCommonStockDiv {
+.outerContainer .portfolioOverlap .rightDiv .rightContainerC .outerDivSecond .unCommonStockDiv {
   background-color: blue;
+  position: absolute;
   width: 24%;
-  height: 12vh;
-  border-radius: 90px;
-  padding: 30px 0px 18px 17.5px;
-  display: inline-block;
-  margin: 70px 10px 20px 20px;
+  height: 5.5vw;
+  border-radius: 90%;
+  padding: 6.75% 0 4% 4%;
+  /* display: inline-block; */
+  margin: 15.7% 2.25% 4.5% 4.5%;
   float: left;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivSecond .unCommonStockDiv .unCommonStockIcon {
-  margin: 2px 0px 0px 7px;
-  width: 60px;
+.outerContainer .portfolioOverlap .rightDiv .rightContainerC .outerDivSecond .unCommonStockDiv .unCommonStockIcon {
+  position: absolute;
+  margin: 3% 0 0 7%;
+  width: 50%;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivSecond .unCommonStockA {
+.outerContainer .portfolioOverlap .rightDiv .rightContainerC .outerDivSecond .unCommonStockA {
   float: right;
-  font-size: 50px;
-  margin: 3% 2% 0 0;
+  position: absolute;
+  font-size: 2.7vw;
+  margin: 1vw 0 0 11.3vw;
   font-weight: 550;
   direction: rtl;
   display: inline;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivSecond .unCommonStockA .text {
-  display: inline;
+.outerContainer .portfolioOverlap .rightDiv .rightContainerC .outerDivSecond .unCommonStockA .text {
   float: right;
-  font-size: 17px;
-  margin: 1% -2% 0 0;
-  font-weight: 550;
+  font-size: 35.5%;
   direction: ltr;
-  word-spacing: 3px;
+  word-spacing: 0.25rem;
   color: #626161;
   font-family: Arial, Helvetica, sans-serif;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivSecond .totalStockA {
+.outerContainer .portfolioOverlap .rightDiv .rightContainerC .outerDivSecond .totalStockA {
   float: right;
-  font-size: 50px;
-  margin: 3% 2% 0 0;
+  position: absolute;
+  font-size: 2.7vw;
+  margin: 25% 0 0 63%;
   font-weight: 550;
   direction: rtl;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivSecond .totalStockA .text {
-  display: inline;
+.outerContainer .portfolioOverlap .rightDiv .rightContainerC .outerDivSecond .totalStockA .text {
   float: right;
-  font-size: 17px;
-  margin: 1% -2% 0 0;
-  font-weight: 550;
+  font-size: 35.5%;
   direction: ltr;
-  word-spacing: 3px;
+  word-spacing: 0.25rem;
   color: #626161;
   font-family: Arial, Helvetica, sans-serif;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivThird {
+.outerContainer .portfolioOverlap .rightDiv .rightContainerD {
+  position: absolute;
+  border: 2px solid #eaebed;
+  width: 47%;
+  height: 11.25vw;
+  /* padding: 0px; */
+  margin: 14.2vw 0 0 25.5vw;
+  border-radius: 4px;
+}
+.outerContainer .portfolioOverlap .rightDiv .rightContainerD .outerDivThird {
   display: inline;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivThird .unCommonStockDiv {
+.outerContainer .portfolioOverlap .rightDiv .rightContainerD .outerDivThird .unCommonStockDiv {
   background-color: rgb(235, 42, 28);
+  position: absolute;
   width: 24%;
-  height: 12vh;
-  border-radius: 90px;
-  padding: 30px 0px 18px 17.5px;
-  display: inline-block;
-  margin: 70px 10px 20px 20px;
+  height: 5.5vw;
+  border-radius: 90%;
+  padding: 6.75% 0 4% 4%;
+  /* display: inline-block; */
+  margin: 15.7% 2.25% 4.5% 4.5%;
   float: left;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivThird .unCommonStockDiv .unCommonStockIcon {
-  margin: 2px 0px 0px 7px;
-  width: 60px;
+.outerContainer .portfolioOverlap .rightDiv .rightContainerD .outerDivThird .unCommonStockDiv .unCommonStockIcon {
+  position: absolute;
+  margin: 3% 0 0 7%;
+  width: 50%;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivThird .unCommonStockA {
+.outerContainer .portfolioOverlap .rightDiv .rightContainerD .outerDivThird .unCommonStockA {
   float: right;
-  font-size: 50px;
-  margin: 3% 2% 0 0;
+  position: absolute;
+  font-size: 2.7vw;
+  margin: 1vw 0 0 11.3vw;
   font-weight: 550;
   direction: rtl;
   display: inline;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivThird .unCommonStockA .text {
-  display: inline;
+.outerContainer .portfolioOverlap .rightDiv .rightContainerD .outerDivThird .unCommonStockA .text {
   float: right;
-  font-size: 17px;
-  margin: 1% -2% 0 0;
-  font-weight: 550;
+  font-size: 35.5%;
   direction: ltr;
-  word-spacing: 3px;
+  word-spacing: 0.25rem;
   color: #626161;
   font-family: Arial, Helvetica, sans-serif;
 }
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivThird .totalStockA {
+.outerContainer .portfolioOverlap .rightDiv .rightContainerD .outerDivThird .totalStockA {
   float: right;
-  font-size: 50px;
-  margin: 3% 2% 0 0;
+  position: absolute;
+  font-size: 2.7vw;
+  margin: 6vw 0 0 14.3vw;
   font-weight: 550;
   direction: rtl;
-}
-.outerContainer .portfolioOverlap .rightDiv .rightContainer .outerDivThird .totalStockA .text {
   display: inline;
+}
+.outerContainer .portfolioOverlap .rightDiv .rightContainerD .outerDivThird .totalStockA .text {
   float: right;
-  font-size: 17px;
-  margin: 1% -2% 0 0;
-  font-weight: 550;
+  font-size: 35.5%;
   direction: ltr;
-  word-spacing: 3px;
+  word-spacing: 0.25rem;
   color: #626161;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -421,7 +439,7 @@ body {
   top: 0px;
 }
 .outerContainer .tableScroll .styledTable .tableRow .tableData {
-  font-size: 18px;
+  font-size: 1vw;
   padding: 5px 5px 5px 20px;
 }
 .outerContainer .tableScroll .styledTable .tableRow .tableData .icons {
@@ -464,10 +482,6 @@ body {
   width: -moz-fit-content;
   width: fit-content;
 }
-.outerContainer .bar .percentTag {
-  font-size: 100px;
-  font-weight: bold;
-}
 .outerContainer .bar .barGraphRight {
   display: inline-block;
   width: 20px;
@@ -483,4 +497,182 @@ body {
   border-radius: 0px 2px 2px 0px;
   margin: 0.2px 0px;
   font-size: 2px;
+}
+
+@media only screen and (max-width: 768px) {
+  .outerContainer {
+    width: 100%;
+  }
+  .outerContainer .filterArea {
+    width: 100%;
+  }
+  .outerContainer .filterArea .searchField {
+    width: 90%;
+  }
+  .outerContainer .filterArea .searchField .dropdownInputOuter {
+    width: 90%;
+    height: 13%;
+  }
+  .outerContainer .filterArea .searchField .dropDown {
+    width: 90%;
+    margin: 6% 0 0 0.1%;
+  }
+  .outerContainer .filterArea .proceedButton {
+    width: 20%;
+  }
+  .outerContainer .portfolioOverlap {
+    margin: 3% 1% 2% 1%;
+    width: 100%;
+    height: -moz-max-content;
+    height: max-content;
+  }
+  .outerContainer .portfolioOverlap .leftDiv {
+    position: relative;
+    width: 96%;
+    height: 60vw;
+  }
+  .outerContainer .portfolioOverlap .leftDiv .vennDiagramLeftLabel {
+    width: 20%;
+  }
+  .outerContainer .portfolioOverlap .leftDiv .vennDiagramRightLabel {
+    width: 20%;
+  }
+  .outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft .graphALabel {
+    position: absolute;
+    margin: 28vw 0 0 13vw;
+    font-size: 1.5vw;
+    width: 15vw;
+  }
+  .outerContainer .portfolioOverlap .leftDiv .vennDiagramLeft .commonGraphLabel {
+    position: absolute;
+    margin: 28vw 0 0 36vw;
+    font-size: 1.5vw;
+    width: 20vw;
+  }
+  .outerContainer .portfolioOverlap .leftDiv .vennDiagramRight .graphBLabel {
+    position: absolute;
+    margin: 34vw 0 0 26.5vw;
+    font-size: 1.5vw;
+    width: 20vw;
+  }
+  .outerContainer .portfolioOverlap .leftDiv .vennLabel {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    position: absolute;
+    margin: 60% 0% 0% 3%;
+  }
+  .outerContainer .portfolioOverlap .rightDiv {
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+    height: 50vw;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerA {
+    margin-top: 3vw;
+    width: 48%;
+    height: 20vw;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerA .recharts-surface {
+    width: 65%;
+    display: block;
+    height: 120%;
+    margin: -12% 0 0 8%;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerB {
+    margin: 3vw 0vw 0 50vw;
+    width: 48%;
+    height: 20vw;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerB .outerDivFirst {
+    position: relative;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerB .outerDivFirst .commonStockDiv {
+    position: relative;
+    width: 23%;
+    height: 10vw;
+    border-radius: 90%;
+    padding: 6.75% 0 4% 4%;
+    margin: 10% 2.25% 4.5% 4.5%;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerB .outerDivFirst .commonStockDiv .commonStockIcon {
+    position: absolute;
+    margin: 0% 0 0 9%;
+    width: 50%;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerB .outerDivFirst .commonStock {
+    font-size: 5vw;
+    margin-top: 10%;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerC {
+    margin: 25vw 0 0 1vw;
+    width: 48%;
+    height: 20vw;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerC .outerDivSecond {
+    position: relative;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerC .outerDivSecond .unCommonStockDiv {
+    position: relative;
+    width: 23%;
+    height: 10vw;
+    border-radius: 90%;
+    padding: 6.75% 0 4% 4%;
+    /* display: inline-block; */
+    margin: 11% 2.25% 4.5% 4.5%;
+    float: left;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerC .outerDivSecond .unCommonStockDiv .unCommonStockIcon {
+    position: absolute;
+    margin: 3% 0 0 7%;
+    width: 50%;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerC .outerDivSecond .unCommonStockA {
+    font-size: 3.5vw;
+    margin: 2vw 0 0 24vw;
+    padding: 10%;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerC .outerDivSecond .totalStockA {
+    font-size: 3.5vw;
+    margin: 11vw 0 0 25vw;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerD {
+    width: 48%;
+    margin: 25vw 0 0 50vw;
+    height: 20vw;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerD .outerDivThird {
+    position: relative;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerD .outerDivThird .unCommonStockDiv {
+    position: relative;
+    width: 23%;
+    height: 10vw;
+    border-radius: 90%;
+    padding: 6.75% 0 4% 4%;
+    /* display: inline-block; */
+    margin: 11% 2.25% 4.5% 4.5%;
+    float: left;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerD .outerDivThird .unCommonStockDiv .unCommonStockIcon {
+    position: absolute;
+    margin: 3% 0 0 7%;
+    width: 50%;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerD .outerDivThird .unCommonStockA {
+    font-size: 3.5vw;
+    margin: 2vw 0 0 24vw;
+    padding: 10%;
+  }
+  .outerContainer .portfolioOverlap .rightDiv .rightContainerD .outerDivThird .totalStockA {
+    font-size: 3.5vw;
+    margin: 11vw 0 0 27vw;
+  }
+  .tableScroll {
+    width: 100%;
+    margin: 55% 1% 2% 0%;
+  }
+  .styledTable {
+    width: 100%;
+    font-size: 18px;
+  }
 }/*# sourceMappingURL=style.css.map */
