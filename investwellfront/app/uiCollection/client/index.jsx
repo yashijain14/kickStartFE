@@ -64,7 +64,7 @@ export default function Index() {
                 const fieldName = event.target.name;
                 const value = event.target.value;
                 setItems(
-                    items.map((item) => {
+                    items && items.map((item) => {
                         if (item.itemID == currItemID) {
                             if (fieldName == 'quantity' || fieldName == 'unitPrice') {
                                 const otherFieldName = fieldName == 'quantity' ? 'unitPrice' : 'quantity';
@@ -103,7 +103,7 @@ export default function Index() {
                 const fieldName = event.target.name;
                 const value = event.target.value
                 setTaxes(
-                    taxes.map((tax) => {
+                   taxes &&  taxes.map((tax) => {
                         if (tax.taxID == currTaxID) {
                             if (fieldName == "taxPercentage") {
                                 const newTaxAmount = Math.round(value * subTotal / 100);
@@ -160,7 +160,6 @@ export default function Index() {
             "totalWithTax": totalWithTax,
             "conclusionMessage": contentEditableRef.current[13].innerText,
         }
-        console.log(data)
         const temp = JSON.stringify(data)
         window.open(`http://localhost:5000/downloadInvoice?data=${temp}`)
     }

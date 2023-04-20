@@ -24,7 +24,7 @@ function Table(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.items.map((item, index) => (
+                    {props.items && props.items.map((item, index) => (
                         <tr key={item.taxID}>
                             <td className='number'>{index + 1}</td>
                             <td>
@@ -69,7 +69,7 @@ function Table(props) {
             </div>
 
             <table>
-                {props.taxes.map((tax) => (
+                {props.taxes && props.taxes.map((tax) => (
                     <tr>
                         <td><input contentEditable="true" name="taxName" onChange={(event) => props.modifyTaxes("changeTax", event, tax.taxID)} value={tax.taxName} className='textBold' /></td>
                         <td><input contentEditable="true" name="taxPercentage" onChange={(event) => props.modifyTaxes("changeTax", event, tax.taxID)} value={tax.taxPercentage} className=' taxPosition textBold' /> <span className='percentagePosition'><b>%</b></span></td>
