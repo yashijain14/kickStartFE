@@ -160,8 +160,12 @@ export default function Index() {
             "totalWithTax": totalWithTax,
             "conclusionMessage": contentEditableRef.current[13].innerText,
         }
-        const temp = JSON.stringify(data)
-        window.open(`http://localhost:5000/downloadInvoice?data=${temp}`)
+
+        let dataString = (JSON.stringify(data)).replaceAll("#", "hashSymbol")
+        dataString = dataString.replaceAll("&", "ampersandSymbol")
+        dataString = dataString.replaceAll("%", "percentageSymbol")
+        dataString = dataString.replaceAll("+", "plusSymbol")
+        window.open(`http://localhost:5000/downloadInvoice?data=${dataString}`)
     }
     return (
         <div className='main-div'>
@@ -216,7 +220,8 @@ export default function Index() {
                     <br />
                     <br />
 
-                    <Table key="child1" items={items}
+                    <Table 
+                        items={items}
                         taxes={taxes}
                         modifyItems={modifyItems}
                         modifyTaxes={modifyTaxes}

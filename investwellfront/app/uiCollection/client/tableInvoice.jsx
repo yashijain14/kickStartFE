@@ -30,8 +30,8 @@ function Table(props) {
                             <td>
                                 <input
                                     type="text"
-                                    name="itemDescription"
-                                    value={item.itemDescription}
+                                    name="description"
+                                    value={item.description}
                                     onChange={(event) => {props.modifyItems("changeItem", event, item.itemID)}}
                                 />
                             </td>
