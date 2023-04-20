@@ -1,10 +1,17 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { v4 as uuid } from 'uuid';
-import Table from './tableInvoice.jsx';
+import Items from './Items.jsx';
+import Taxes from './Taxes.jsx';
 
 export default function Index() {
 
     const contentEditableRef = useRef([]);
+    const date = new Date();
+
+    const day = date.getDate();
+    const month = date.toLocaleString('en-us', { month: 'long' }); 
+    const year = date.getFullYear();
+    const currentDate = `${day} ${month} ${year}`;
 
     const [items, setItems] = useState([{
         itemID: uuid(),
@@ -125,39 +132,36 @@ export default function Index() {
         const value = event.target.value
         const openingBracket = value.indexOf('(');
         const closingBracket = value.indexOf(')');
-
         const currSymbol = openingBracket > -1 && closingBracket > -1 && openingBracket < closingBracket
             ? value.substring(openingBracket + 1, closingBracket)
             : '';
-
         setPrice({
             unitPriceName: value,
             currencySymbol: currSymbol
         })
-
     }
 
     const downloadPdf = () => {
         const data = {
             "advisoryCompanyName": contentEditableRef.current[0].innerText,
-            "invoiceHeading": contentEditableRef.current[1].innerText,
-            "address": contentEditableRef.current[2].innerText,
-            "contactNo": contentEditableRef.current[6].innerText,
-            "email": contentEditableRef.current[7].innerText,
-            "date": contentEditableRef.current[3].innerText,
-            "invoiceID": contentEditableRef.current[4].innerText,
-            "poNumber": contentEditableRef.current[5].innerText,
+            "address": contentEditableRef.current[1].innerText,
+            "contactNo": contentEditableRef.current[2].innerText,
+            "email": contentEditableRef.current[3].innerText,
+            "invoiceHeading": contentEditableRef.current[4].innerText,
+            "date": contentEditableRef.current[5].innerText,
+            "invoiceID": contentEditableRef.current[6].innerText,
+            "poNumber": contentEditableRef.current[7].innerText,
             "clientName": contentEditableRef.current[8].innerText,
             "clientCompanyName": contentEditableRef.current[9].innerText,
             "userMessage": contentEditableRef.current[10].innerText,
-            "unitPriceName": price.unitPriceName,
-            "currencySymbol": price.currencySymbol,
             "items": items,
             "taxes": taxes,
-            "subTotalName": contentEditableRef.current[11].innerText,
+            "unitPriceName": price.unitPriceName,
+            "currencySymbol": price.currencySymbol,
             "subTotal": subTotal,
-            "totalWithTaxName": contentEditableRef.current[12].innerText,
             "totalWithTax": totalWithTax,
+            "subTotalName": contentEditableRef.current[11].innerText,
+            "totalWithTaxName": contentEditableRef.current[12].innerText,
             "conclusionMessage": contentEditableRef.current[13].innerText,
         }
 
@@ -168,59 +172,46 @@ export default function Index() {
         window.open(`http://localhost:5000/downloadInvoice?data=${dataString}`)
     }
     return (
-        <div className='main-div'>
-            <h2 contentEditable="true">Advisory Invoice Generator</h2>
-            <div className="main-div-header">
-                <div className="leftSideBox">
-                    <div className="advisoryContentSection">
-                        <div className="advisoryContentHeader">
-                            <div className="invoiceEditableContent1 companyName" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Advisory Company Name</div>
-                            <div className="invoiceEditableContent2 textRight" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Invoice</div>
-                        </div>
-                        <div className="invoiceEditableItem">
-
-                            <div className="address" ref={(text) => contentEditableRef.current.push(text)}>
+        <div className="screenContainer">
+            <h2 className="toolTitle">Advisory Invoice Generator</h2>
+            <div className="mainContainer">
+                <div className="leftMainBox">
+                    <div className="headerInfo">
+                        <div className="leftContainer">
+                            <div class="heading" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Company Name</div>
+                            <div ref={(text) => contentEditableRef.current.push(text)}>
                                 <div contentEditable="true">123 your street</div>
                                 <div contentEditable="true">Your town</div>
                                 <div contentEditable="true">Address Line 3</div>
                             </div>
-
-                            <div className='clientInvoiceDetails textRight'>
-                                <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>06 April 2023</div>
-                                <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Invoice 2334889</div>
-                                <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>PO 456001200</div>
-                            </div>
+                            <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>(123) 456 789</div>
+                            <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>email@yourcompany.com</div>
                         </div>
-
-                        <div className="personalInfo">
-                            <div className="personalInfoLeftBox">
-                                <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>(123)456789</div>
-                                <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>email@yourcompany.com</div>
-                            </div>
-
-                            <div className="personalInfoRightBox textRight">
-                                <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Att. Ms. Jane Doe</div>
-                                <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Client Company Name</div>
-                            </div>
+                        <div className="rightContainer alignRight">
+                            <div className="heading" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Invoice</div>
+                            <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>{currentDate}</div>
+                            <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Invoice #2334889</div>
+                            <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>PO 456001200</div>
+                            <div className="highlight" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Att: Ms. Jane Doe</div>
+                            <div className="highlight" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Client Company Name</div>
                         </div>
-
                     </div>
-                    <hr />
-                    <br />
-                    <div className="invoiceMessage" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>
-                        <span >Dear Ms. Jane Doe</span> <br /> <br />
-                        <span>Please find below a cost breakdown for the recent work completed . Please make payment
-                            convininence, and do not hesitate to contact me with any questions.
+                    <hr/>
+                    <div className="userMessage" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>
+                        <span>Dear Ms. Jane Doe</span>
+                        <br />
+                        <br />
+                        <span>Please find below a cost-breakdown for the recent work completed. Please make payment at your
+                            earliest convenience, and do not hesitate to contact me with any questions.
                         </span>
-                        <br /><br />
-                        <span>Many Thanks</span> <br />
-                        <span>Mayank Saraswat/Nazir Ansari</span>
-
+                        <br />
+                        <br />
+                        <span>Many Thanks</span>
+                        <br />
+                        <span>Your Name</span>
                     </div>
-                    <br />
-                    <br />
 
-                    <Table 
+                    <Items 
                         items={items}
                         taxes={taxes}
                         modifyItems={modifyItems}
@@ -231,15 +222,25 @@ export default function Index() {
                         handlePriceChange={handlePriceChange}
                         contentEditableRef={contentEditableRef}
                     />
-                    <div className="greetings" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>
+                    <Taxes
+                        items={items}
+                        taxes={taxes}
+                        modifyItems={modifyItems}
+                        modifyTaxes={modifyTaxes}
+                        subTotal={subTotal}
+                        totalWithTax={totalWithTax}
+                        price={price}
+                        handlePriceChange={handlePriceChange}
+                        contentEditableRef={contentEditableRef}
+                    />
+                    <div className="conclusionMessage" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>
                         <span>Many thanks! I look forward to doing business with you again in due course. </span>
-                        <br /><span></span>
                         <br />
-                        <span> Payment terms: to be received within 60 days.</span><br /></div>
-
-                </div>
-
-                <div className="rightSideBox">
+                        <br />
+                        <span> Payment terms: to be received within 60 days.</span>
+                    </div>
+                </div>     
+                <div className="rightMainBox">
                     <button className='rightBoxDownloadBtn' onClick={() => downloadPdf()}>Download this invoice</button>
                 </div>
             </div>

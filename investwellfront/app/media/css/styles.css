@@ -1,290 +1,140 @@
-.main-div {
-    width: 90%;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+.screenContainer{
+    width: 80%;
+    margin: 20px auto;
+    background-color: #EEE;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.toolTitle{
+    font-size: 1.5rem;
+    margin: 20px 5px;
+}
+.mainContainer{
+    width: 85%;
     margin: auto;
-    background-color: rgb(230, 247, 255);
-    font-family: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
-.leftSideBox {
-    width: 60%;
-    display: inline-block;
-    vertical-align: top;
+.leftMainBox{
+    width: 65%;
     background-color: white;
-    margin: 0px 5px 5px 15px;
-    padding: 25px;
+    padding: 20px 50px;
 }
-
-.rightSideBox {
-    width: 20%;
-    display: inline-block;
-    background-color: #ffffff;
-    border: 1px solid #f3f3f3;
-    padding: 15px;
-    margin-left: 30px;
+.rightMainBox {
+    width: 30%;
+    background-color: white;
+    align-self: flex-start;
+}
+.headerInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    width: 100%;
+    margin-bottom: 25px;
+    line-height: 2;
+}
+.heading{
+    font-size: 26px;
+    font-weight: 700;
+    color: black;
+    margin: 10px 0;
+}
+.highlight{
+    font-weight: 700;
+    color: black;
+}
+.alignRight{
+    text-align: right;
+}
+.alignLeft{
+    text-align: left;
+}
+.alignCenter{
     text-align: center;
-    position: fixed;
 }
-
-.rightBoxDownloadBtn {
-    background-color: #1a73e8;
+.userMessage {
+    margin: 30px 0;
+    line-height: 1.5;
+}
+.w-100{
+    width: 100%;
+}
+.itemTable, .taxTable{
+    border-collapse: collapse;
+    line-height: 2;
+    margin-top: 20px;
+    color: #444;
+}
+.priceInput{
+    font-size: 1rem;
+    font-weight: 700;
+}
+.itemsTotal{
+    line-height: 3;
+}
+.lineTotal{
+    color: black;
+}
+.taxesTotal{
+    line-height: 3;
+}
+.conclusionMessage{
+    margin-top: 25px;
+    line-height: 1.5;
+}
+.rightBoxDownloadBtn{
+    background-color: #215293;
     cursor: pointer;
     color: white;
-    width: 100%;
-    font-size: 1em;
-    padding: 6px;
-    border-radius: 3px;
+    width: 80%;
+    margin: 35px 0 35px 35px;
+    font-size: 1.2rem;
+    padding: 15px;
     border: none;
+    border-radius: 3px;
 }
 .rightBoxDownloadBtn:hover{
-    background-color: #188038;
-    transform: translateY(2px);
+    background-color: #1d496c;
+    transition: 0.5s;
 }
-
-.advisoryContentHeader {
-    margin-bottom: 32px;
-    width: 100%;
-}
-
-.companyName {
-    word-break: break-word;
-    font-size: 24px;
-}
-
-.invoiceEditableContent1 {
-    display: inline-block;
-    width: 60%;
-    vertical-align: top;
-    font-weight: bold;
-}
-
-.invoiceEditableContent2 {
-    display: inline-block;
-    width: 40%;
-    vertical-align: top;
-    margin-right: 0px;
-    font-weight: bold;
-    font-size: 24px;
-    vertical-align: top;
-}
-
-.invoiceEditableItem {
-    width: 100%;
-}
-
-.textRight {
-    text-align: right;
-}
-
-.address {
-    display: inline-block;
-    margin-bottom: 16px;
-    width: 60%;
-    vertical-align: top;
-}
-
-.address div {
-    line-height: 25px;
-}
-
-.clientInvoiceDetails {
-    display: inline-block;
-    width: 40%;
-    text-align: right;
-}
-
-.clientInvoiceDetails div {
-    line-height: 25px;
-}
-
-.personalInfo {
-    width: 100%;
-}
-
-.personalInfoLeftBox {
-    display: inline-block;
-    width: 60%;
-    vertical-align: top;
-}
-
-.personalInfoRightBox {
-    display: inline-block;
-    width: 40%;
-}
-
-.invoiceMessage {
-    margin-left: 10px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-table .number {
-    width: 20px;
-}
-
-
-table thead tr th {
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 600;
-    text-align: left;
-    padding-bottom: 10px;
-}
-
-td {
-    text-align: left;
-    padding-top: 6px;
-}
-
 .remove {
     color: red;
     margin-left: 8px;
     cursor: pointer;
-    font-size: 1.5em;
+    font-size: 1rem;
 }
-
-.addNewItem {
+.addNewEntity {
     cursor: pointer;
     font-weight: bold;
-    margin-top: 10px;
+    color: #146EB4
 }
-
-.invoiceTotal {
-    margin-bottom: 20px;
-    margin-top: 24px;
-}
-
-.subtotal{
-    margin: 10px 0px 10px 0px;
-    width: 100%;
-}
-
-.subtotalLeft {
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 600;
-    position: relative;
-    width: 82%;
-    display: inline-block;
-}
-.subtotalValue {
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 600;
-    position: relative;
-}
-
-.tax{
-    margin-bottom: 5px;
-    width: 100%;
-}
-
-.taxName{
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 600;
-    position: relative;
-    width: 82%;
-    display: inline-block;  
-}
-
-.taxValue{
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 600;
-    position: relative;
-}
-
-
-.invoiceGrandTotal{
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 600;
-    position: relative;
-    width: 80%;
-    display: inline-block;  
-}
-
-
-.greetings{
-    margin-top: 24px;
-}
-
-th{
-    border-bottom: 1px solid rgb(76, 73, 73);
-}
-
-@media screen and (max-width: 745px) {
-    .leftSideBox {
-        width: 85%;
-        background-color: white;
-        margin: 0px 5px 5px 15px;
-        padding: 25px;
-    }
-    .main-div {
-        width: 100%;
-        margin: auto;
-        background-color: rgb(230, 247, 255);
-        font-family: none;
-    }
-    .rightSideBox {
-        width: 70%;
-        background-color: #ffffff;
-        border: 1px solid #f3f3f3;
-        padding: 15px;
-        margin-left: 60px;
-        text-align: center;
-        position: static;
-    }
-    .rightBoxDownloadBtn {
-        background-color: #1a73e8;
-        cursor: pointer;
-        color: white;
-        width: 100%;
-        font-size: 1em;
-        padding: 10px;
-        border-radius: 3px;
-        border: none;
-    }
-  }  
-
-  input{
-    outline: 1 solid ;
-    outline-color:blue;
-    background: none;
+input{
     border: none;
-    width: 60%;
-}
-
-.textBold{
-    font-weight: bold;
-}
-
-.taxName{
-    width: 20%;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }
 button{
     border: none;
-    background-color: white;
-    color:#1a73e8;
+    background: none;
 }
 
-.taxPosition{
-    position: relative;
-    right: 30px;
-    width: 45px;
-    text-align: right;
-}
 
-.percentagePosition{
-    position: relative;
-    right: 35px;
+@media screen and (max-width: 745px) {
+    *{
+        font-size: 0.8rem;
+    }
+    .mainContainer{
+        display: block;
+        width: 100%;
+    }
+    .leftMainBox{
+        width: 100%;
+    }
+    .rightMainBox{
+        width: 100%;
+    }
 }
