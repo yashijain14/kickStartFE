@@ -9,7 +9,7 @@ const Items = (props) => {
                 <th className="alignCenter">Quantity</th>
                 <th className="alignCenter">
                     <input
-                        className="priceInput alignCenter"
+                        className="priceInput alignCenter inputBox"
                         type="text"
                         name="currencyName"
                         value={props.price.unitPriceName}
@@ -26,7 +26,7 @@ const Items = (props) => {
                     <td className="alignLef">{index + 1}</td>
                     <td>
                         <input
-                            className="alignCenter"
+                            className="inputBox alignCenter"
                             type="text"
                             name="description"
                             value={item.description}
@@ -35,7 +35,7 @@ const Items = (props) => {
                     </td>
                     <td>
                         <input
-                            className="alignCenter"
+                            className="inputBox alignCenter"
                             type="number"
                             name="quantity"
                             value={item.quantity}
@@ -44,7 +44,7 @@ const Items = (props) => {
                     </td>
                     <td>
                         <input
-                            className="alignCenter"
+                            className="inputBox alignCenter"
                             type="number"
                             name="unitPrice"
                             value={item.unitPrice}
@@ -54,7 +54,7 @@ const Items = (props) => {
                     <td className="alignRight lineTotal" type="number" name="lineTotal">
                         {props.price.currencySymbol} {item.lineTotal}  
                     </td>
-                    <td className="alignRight"><button className="remove" onClick={(event) => props.modifyItems("deleteItem", event, item.itemID)}>&#x2715;</button></td>
+                    <td className="alignRight"><button className="btn remove" onClick={(event) => props.modifyItems("deleteItem", event, item.itemID)}>&#x2715;</button></td>
                 </tr>
             ))}
         </tbody>
@@ -62,7 +62,7 @@ const Items = (props) => {
         <tfoot className="itemsTotal highlight">
             <tr>
                 <td colspan="6">
-                    <button className="addNewEntity" onClick={() => props.modifyItems("addItem")}>+ Add Item</button>
+                    <button className="btn addNewEntity" onClick={() => props.modifyItems("addItem")}>+ Add Item</button>
                 </td>
             </tr>
         <tr>

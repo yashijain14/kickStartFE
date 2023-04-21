@@ -5,14 +5,14 @@ const Taxes = (props) => {
         <tbody className="highlight">
             {props.taxes && props.taxes.map((tax) => (
                 <tr>
-                    <td><input className="highlight" contentEditable="true" name="taxName" onChange={(event) => props.modifyTaxes("changeTax", event, tax.taxID)} value={tax.taxName}/></td>
-                    <td>
-                        <input className="highlight taxPercentage" contentEditable="true" name="taxPercentage" onChange={(event) => props.modifyTaxes("changeTax", event, tax.taxID)} value={tax.taxPercentage}/>
+                    <td><input className="inputBox highlight" contentEditable="true" name="taxName" onChange={(event) => props.modifyTaxes("changeTax", event, tax.taxID)} value={tax.taxName}/></td>
+                    <td className="alignCenter">
+                        <input className="inputBox highlight taxPercentage" contentEditable="true" name="taxPercentage" onChange={(event) => props.modifyTaxes("changeTax", event, tax.taxID)} value={tax.taxPercentage}/>
                         <span>%</span>
                     </td>
                     <td className="highlight alignRight" name="taxAmount">{
                         props.price.currencySymbol} {tax.taxAmount}
-                        <button className="remove" onClick={(event) => props.modifyTaxes("deleteTax", event, tax.taxID)}>&#x2715;</button>
+                        <button className="btn remove" onClick={(event) => props.modifyTaxes("deleteTax", event, tax.taxID)}>&#x2715;</button>
                     </td>      
                 </tr>
             ))}
@@ -20,7 +20,7 @@ const Taxes = (props) => {
         <tfoot className="taxesTotal highlight">
             <tr>
                 <td colSpan="3">
-                    <button className="addNewEntity" onClick={() => props.modifyTaxes("addTax")}>+ Add tax</button>
+                    <button className="btn addNewEntity" onClick={() => props.modifyTaxes("addTax")}>+ Add tax</button>
                 </td>   
              </tr>
             <tr>
