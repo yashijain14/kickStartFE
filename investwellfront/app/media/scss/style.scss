@@ -2,9 +2,12 @@ $font : Arial,
 Helvetica,
 sans-serif;
 $main-color: #F1F5FA;
-$border-color: #eaebed;
+$border-color: $border-color;
 $button-color: #5275E9;
 $text-color: #626161;
+$blue : #39B0DC;
+$red : #F15562;
+$green : #4FC9A2;
 
 * {
     box-sizing: border-box;
@@ -15,7 +18,6 @@ $text-color: #626161;
 
 body {
     background-color: $main-color;
-
 }
 
 .outerContainer {
@@ -39,7 +41,7 @@ body {
         padding: 2.66% 1% 2.66% 1%;
         margin: 0% 1% 2% 1%;
         background-color: #FFFFFF;
-        border: 3px solid #eaebed;
+        border: 3px solid $border-color;
 
         .proceedButton {
             margin: 0 0 0 40%;
@@ -68,7 +70,7 @@ body {
             .dropdownInputOuter {
                 position: absolute;
                 width: 36%;
-                border: 3px solid #eaebed;
+                border: 3px solid $border-color;
                 border-radius: 4px;
                 height: 16%;
 
@@ -98,9 +100,7 @@ body {
                 overflow-y: auto;
                 height: 18em;
                 z-index: 1;
-
                 .dropDown-row {
-
                     cursor: pointer;
                     text-align: start;
                     margin: 2px 0;
@@ -109,18 +109,13 @@ body {
                     margin-bottom: 1px;
                     font-size: 18px;
                 }
-
                 .dropDown-row:nth-child(even) {
                     background-color: #efeff0;
                 }
-
             }
-
             .dropDown:empty {
                 border: none;
             }
-
-
         }
     }
 
@@ -129,7 +124,7 @@ body {
         width: 98%;
         height: 27vw;
         background-color: #FFFFFF;
-        border: 3px solid #eaebed;
+        border: 3px solid $border-color;
         display: block;
         position: relative;
         z-index: 0;
@@ -137,7 +132,7 @@ body {
         .leftDiv {
             position: absolute;
             background-color: #ffffff;
-            border: 1px solid #eaebed;
+            border: 1px solid $border-color;
             border-radius: 2%;
             width: 42.58vw;
             margin: 1.5% 0% 0% 1.5%;
@@ -266,8 +261,6 @@ body {
             }
         }
 
-
-
         .rightDiv {
             position: absolute;
             background-color: #ffffff;
@@ -275,10 +268,9 @@ body {
             margin: 0.1vw 0 0 44.35vw;
             height: 26.2vw;
             vertical-align: top;
-
             .rightContainerA {
                 position: absolute;
-                border: 2px solid #eaebed;
+                border: 2px solid $border-color;
                 width: 47%;
                 height: 11.25vw;
                 margin: 1.05vw 0 0 0.4vw;
@@ -286,35 +278,28 @@ body {
                 .recharts-surface{
                     width: 100%;
                     height: 100%;
-
                 }
- 
             }
 
             .rightContainerB {
                 position: absolute;
-                /* display: inline-block; */
-                border: 2px solid #eaebed;
+                border: 2px solid $border-color;
                 width: 47%;
                 height: 11.25vw;
-                /* padding: 0px; */
                 margin: 2% 0 0 25.5vw;
                 border-radius: 4px;
 
                 .outerDivFirst {
                     display: inline;
-
                     .commonStockDiv {
-                        background-color: rgb(59, 209, 71);
+                        background-color: $green;
                         position: absolute;
                         width: 24%;
                         height: 5.5vw;
                         border-radius: 90%;
                         padding: 6.75% 0 4% 4%;
-                        /* display: inline-block; */
                         margin: 15.7% 2.25% 4.5% 4.5%;
                         float: left;
-
                         .commonStockIcon {
                             position: absolute;
                             margin: 3% 0 0 7%;
@@ -325,45 +310,29 @@ body {
                     .commonStock {
                         float: right;
                         font-size: 2.7vw;
-                        margin: 18% 2% 0 0;
+                        margin: 18% 3% 0 0;
                         font-weight: 550;
                         direction: rtl;
-
-                        .text {
-                            float: right;
-                            font-size: 35.5%;
-                            direction: ltr;
-                            word-spacing: 0.25rem;
-                            color: #626161;
-                            font-family: Arial, Helvetica, sans-serif;
-                        }
-
                     }
-
                 }
-
-
             }
 
             .rightContainerC {
                 position: absolute;
-                border: 2px solid #eaebed;
+                border: 2px solid $border-color;
                 width: 47%;
                 height: 11.25vw;
                 margin: 14.2vw 0 0 0.4vw;
                 border-radius: 4px;
-
                 .outerDivSecond {
                     display: inline;
-
                     .unCommonStockDiv {
-                        background-color: blue;
+                        background-color: $blue;
                         position: absolute;
                         width: 24%;
                         height: 5.5vw;
                         border-radius: 90%;
                         padding: 6.75% 0 4% 4%;
-                        /* display: inline-block; */
                         margin: 15.7% 2.25% 4.5% 4.5%;
                         float: left;
 
@@ -378,53 +347,29 @@ body {
                         float: right;
                         position: absolute;
                         font-size: 2.7vw;
-                        margin: 1vw 0 0 11.3vw;
                         font-weight: 550;
+                        margin: 1vw 0 0 11.5vw;
                         direction: rtl;
                         display: inline;
-
-                        .text {
-                            float: right;
-                            font-size: 35.5%;
-                            direction: ltr;
-                            word-spacing: 0.25rem;
-                            color: #626161;
-                            font-family: Arial, Helvetica, sans-serif;
-                        }
                     }
 
                     .totalStockA {
                         float: right;
                         position: absolute;
                         font-size: 2.7vw;
-                        margin: 25% 0 0 63%;
+                        margin: 25% 0 0 62%;
                         font-weight: 550;
                         direction: rtl;
-
-                        .text {
-                            float: right;
-                            font-size: 35.5%;
-                            direction: ltr;
-                            word-spacing: 0.25rem;
-                            color: #626161;
-                            font-family: Arial, Helvetica, sans-serif;
-                        }
                     }
 
-
-
-
                 }
-
-
             }
 
             .rightContainerD {
                 position: absolute;
-                border: 2px solid #eaebed;
+                border: 2px solid $border-color;
                 width: 47%;
                 height: 11.25vw;
-                /* padding: 0px; */
                 margin: 14.2vw 0 0 25.5vw;
                 border-radius: 4px;
 
@@ -432,13 +377,12 @@ body {
                     display: inline;
 
                     .unCommonStockDiv {
-                        background-color: rgb(235, 42, 28);
+                        background-color: $red;
                         position: absolute;
                         width: 24%;
                         height: 5.5vw;
                         border-radius: 90%;
                         padding: 6.75% 0 4% 4%;
-                        /* display: inline-block; */
                         margin: 15.7% 2.25% 4.5% 4.5%;
                         float: left;
 
@@ -453,48 +397,31 @@ body {
                         float: right;
                         position: absolute;
                         font-size: 2.7vw;
-                        margin: 1vw 0 0 11.3vw;
+                        margin: 1vw 0 0 11.5vw;
                         font-weight: 550;
                         direction: rtl;
                         display: inline;
-
-                        .text {
-                            float: right;
-                            font-size: 35.5%;
-                            direction: ltr;
-                            word-spacing: 0.25rem;
-                            color: #626161;
-                            font-family: Arial, Helvetica, sans-serif;
-                        }
                     }
 
                     .totalStockA {
                         float: right;
                         position: absolute;
                         font-size: 2.7vw;
-                        margin: 6vw 0 0 14.3vw;
+                        margin: 6vw 0 0 14.5vw;
                         font-weight: 550;
                         direction: rtl;
                         display: inline;
-
-                        .text {
-                            float: right;
-                            font-size: 35.5%;
-                            direction: ltr;
-                            word-spacing: 0.25rem;
-                            color: #626161;
-                            font-family: Arial, Helvetica, sans-serif;
-                        }
                     }
-
-
-
-
                 }
             }
+            .text {
+                float: right;
+                font-size: 35.5%;
+                direction: ltr;
+                word-spacing: 0.25rem;
+                color: #626161;
+            }
         }
-
-
 
     }
 
@@ -514,7 +441,7 @@ body {
         display: block;
         overflow: auto;
         font-family: Arial, Helvetica, sans-serif;
-        margin: 20px 40px 0px 40px;
+        margin: 1.1vw 2vw 0 2vw;
         border: 3px solid $border-color;
 
         .styledTable {
@@ -565,16 +492,13 @@ body {
     }
 
     .loader {
-        vertical-align: middle;
+        
         border: 6px solid #f3f3f3;
-        /* Light grey */
         border-top: 6px solid #3498db;
-        /* Blue */
         border-radius: 50%;
         width: 90px;
         height: 90px;
         margin: auto;
-        display: inline-block;
         animation: spin 2s linear infinite;
     }
 
@@ -615,36 +539,45 @@ body {
     }
 }
 
+
+// MEDIA QUERIES
+
 @media only screen and (max-width: 768px) {
 
     .outerContainer{
         width: 100%;
         .filterArea{
             width:100%;
+            margin:0 1% 2% 0%;
             .searchField{
-                width:90%;
+                width:87vw;
                 .dropdownInputOuter{
                     width: 90%;
-                    height: 13%;
+                    height: 6vw;
                 }
                     .dropDown{
-                        width:90%;
-                        margin: 6% 0 0 0.1%;
-
+                        width:87vw;
+                        margin: 5vw 0 0 0.3vw;
+                        height:13vw;
+                        border:1px solid lightgray;
+                        .dropDown-row{
+                            margin-bottom: -4px;
+                            font-size: 10px;
+                        }
                     }    
             }
            .proceedButton {
                width: 20%;
-   
+               margin:4vw 0 0 34vw;
            } 
         }
         .portfolioOverlap{
-            margin: 3% 1% 2% 1%;
+            margin: 3% 1% 2% 0%;
             width:100%;
             height: max-content;
             .leftDiv{
                 position: relative;
-                width: 96%;
+                width: 97%;
                 height: 60vw;
                 .vennDiagramLeftLabel{
                     width: 20%;
@@ -692,21 +625,21 @@ body {
                     position: relative;
                     width: 100%;
                     margin-left: 0;
-                    height: 50vw;
+                    height: 47vw;
                     .rightContainerA{
-                        margin-top: 3vw;
+                        margin: 3vw 0 0 1.5vw;
                         width: 48%;
                         height: 20vw;
                         .recharts-surface{
-                            width: 65%;
+                            width: 72%;
                             display: block;
-                            height: 120%;
-                            margin: -12% 0 0 8%;
+                            height: 150%;
+                            margin: -23% 0 0 0%;
         
                         }
                     }
                     .rightContainerB{
-                        margin: 3vw 0vw 0 50vw;
+                        margin: 3vw 0vw 0 49.5vw;
                         width: 48%;
                         height: 20vw;
                         .outerDivFirst{
@@ -735,7 +668,7 @@ body {
                        
                     }
                     .rightContainerC{
-                        margin: 25vw 0 0 1vw;
+                        margin: 25vw 0 0 1.5vw;
                         width: 48%;
                         height: 20vw;
                         .outerDivSecond {
@@ -759,14 +692,18 @@ body {
                             }
         
                             .unCommonStockA {
-                                font-size: 3.5vw;
-                                margin: 2vw 0 0 24vw;
+                                font-size: 5vw;
+                                margin: 2vw 0 0 22.5vw;
                                 padding: 10%;
+                                display: block;
+                                width: max-content;
                             }
         
                             .totalStockA {
-                                font-size: 3.5vw;
-                                margin: 11vw 0 0 25vw;
+                                font-size: 5vw;
+                                display: block;
+                                margin: 11vw 0 0 28.5vw;
+                                width: max-content;
 
                             }
         
@@ -778,7 +715,7 @@ body {
                     }
                     .rightContainerD{
                         width: 48%;
-                        margin: 25vw 0 0 50vw;
+                        margin: 25vw 0 0 49.5vw;
                         height: 20vw;
                         .outerDivThird {
                             position: relative;
@@ -801,15 +738,18 @@ body {
                             }
         
                             .unCommonStockA {
-                                font-size: 3.5vw;
-                                margin: 2vw 0 0 24vw;
+                                font-size: 5vw;
+                                margin: 2vw 0 0 22.5vw;
                                 padding: 10%;
+                                display: block;
+                                width: max-content;
                             }
         
                             .totalStockA {
-                                font-size: 3.5vw;
-                                margin: 11vw 0 0 27vw;
-
+                                font-size: 5vw;
+                                margin: 11vw 0 0 28.5vw;
+                                display: block;
+                                width: max-content;
                             }
         
         
@@ -819,15 +759,317 @@ body {
                     }
                 }
             }
-        }
+        
         .tableScroll{
             width: 100%;
-            margin: 55% 1% 2% 0%;
-        }
+            margin: 2vw 0 0 0;
+        
         .styledTable{
             width: 100%;
             font-size: 18px;
+            .tableHeading{
+                font-size: 2vw;
+            }
+            .tableRow{
+                .tableData{
+                    font-size: 1.8vw;
+                    padding: 5px 0px 4px 3px;
+                }
+                .progressColoumn{
+                    width: 30%;
+                    padding: 0 15px 0 15px;
+                }
+            }
         }
     }
-      
+    }
+    }
+
+
+@media only screen and (max-width: 400px) {
+
+        .outerContainer{
+            width: 100%;
+            .info{
+                font-size: .7em;
+                margin:16px 43px;
+                font-weight: bold;
+            }
+            .filterArea{
+                width:100%;
+                .searchField{
+                    width:87vw;
+                    .dropdownInputOuter{
+                        width: 90%;
+                        height: 11%;
+                    }
+                        .dropDown{
+                            width:85vw;
+                            margin: 8vw 0 0 1vw;
+                            height:22vw;
+                            border:1px solid lightgray;
+                            .dropDown-row{
+                                padding: 3px;
+                                margin-bottom: -4px;
+                                font-size: 10px;
+                            }
+                        }    
+                }
+               .proceedButton {
+                   width: 20%;
+                   margin:6vw 0 0 34vw;
+       
+               } 
+            }
+            .portfolioOverlap{
+                margin: 3% 1% 2% 0%;
+                width:100%;
+                height: max-content;
+                .leftDiv{
+                    position: relative;
+                    width: 96%;
+                    height: 60vw;
+                    .vennDiagramLeftLabel{
+                        position: absolute;
+                        font-size: 3vw;
+                        width: 20vw;
+                        height: 6vw;
     
+                    }
+                    .vennDiagramRightLabel{
+                        position: absolute;
+                        font-size: 3vw;
+                        width: 20vw;
+                        height: 6vw;
+                        margin: -1vw 0 0 65vw;
+    
+                    }
+                    .vennDiagramLeft{
+                        .graphA{
+                            position: absolute;
+                            margin: 11% 0% 0% 30%;
+                        }
+                        .commonGraphA{
+                            position: absolute;
+                            margin: 12% 0% 0% 61%;
+                        }
+                        .commonGraphB{
+                            position: absolute;
+                            margin: 12% 0% 0% 80%;
+                        }
+                        .graphALabel{
+                            position: absolute;
+                            margin: 33vw 0px 0px 11vw;
+                            font-size: 2vw;
+                            width: 22vw;
+                        }
+                        .commonGraphLabel{
+                            position: absolute;
+                            margin: 34vw 0px 0px 36vw;
+                            font-size: 2vw;
+                            width: 22vw;
+                        }
+    
+                    }
+                    .vennDiagramRight{
+                        .graphB{
+                            position: absolute;
+                            margin: 23% 0% 0% 60%;
+                        }
+                        .graphBLabel{
+                            position: absolute;
+                            margin: 38vw 0px 0px 27.5vw;
+                            font-size: 2vw;
+                            width: 21vw;
+                        }
+    
+                    }
+                    .vennLabel {
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-size: 10px;
+                        position: absolute;
+                        margin: 58% 0% 0% 3%;
+                    }
+                   
+                    
+                
+                }
+                    .rightDiv{
+                        position: relative;
+                        width: 100%;
+                        margin-left: 0;
+                        height: 166vw;
+                        .rightContainerA{
+                            position: absolute;
+                            border: 2px solid $border-color;
+                            width: 85vw;
+                            height: 37.25vw;
+                            margin: 4.2vw 0 0 5.5vw;
+                            border-radius: 4px;
+                            .recharts-surface{
+                                width: 68vw;
+                                display: block;
+                                height: 64vw;
+                                margin: -30% 0 0 -5%;
+            
+                            }
+                        }
+                        .rightContainerB{
+                            position: absolute;
+                            border: 2px solid $border-color;
+                            width: 85vw;
+                            height: 37.25vw;
+                            margin: 44.2vw 0 0 5.5vw;
+                            border-radius: 4px;
+                            .outerDivFirst{
+                                position: relative;
+                                .commonStockDiv {
+                                    position: absolute;
+                                    width: 20vw;
+                                    height: 19vw;
+                                    border-radius: 90%;
+                                    margin: 11vw 0 0 5vw;
+                                    .commonStockIcon {
+                                        position: absolute;
+                                        margin: 5.5vw 0 0 5vw;
+                                        width: 10vw;
+                                    }
+                                }
+                                .commonStock{
+                                    font-size: 8.5vw;
+                                    margin: 3vw -6vw 0 0;
+                                    padding: 10%;
+                                    display: block;
+                                    width: max-content;
+                                }
+    
+                            }
+                           
+                        }
+                        .rightContainerC{
+                            position: absolute;
+                            border: 2px solid $border-color;
+                            width: 85vw;
+                            height: 37.25vw;
+                            margin: 84.2vw 0 0 5.5vw;
+                            border-radius: 4px;
+                        
+                            .outerDivSecond {
+                                position: relative;
+            
+                                .unCommonStockDiv {
+                                    position: absolute;
+                                    width: 20vw;
+                                    height: 19vw;
+                                    border-radius: 90%;
+                                    padding: 6.75% 0 4% 4%;
+                                    margin: 11vw 0 0 5vw;
+            
+                                    .unCommonStockIcon {
+                                        position: absolute;
+                                        margin: 5.5vw 0 0 4vw;
+                                        width: 12vw;
+                                    }
+                                }
+            
+                                .unCommonStockA {
+                                    font-size: 8.5vw;
+                                    margin: 4vw 0 0 43vw;
+                                    padding: 10%;
+                                    display: block;
+                                    width: max-content;
+                                }
+            
+                                .totalStockA {
+                                    font-size: 8.5vw;
+                                    margin: 20vw 0 0 53vw;
+                                    padding: 10%;
+                                    display: block;
+                                    width: max-content;
+    
+                                }
+            
+            
+            
+            
+                            }
+            
+                        }
+                        .rightContainerD{
+                            position: absolute;
+                            border: 2px solid $border-color;
+                            width: 85vw;
+                            height: 37.25vw;
+                            margin: 124.2vw 0 0 5.5vw;
+                            border-radius: 4px;
+                            .outerDivThird {
+                                position: relative;
+            
+                                .unCommonStockDiv {
+                                    position: absolute;
+                                    width: 20vw;
+                                    height: 19vw;
+                                    border-radius: 90%;
+                                    margin: 11vw 0 0 5vw;
+            
+                                    .unCommonStockIcon {
+                                        position: absolute;
+                                        margin: 5.5vw 0 0 4vw;
+                                        width: 12vw;
+                                    }
+                                }
+            
+                                .unCommonStockA {
+                                    font-size: 8.5vw;
+                                    margin: 4vw 0 0 43vw;
+                                    padding: 10%;
+                                    display: block;
+                                    width: max-content;
+                                }
+            
+                                .totalStockA {
+                                    font-size: 8.5vw;
+                                    margin: 20vw 0 0 53vw;
+                                    padding: 10%;
+                                    display: block;
+                                    width: max-content;
+    
+                                }
+            
+            
+            
+            
+                            }
+                        }
+                    }
+                }
+            
+            .tableLabel{
+                margin: 0;
+            }
+        
+            .tableScroll{
+                width: 100%;
+                margin: 5vw 0 0 0;
+                .styledTable{
+                    width: 100%;
+                    .tableHeading{
+                        font-size:3vw;
+                    }
+                    .tableRow{
+                    .tableData{
+                        font-size: 3vw;
+                        padding: 5px 0px 4px 3px;
+                    }
+                    .progressColoumn{
+                        width: 30%;
+                        padding: 0 9px 0 7px;
+                    }
+                }
+                }
+            }
+        
+            
+        }
+        }
+          

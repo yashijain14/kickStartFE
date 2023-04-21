@@ -29,8 +29,8 @@ export default function DonutChart(props) {
                     dataKey="value"
                     >
                     
-                    <Label width={30} position="center" fontWeight= '550' fontSize="22px">{props.values}</Label>
-                    <Label width={30} position="center" fontWeight= '550' dx={30} fontSize="20px">%</Label>
+                    <Label width={30} position="center" fontWeight= '550' dx={-8} fontSize="26px">{props.values}</Label>
+                    <Label width={30} position="center" fontWeight= '550' dx={20} dy={3} fontSize="20px">%</Label>
 
                     <Label
                     value="portfolio overlap percentage"
