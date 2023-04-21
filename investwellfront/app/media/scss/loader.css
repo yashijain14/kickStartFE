@@ -1,0 +1,268 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+body .mainBox {
+  height: 100vh;
+  position: relative;
+}
+body .mainBox .logo {
+  height: 6%;
+  width: 12%;
+  border: 1px solid #ede8ea;
+  display: inline-block;
+  position: absolute;
+}
+body .mainBox .navHeader {
+  display: inline-block;
+  height: 6%;
+  width: 88%;
+  border: 1px solid #ede8ea;
+  position: absolute;
+  margin: auto 0 0 12%;
+}
+body .mainBox .sideNav {
+  display: inline-block;
+  height: 94%;
+  width: 12%;
+  margin-top: 3%;
+  border: 1px solid #ede8ea;
+  background-color: #526fe4;
+  position: absolute;
+}
+body .mainBox .rightMain {
+  display: inline-block;
+  height: 94%;
+  width: 88%;
+  margin: 3% 0px 0px 12%;
+  border: 1px solid #ede8ea;
+  background-color: #f0f4fa;
+  position: absolute;
+}
+body .mainBox .rightMain .contentArea {
+  height: auto;
+  width: 95%;
+  background-color: #ffffff;
+  margin: 2% auto;
+  padding: 20px 5px 0 20px;
+}
+body .mainBox .rightMain .contentArea .selectionArea {
+  display: inline-block;
+  margin: 0 5px 0;
+}
+body .mainBox .rightMain .contentArea .selectionArea .labels {
+  display: block;
+  margin: 0 0 5px;
+}
+body .mainBox .rightMain .contentArea .selectionArea .dropdownContainer {
+  text-align: left;
+  border: 1px solid #ccc;
+  position: relative;
+  border-radius: 5px;
+  width: 350px;
+}
+body .mainBox .rightMain .contentArea .selectionArea .dropdownContainer .dropdownInput {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+body .mainBox .rightMain .contentArea .selectionArea .dropdownContainer .dropdownMenu {
+  position: absolute;
+  transform: translateY(4px);
+  width: 100%;
+  overflow: auto;
+  max-height: 150px;
+  background-color: #c6cef5;
+  z-index: 99;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, serif;
+}
+body .mainBox .rightMain .contentArea .selectionArea .dropdownContainer .dropdownMenu .dropdownItem {
+  padding: 5px;
+  cursor: pointer;
+}
+body .mainBox .rightMain .contentArea .selectionArea .dropdownContainer .dropdownMenu .dropdownItem.selected {
+  background-color: #86809c;
+  color: #ffffff;
+}
+body .mainBox .rightMain .contentArea .selectionArea .dropdownContainer .dropdownMenu .dropdownItem:hover {
+  background-color: rgba(159, 195, 248, 0.4392156863);
+}
+body .mainBox .rightMain .contentArea .selectionArea .dropdownContainer .dropdownMenu .searchBox {
+  padding: 5px;
+  background-color: #eee;
+}
+body .mainBox .rightMain .contentArea .selectionArea .dropdownContainer .dropdownMenu .searchBox .searchInput {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+body .mainBox .rightMain .contentArea .selectionArea .goButton {
+  border: 1px solid #e8ebf9;
+  width: 60px;
+  height: 38px;
+  border-radius: 5px;
+  background-color: #4959e8;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: large;
+}
+body .mainBox .rightMain .contentArea .schemeList {
+  display: inline-block;
+}
+body .mainBox .rightMain .contentArea .schemeList .date {
+  color: #6cebda;
+  text-align: center;
+  font-style: italic;
+  width: 600px;
+  margin: 30px 0 4px;
+  display: block;
+}
+body .mainBox .rightMain .contentArea .schemeList .displayList {
+  display: inline-block;
+  position: relative;
+}
+body .mainBox .rightMain .contentArea .schemeList .displayList .listTitle {
+  color: #86809c;
+  margin: 56px 10px 0 5px;
+  display: inline-block;
+  border: 1px solid red;
+  height: 500px;
+  position: absolute;
+  width: 10%;
+}
+body .mainBox .rightMain .contentArea .schemeList .displayList .listBox {
+  display: inline-block;
+  position: sticky;
+  width: 34%;
+  margin: 0 0 0 5%;
+}
+body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .list {
+  color: #ccc;
+  border: 1px solid #e5e7ee;
+  width: 400px;
+  list-style-type: none;
+  border-radius: 15px;
+  margin: 0 10px 10px 5px;
+  height: auto;
+  padding: 5px;
+}
+body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .list .deleteBtn {
+  border-left: 1px solid #e8ebf9;
+  float: right;
+  width: 20px;
+  text-align: center;
+  height: 20px;
+}
+body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .clearBtn {
+  display: inline-block;
+  border: 1px solid #e8ebf9;
+  border-radius: 15px;
+  width: 90px;
+  text-align: center;
+  color: #d1e0eb;
+  background-color: #959cbb;
+  margin: -8px 10px 0;
+  height: 35px;
+  padding: 8px 2px 0 0;
+  position: inherit;
+}
+body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .clearBtn .deleteBtn {
+  float: right;
+  border-left: 1px solid #d1e0eb;
+  width: 16px;
+  height: 25px;
+  margin: auto;
+}
+body .mainBox .rightMain .contentArea .timePeriodBox {
+  display: block;
+  margin: 15px 5px 0;
+}
+body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer {
+  text-align: left;
+  border: 1px solid #ccc;
+  position: relative;
+  border-radius: 5px;
+  width: 100px;
+}
+body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer .dropdownInput {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer .dropdownMenu {
+  position: absolute;
+  transform: translateY(4px);
+  width: 100%;
+  overflow: auto;
+  max-height: 150px;
+  background-color: #c6cef5;
+  z-index: 99;
+}
+body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer .dropdownMenu .dropdownItem {
+  padding: 5px;
+  cursor: pointer;
+}
+body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer .dropdownMenu .dropdownItem.selected {
+  background-color: #86809c;
+  color: #ffffff;
+}
+body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer .dropdownMenu .dropdownItem:hover {
+  background-color: rgba(159, 195, 248, 0.4392156863);
+}
+body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer .dropdownMenu .searchBox {
+  padding: 5px;
+  background-color: #eee;
+}
+body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer .dropdownMenu .searchBox .searchInput {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+body .mainBox .rightMain .contentArea .applyButton {
+  border: 1px solid #e8ebf9;
+  width: 80px;
+  height: 40px;
+  margin: 2% 45%;
+  background-color: #4959e8;
+  color: #fff;
+  border-radius: 3px;
+  font-size: large;
+}
+body .mainBox .rightMain .workingArea {
+  height: auto;
+  width: 95%;
+  background-color: #ffffff;
+  margin: 2% auto;
+  padding: 20px 5px 20px 20px;
+}
+body .mainBox .rightMain .workingArea .schemeList {
+  height: 100px;
+  width: 35%;
+  display: inline-block;
+}
+body .mainBox .rightMain .workingArea .matrix {
+  height: 100px;
+  width: 55%;
+  display: inline-block;
+  margin: 0 0 0 80px;
+}
+body .mainBox .rightMain .workingArea .matrixAreaFooter {
+  width: 97.5%;
+  height: auto;
+}
+body .mainBox .rightMain .workingArea .matrixAreaFooter .matrixColorTable {
+  margin: auto;
+  width: auto;
+}/*# sourceMappingURL=loader.css.map */

@@ -24,6 +24,7 @@ const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, 
   }
 
   const getDisplay = () => {
+    // console.log("helo ", selected)
     if (!selected || selected.length === 0) {
       return placeHolder
     }
@@ -109,6 +110,7 @@ const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, 
         {isSearchable && (<div className='searchBox'>
           <input onChange={onSearch} value={searchValue} className='searchInput' ref={searchRef}></input>
         </div>)}
+        {/* {console.log("valuee",searchValue,onSearch)} */}
 
         {console.log("line 116 current menu",currentMenu) }
         {currentMenu && currentMenu.map((option) => (
