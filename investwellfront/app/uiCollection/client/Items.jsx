@@ -1,7 +1,7 @@
 import React from "react";
 const Items = (props) => {
     return (
-    <table class="itemTable w-100">
+    <table class="itemTable">
         <thead class="highlight">
             <tr>
                 <th className="alignLeft">#</th>
@@ -16,13 +16,14 @@ const Items = (props) => {
                         onChange={(event) => {props.handlePriceChange(event)}}
                     /> 
                 </th>
-                <th colspan="2" className="alignRight">Line Total</th>
+                <th className="alignRight">Line Total</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             {props.items && props.items.map((item, index) => (
                 <tr key={item.taxID}>
-                    <td className="alignLeft">{index + 1}</td>
+                    <td className="alignLef">{index + 1}</td>
                     <td>
                         <input
                             className="alignCenter"
@@ -53,7 +54,7 @@ const Items = (props) => {
                     <td className="alignRight lineTotal" type="number" name="lineTotal">
                         {props.price.currencySymbol} {item.lineTotal}  
                     </td>
-                    <td><button className="remove" onClick={(event) => props.modifyItems("deleteItem", event, item.itemID)}>&#x2715;</button></td>
+                    <td className="alignRight"><button className="remove" onClick={(event) => props.modifyItems("deleteItem", event, item.itemID)}>&#x2715;</button></td>
                 </tr>
             ))}
         </tbody>
@@ -66,7 +67,7 @@ const Items = (props) => {
             </tr>
         <tr>
             <td contentEditable="true" colspan="4" ref={(text) => props.contentEditableRef.current.push(text)}><b>Sub Total</b></td>
-            <td className="alignRight" colspan="2"><b>{props.price.currencySymbol} {props.subTotal}</b></td>
+            <td className="alignRight" colSpan="2"><b>{props.price.currencySymbol} {props.subTotal}</b></td>
         </tr>
         </tfoot>
     </table>

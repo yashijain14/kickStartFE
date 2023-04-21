@@ -6,7 +6,10 @@ const Taxes = (props) => {
             {props.taxes && props.taxes.map((tax) => (
                 <tr>
                     <td><input className="highlight" contentEditable="true" name="taxName" onChange={(event) => props.modifyTaxes("changeTax", event, tax.taxID)} value={tax.taxName}/></td>
-                    <td><input className="highlight" contentEditable="true" name="taxPercentage" onChange={(event) => props.modifyTaxes("changeTax", event, tax.taxID)} value={tax.taxPercentage}/></td>
+                    <td>
+                        <input className="highlight taxPercentage" contentEditable="true" name="taxPercentage" onChange={(event) => props.modifyTaxes("changeTax", event, tax.taxID)} value={tax.taxPercentage}/>
+                        <span>%</span>
+                    </td>
                     <td className="highlight alignRight" name="taxAmount">{
                         props.price.currencySymbol} {tax.taxAmount}
                         <button className="remove" onClick={(event) => props.modifyTaxes("deleteTax", event, tax.taxID)}>&#x2715;</button>
