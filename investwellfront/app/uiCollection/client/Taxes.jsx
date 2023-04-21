@@ -1,7 +1,7 @@
 import React from "react";
 const Taxes = (props) => {
     return (
-        <table className="taxTable w-100">
+        <table className="taxTable">
         <tbody className="highlight">
             {props.taxes && props.taxes.map((tax) => (
                 <tr>
