@@ -102,23 +102,26 @@ body {
             margin: 30px 0 4px;
             display: block; }
           body .mainBox .rightMain .contentArea .schemeList .displayList {
+            display: inline-block;
             position: relative; }
             body .mainBox .rightMain .contentArea .schemeList .displayList .listTitle {
               color: #86809c;
-              margin: 0 10px 0 5px;
+              margin: 56px 10px 0 5px;
+              display: inline-block;
+              border: 1px solid red;
+              height: 500px;
               position: absolute;
               width: 10%; }
             body .mainBox .rightMain .contentArea .schemeList .displayList .listBox {
               display: inline-block;
               position: sticky;
-              width: 90%;
-              margin: 0 0 0 12%; }
+              width: 34%;
+              margin: 0 0 0 5%; }
               body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .list {
                 color: #ccc;
                 border: 1px solid #e5e7ee;
                 width: 400px;
                 list-style-type: none;
-                display: inline-block;
                 border-radius: 15px;
                 margin: 0 10px 10px 5px;
                 height: auto;
@@ -196,26 +199,38 @@ body {
           color: #fff;
           border-radius: 3px;
           font-size: large; }
-      body .mainBox .rightMain .workingArea {
-        height: auto;
+      body .mainBox .rightMain .matrixArea {
+        height: 100vh;
         width: 95%;
         background-color: #ffffff;
         margin: 2% auto;
-        padding: 20px 5px 20px 20px; }
-        body .mainBox .rightMain .workingArea .schemeList {
+        padding: 20px 5px 0 20px; }
+        body .mainBox .rightMain .matrixArea .leftSideTable {
+          width: auto;
           height: 100px;
-          width: 35%;
-          display: inline-block; }
-        body .mainBox .rightMain .workingArea .matrix {
-          height: 100px;
-          width: 55%;
-          display: inline-block;
-          margin: 0 0 0 80px; }
-        body .mainBox .rightMain .workingArea .matrixAreaFooter {
-          width: 97.5%;
-          height: auto; }
-          body .mainBox .rightMain .workingArea .matrixAreaFooter .matrixColorTable {
-            margin: auto;
-            width: auto; }
+          color: black;
+          margin-top: 10px;
+          margin-left: 10px;
+          margin-bottom: 50px;
+          background-color: white;
+          word-wrap: break-word; }
+        body .mainBox .rightMain .matrixArea .bottomTable .tableCollapse {
+          border-collapse: collapse;
+          width: auto;
+          margin: auto; }
+        body .mainBox .rightMain .matrixArea .bottomTable .lowerTableRow {
+          border: 1px solid #f4f4f4;
+          box-shadow: 0px 1px 3px 3px #f4f4f4;
+          width: 50px; }
+          body .mainBox .rightMain .matrixArea .bottomTable .lowerTableRow .colorGreen {
+            background-color: #8AEC31; }
+          body .mainBox .rightMain .matrixArea .bottomTable .lowerTableRow .colorSkyBlue {
+            background-color: #87F3C1; }
+          body .mainBox .rightMain .matrixArea .bottomTable .lowerTableRow .colorOrange {
+            background-color: #E87710; }
+          body .mainBox .rightMain .matrixArea .bottomTable .lowerTableRow .colorRed {
+            background-color: #E4450B; }
+        body .mainBox .rightMain .matrixArea .bottomTable .lowerTableRow td {
+          padding-right: 20px; }
 
 /*# sourceMappingURL=loader.css.map */

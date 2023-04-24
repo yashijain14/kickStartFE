@@ -7,7 +7,6 @@ const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, 
   const [searchValue, setSearchValue] = useState("")
   const searchRef = useRef()
   const inputRef = useRef()
-  // console.log("selected line 10", field)
   const menu = (e) => {
     setShowMenu(!showMenu)
     setCurrentMenu(option)
@@ -24,14 +23,12 @@ const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, 
   }
 
   const getDisplay = () => {
-    // console.log("helo ", selected)
     if (!selected || selected.length === 0) {
       return placeHolder
     }
-    // if(selected == 'scheme')
     return selected.name
   }
-  // console.log("selected",category)
+
   const removeOption = (option) => {
     return selected.filter((o) => o.value !== option.value)
   }
@@ -56,7 +53,6 @@ const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, 
       return setCurrentMenu(option)
     }
 
-    // console.log("line 56", currentMenu)
     return setCurrentMenu(option.filter(
       (option) =>
         option.name.toLowerCase().startsWith(searchValue.toLowerCase()) >= 0
@@ -110,9 +106,7 @@ const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, 
         {isSearchable && (<div className='searchBox'>
           <input onChange={onSearch} value={searchValue} className='searchInput' ref={searchRef}></input>
         </div>)}
-        {/* {console.log("valuee",searchValue,onSearch)} */}
 
-        {console.log("line 116 current menu",currentMenu) }
         {currentMenu && currentMenu.map((option) => (
           <div onClick={() => handleInput('click', option)} key={option.value} className={`dropdownItem ${isSelected(option) && "selected"}`} >
             {option.name}

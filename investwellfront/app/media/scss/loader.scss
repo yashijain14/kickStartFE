@@ -69,13 +69,13 @@ body {
                         border-radius: 5px;
                         width: 350px;
 
-                        .dropdownInput{
+                        .dropdownInput {
                             padding: 5px;
                             display: flex;
                             align-items: center;
                             justify-content: space-between;
                             user-select: none;
-                            
+
                             // opacity: 1;
                         }
 
@@ -104,12 +104,13 @@ body {
                             .dropdownItem:hover {
                                 background-color: #9fc3f870;
                             }
+
                             .searchBox {
                                 padding: 5px;
                                 background-color: #eee;
                             }
 
-                            .searchBox .searchInput{
+                            .searchBox .searchInput {
                                 width: 100%;
                                 box-sizing: border-box;
                                 padding: 5px;
@@ -150,15 +151,15 @@ body {
                         .listTitle {
                             color: #86809c;
                             margin: 56px 10px 0 5px;
-                             display: inline-block;
-                             border: 1px solid red;
-                             height: 500px;
+                            display: inline-block;
+                            border: 1px solid red;
+                            height: 500px;
                             position: absolute;
                             width: 10%;
                         }
 
                         .listBox {
-                           display: inline-block;
+                            display: inline-block;
                             position: sticky;
                             width: 34%;
                             margin: 0 0 0 5%;
@@ -167,7 +168,7 @@ body {
                                 color: #ccc;
                                 border: 1px solid #e5e7ee;
                                 width: 400px;
-                                 list-style-type: none;
+                                list-style-type: none;
                                 // display: inline-block;
                                 border-radius: 15px;
                                 margin: 0 10px 10px 5px;
@@ -180,7 +181,7 @@ body {
                                     width: 20px;
                                     text-align: center;
                                     height: 20px;
-                                    
+
                                 }
                             }
 
@@ -280,34 +281,59 @@ body {
                 }
             }
 
-            .workingArea {
-                height: auto;
+            .matrixArea {
+                height: 100vh;
                 width: 95%;
                 background-color: #ffffff;
                 margin: 2% auto;
-                padding: 20px 5px 20px 20px;
+                padding: 20px 5px 0 20px;
 
-                .schemeList {
+                .leftSideTable {
+                    width: auto;
                     height: 100px;
-                    width: 35%;
-                    display: inline-block;
+                    color: black;
+                    margin-top: 10px;
+                    margin-left: 10px;
+                    margin-bottom: 50px;
+                    background-color: white;
+                    word-wrap: break-word;
                 }
 
-                .matrix {
-                    height: 100px;
-                    width: 55%;
-                    display: inline-block;
-                    margin: 0 0 0 80px;
-                }
+                .bottomTable {
 
-                .matrixAreaFooter {
-                    width: 97.5%;
-                    height: auto;
-
-                    .matrixColorTable {
-                        margin: auto;
+                    .tableCollapse {
+                        border-collapse: collapse;
                         width: auto;
+                        margin: auto;
                     }
+
+                    .lowerTableRow {
+                        border: 1px solid rgb(244, 244, 244);
+                        box-shadow: 0px 1px 3px 3px rgb(244, 244, 244);
+                        width: 50px;
+
+                        .colorGreen{
+                            background-color: #8AEC31;
+                        }
+
+                        .colorSkyBlue{
+                            background-color: #87F3C1;
+                        }
+
+                        .colorOrange{
+                            background-color: #E87710;
+                        }
+
+                        .colorRed{
+                            background-color: #E4450B;
+                        }
+                    }
+
+                    .lowerTableRow td{
+                        padding-right: 20px;
+                    }
+
+
                 }
             }
         }
