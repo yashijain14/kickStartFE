@@ -10,18 +10,10 @@ export default function Index() {
   const [scheme, setScheme] = useState([])
   const [count, setCount] = useState(1)
   const [schemeArr] = useState([])
-  const [LaunchDate , SetLaunchDate] = useState()
+  const [launchDate , setLaunchDate] = useState()
   const [showMatrix, setShowMatrix] = useState(false)
-  const [schid, setSchid] = useState(229)
-  
-
-  const currentDate = (separator = '-') => {
-    let newDate = new Date()
-    let date = newDate.getDate()
-    let month = newDate.getMonth() + 1
-    let year = newDate.getFullYear()
-    return `${date}${separator}${month < 10 ? `0${month}` : `${month}`}${separator}${year}`
-  }
+  const [schid, setSchid] = useState()
+  const [navData , setNavData] = useState()
 
   useEffect(() => {
     axios.get("http://localhost:3000/getSchemes", {
@@ -30,7 +22,7 @@ export default function Index() {
       }
     })
       .then((response) => {
-        setSchemeOption(response.data)
+        setSchemeOption(response.data.result)
       })
       .catch(error => {
         console.log("error", error)
@@ -40,18 +32,42 @@ export default function Index() {
 
 
   useEffect(() => {
+    if(schid != undefined){
     axios.get("http://localhost:3000/getLaunchDate", {
       params: {
         schid : schid
       }
     })
       .then((response) => {
-        SetLaunchDate(response && response.data)
+        // console.log("atete0", response.data)
+
+        setLaunchDate(response.data.result)
+      })
+      .catch(error => {
+        console.log("error", error)
+      })
+    }
+  }, [schid])
+
+
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/getNavs", {
+      params: {
+        schid : {"arr" : [229,1403,1013,706]},
+        timePeriod : 12
+      }
+    })
+      .then((response) => {
+        console.log("axios of nav",response.data  )
+        setNavData(response && response.data.result)
       })
       .catch(error => {
         console.log("error", error)
       })
   }, [schid])
+
+  // console.log()
 
   return (
     <div className='mainBox'>
@@ -60,7 +76,6 @@ export default function Index() {
 
       <div className='sideNav'></div>
       <RightMain
-        currentDate={currentDate}
         category={category}
         setSchemeOption={setSchemeOption}
         setCategory={setCategory}
@@ -74,8 +89,8 @@ export default function Index() {
         schemeArr={schemeArr}
         count = {count}
         setCount = {setCount}
-        SetLaunchDate = {SetLaunchDate}
-        LaunchDate = {LaunchDate}
+        setLaunchDate = {setLaunchDate}
+        launchDate = {launchDate!=undefined && launchDate}
         showMatrix={showMatrix}
         setShowMatrix= {setShowMatrix}
         schid = {schid}
@@ -84,3 +99,4 @@ export default function Index() {
     </div>
   )
 }
+

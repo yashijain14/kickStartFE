@@ -2,24 +2,37 @@ import React from 'react'
 import DropDown from './dropDown.jsx'
 
 export default function FilterArea(props) {
+    console.log("Filterarea Date:",props.launchDate)
+    const date=props.launchDate
 
     const legend = () => {
         props.setCount(props.count + 1)
-        return "SC" + props.count;
+        return "SC" + props.count
     }
 
     const tableData = (obj) => {
         obj['legend'] = legend()
+        obj['date'] = date
         props.schemeArr.push(obj)
 
-        const index = props.schemeArr[props.count-1].schid
-        console.log('vvvvvvvvvvvvv',index)
+        const index = props.schemeArr[props.count - 1].schid
         props.setSchid(index)
         return props.schemeArr
     }
 
-    let abc = props.schemeArr;
-console.log("props data",props.LaunchDate)
+    // const clearData = () => {
+    //     switch(field){
+    //         case 'clearOne':
+
+    //     }
+    // }
+
+
+    let abc = props.schemeArr
+
+    // console.log("props data", props.LaunchDate)
+  console.log('Filterarea schemeArr:',props.schemeArr)
+
     return (
         <div className='contentArea'>
             <div className='selectionArea'>
@@ -29,7 +42,6 @@ console.log("props data",props.LaunchDate)
                     placeHolder='Select'
                     isSearchable
                     option={props.categoryOption}
-                    onChange={(value) => console.log(value)}
                     selected={props.category}
                     setSelected={props.setCategory}
                 />
@@ -42,7 +54,6 @@ console.log("props data",props.LaunchDate)
                     placeHolder='Select'
                     isSearchable
                     option={props.schemeOption}
-                    // onChange={(value) => console.log(value)}
                     selected={props.scheme}
                     setSelected={props.setScheme}
                 />
@@ -55,18 +66,18 @@ console.log("props data",props.LaunchDate)
 
 
             <div className='schemeList'>
-                <div className='displayList'>
-                    <div>
-                        {abc.length > 0 && <label>
+                {abc.length > 0 && <div className='displayList'>
+                    <div className='listTitle'>
+                        <label>
                             Schemes:
-                        </label>}
+                        </label>
                     </div>
 
 
 
                     {abc.map(obj => (
                         <div className='listBox'>
-                            <span className='date'>Launch Date: {props.LaunchDate}</span>
+                            <span className='date'>Launch Date: {obj.date}</span>
 
                             <li className='list' >
 
@@ -79,21 +90,19 @@ console.log("props data",props.LaunchDate)
 
                         </div>
                     ))}
-                    <span>
-                        {abc.length > 0 && <button className='clearBtn'>Clear All<span className='deleteBtn'>X</span></button>}
-                    </span>
+                    <button className={abc.length%2==0?'clearBtnEvenList':'clearBtnOddList'}>Clear All<span className='deleteBtn'>X</span></button>
 
 
-                </div>
+                </div>}
 
             </div>
             <div className='timePeriodBox'>
                 <label className='labels'>Period:</label>
                 <DropDown
                     field='timePeriod'
+                    placeHolder='Select'
                     option={props.timePeriodOption}
                     isSearchable
-                    onChange={(value) => console.log(value)}
                     selected={props.timePeriod}
                     setSelected={props.setTimePeriod}
                 />

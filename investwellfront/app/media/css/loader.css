@@ -84,7 +84,7 @@ body {
                 border: 1px solid #ccc;
                 border-radius: 5px; }
           body .mainBox .rightMain .contentArea .selectionArea .goButton {
-            border: 1px solid #e8ebf9;
+            border: 1px solid #585858;
             width: 60px;
             height: 38px;
             border-radius: 5px;
@@ -95,10 +95,10 @@ body {
         body .mainBox .rightMain .contentArea .schemeList {
           display: inline-block; }
           body .mainBox .rightMain .contentArea .schemeList .date {
-            color: #6cebda;
+            color: #35c0ae;
             text-align: center;
             font-style: italic;
-            width: 600px;
+            width: 400px;
             margin: 30px 0 4px;
             display: block; }
           body .mainBox .rightMain .contentArea .schemeList .displayList {
@@ -107,49 +107,53 @@ body {
             body .mainBox .rightMain .contentArea .schemeList .displayList .listTitle {
               color: #86809c;
               margin: 56px 10px 0 5px;
-              display: inline-block;
-              border: 1px solid red;
               height: 500px;
               position: absolute;
               width: 10%; }
             body .mainBox .rightMain .contentArea .schemeList .displayList .listBox {
               display: inline-block;
-              position: sticky;
-              width: 34%;
-              margin: 0 0 0 5%; }
+              width: auto;
+              margin: 0 0 0 50px; }
               body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .list {
-                color: #ccc;
-                border: 1px solid #e5e7ee;
+                color: #585858;
+                border: 1px solid #585858;
                 width: 400px;
                 list-style-type: none;
+                display: inline-block;
                 border-radius: 15px;
                 margin: 0 10px 10px 5px;
                 height: auto;
                 padding: 5px; }
                 body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .list .deleteBtn {
-                  border-left: 1px solid #e8ebf9;
+                  border-left: 1px solid #585858;
                   float: right;
                   width: 20px;
                   text-align: center;
                   height: 20px; }
-              body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .clearBtn {
-                display: inline-block;
-                border: 1px solid #e8ebf9;
-                border-radius: 15px;
-                width: 90px;
-                text-align: center;
-                color: #d1e0eb;
-                background-color: #959cbb;
-                margin: -8px 10px 0;
-                height: 35px;
-                padding: 8px 2px 0 0;
-                position: inherit; }
-                body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .clearBtn .deleteBtn {
-                  float: right;
-                  border-left: 1px solid #d1e0eb;
-                  width: 16px;
-                  height: 25px;
-                  margin: auto; }
+            body .mainBox .rightMain .contentArea .schemeList .displayList .clearBtnEvenList, body .mainBox .rightMain .contentArea .schemeList .displayList .clearBtnOddList {
+              border: 1px solid #585858;
+              border-radius: 15px;
+              width: 90px;
+              text-align: center;
+              color: #ffffff;
+              background-color: #6e738b;
+              height: 35px;
+              padding: 8px 2px 0 0; }
+              body .mainBox .rightMain .contentArea .schemeList .displayList .clearBtnEvenList .deleteBtn, body .mainBox .rightMain .contentArea .schemeList .displayList .clearBtnOddList .deleteBtn {
+                float: right;
+                border-left: 1px solid #d1e0eb;
+                width: 16px;
+                height: 25px;
+                padding: 5px 0 0 0;
+                margin: -10px 0 0 0; }
+            body .mainBox .rightMain .contentArea .schemeList .displayList .clearBtnEvenList {
+              display: block;
+              margin: 20px 52px;
+              position: relative; }
+            body .mainBox .rightMain .contentArea .schemeList .displayList .clearBtnOddList {
+              display: inline-block;
+              margin: -8px 50px 0 60px;
+              position: inherit; }
         body .mainBox .rightMain .contentArea .timePeriodBox {
           display: block;
           margin: 15px 5px 0; }
@@ -191,7 +195,7 @@ body {
                 border: 1px solid #ccc;
                 border-radius: 5px; }
         body .mainBox .rightMain .contentArea .applyButton {
-          border: 1px solid #e8ebf9;
+          border: 1px solid #585858;
           width: 80px;
           height: 40px;
           margin: 2% 45%;
@@ -205,15 +209,9 @@ body {
         background-color: #ffffff;
         margin: 2% auto;
         padding: 20px 5px 0 20px; }
-        body .mainBox .rightMain .matrixArea .leftSideTable {
-          width: auto;
-          height: 100px;
-          color: black;
-          margin-top: 10px;
-          margin-left: 10px;
-          margin-bottom: 50px;
-          background-color: white;
-          word-wrap: break-word; }
+        body .mainBox .rightMain .matrixArea .correlationMatrix {
+          width: 80%;
+          margin: 0 0 0 140px; }
         body .mainBox .rightMain .matrixArea .bottomTable .tableCollapse {
           border-collapse: collapse;
           width: auto;
