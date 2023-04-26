@@ -6,7 +6,7 @@ import PortfolioOverlap from '../../../app/uiCollection/client/portfolioOverlap.
 
 export default function Index() {
   const[loading,setLoading]=useState(false)
-  const [items, setItems] = useState()
+  const [holdingsDetails, setHoldingsDetails] = useState()
   const [dropdownA, setDropdownA] = useState(true)
   const [dropdownB, setDropdownB] = useState(true)
   const [schemeA, setSchemeA] = useState({})
@@ -46,8 +46,11 @@ export default function Index() {
     setLoading(true);
     axios.get(`http://localhost:3000/getPortfolioOverlap`, { params: { schid1: schemeA.id, schid2: schemeB.id } })
       .then(res => {
-        setItems(res.data.result)
+        if (res.data && res.data.status === 0) {
+
+        setHoldingsDetails(res.data.result)
         setLoading(false);
+        }
 
       })
   }
@@ -79,7 +82,7 @@ export default function Index() {
           handleInputChange={handleInputChange}
         />
       </div>
-      {loading ? <div className='loader'/> : <>  {items && <PortfolioOverlap data={items} /> }   {items && <StocksTable items={items} schemeA={schemeA} schemeB={schemeB} />} </>}
+      {loading ? <div className='loader'/> : <>  {holdingsDetails && <PortfolioOverlap holdingsDetails={holdingsDetails} /> }   {holdingsDetails && <StocksTable holdingsDetails={holdingsDetails} schemeA={schemeA} schemeB={schemeB} />} </>}
 
     </div>
   )

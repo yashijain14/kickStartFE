@@ -17,7 +17,7 @@ export default function StocksTable(props) {
           </thead>
           <tbody className='scroll'>
             {
-              props.items && props.items.holding.map(item => <tr className='tableRow'>
+              props.holdingsDetails && props.holdingsDetails.holding.map(item => <tr className='tableRow'>
                 <td className='tableData'><SquareIcon style={{ color: '#5275E9', width: '15px', float: 'left' }} /><span className='icons'>{item.holdingsA}</span></td>
                 <td className='progressColoumn tableData'>
                   <ProgressBar
