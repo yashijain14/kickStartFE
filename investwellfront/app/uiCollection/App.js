@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import '../media/css/loader.css'
+// import './media/css/loader.css'
+import "../media/css/loader.css"
 import Index from "../../app/uiCollection/client/index.jsx";
 
 

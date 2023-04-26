@@ -121,7 +121,7 @@ body {
                 list-style-type: none;
                 display: inline-block;
                 border-radius: 15px;
-                margin: 0 10px 10px 5px;
+                margin: 0 10px 10px 34px;
                 height: auto;
                 padding: 5px; }
                 body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .list .deleteBtn {
@@ -211,7 +211,9 @@ body {
         padding: 20px 5px 0 20px; }
         body .mainBox .rightMain .matrixArea .correlationMatrix {
           width: 80%;
-          margin: 0 0 0 140px; }
+          margin: 0 0 10px 500px;
+          text-align: center;
+          padding-top: 20px; }
         body .mainBox .rightMain .matrixArea .bottomTable .tableCollapse {
           border-collapse: collapse;
           width: auto;

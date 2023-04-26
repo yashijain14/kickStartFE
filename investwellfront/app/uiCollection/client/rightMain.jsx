@@ -6,10 +6,13 @@ export default function RightMain(props) {
     return (
         <div className="rightMain">
             <FilterArea {...props} />
-            {props.showMatrix?  <MatrixArea 
-                schemeArr = {props.schemeArr}
-            />:""}
-          
+            {props.showMatrix ?
+                <MatrixArea
+                    schemeArr={props.schemeArr}
+                    navData={props.navData}
+                /> : ""
+                }
+
 
         </div>
 

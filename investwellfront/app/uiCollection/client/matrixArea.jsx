@@ -7,12 +7,11 @@ import CorrelationMatrix from './correlationMatrix.jsx'
 export default function MatrixArea(props){
     return(
         <div className="matrixArea">
-            {/* <LeftSideTable
-                schemeArr = {props.schemeArr}
-            
-            /> */}
-            <CorrelationMatrix/>
-            
+           {props.navData && <CorrelationMatrix 
+            schemeArr={props.schemeArr}
+            navData = {props.navData}
+            />
+           }
             <BottomTable/>
         </div>
     )

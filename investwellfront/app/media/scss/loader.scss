@@ -163,6 +163,7 @@ body {
                             // position: inherit;
                             width: auto;
                             margin: 0 0 0 50px;
+                
                             // border: 1px solid greenyellow;
 
 
@@ -173,7 +174,7 @@ body {
                                 list-style-type: none;
                                 display: inline-block;
                                 border-radius: 15px;
-                                margin: 0 10px 10px 5px;
+                                margin: 0 10px 10px 34px;
                                 height: auto;
                                 padding: 5px;
                                 // position: relative;
@@ -303,8 +304,9 @@ body {
                 // text-align: center;
                 .correlationMatrix{
                     width: 80%;
-                    margin: 0 0 0 140px;
-                    // text-align: center;
+                    margin: 0 0 10px 500px;
+                    text-align: center;
+                    padding-top: 20px;
                     // padding: ;
                     // border: 1px solid greenyellow;
                 }

@@ -2,7 +2,6 @@ import React from 'react'
 import DropDown from './dropDown.jsx'
 
 export default function FilterArea(props) {
-    console.log("Filterarea Date:",props.launchDate)
     const date=props.launchDate
 
     const legend = () => {
@@ -20,18 +19,8 @@ export default function FilterArea(props) {
         return props.schemeArr
     }
 
-    // const clearData = () => {
-    //     switch(field){
-    //         case 'clearOne':
-
-    //     }
-    // }
-
-
     let abc = props.schemeArr
-
-    // console.log("props data", props.LaunchDate)
-  console.log('Filterarea schemeArr:',props.schemeArr)
+    // props.SetObj(abc)
 
     return (
         <div className='contentArea'>
@@ -60,7 +49,7 @@ export default function FilterArea(props) {
             </div>
 
             <div className='selectionArea' >
-                <input type='button' onClick={() => tableData(props.scheme)} className='goButton' value='GO' />
+                <input type='button' onClick={() => {tableData(props.scheme)}} className='goButton' value='GO' />
 
             </div>
 
@@ -90,8 +79,7 @@ export default function FilterArea(props) {
 
                         </div>
                     ))}
-                    <button className={abc.length%2==0?'clearBtnEvenList':'clearBtnOddList'}>Clear All<span className='deleteBtn'>X</span></button>
-
+                    <button className={abc.length%2==0?'clearBtnEvenList':'clearBtnOddList'} onClick={() => window.location.reload()}>Clear All<span className='deleteBtn'>X</span></button>
 
                 </div>}
 
@@ -107,7 +95,7 @@ export default function FilterArea(props) {
                     setSelected={props.setTimePeriod}
                 />
             </div>
-            <button className='applyButton' onClick={() => { props.setShowMatrix(true) }}>Apply</button>
+            <button className='applyButton' onClick={() => props.dataValue()}>Apply</button>
         </div>
     )
 }
