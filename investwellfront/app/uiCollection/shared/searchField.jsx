@@ -14,11 +14,11 @@ export default function SearchField(props) {
         {props.dropdown && props.mutualFunds && props.mutualFunds
           .filter((item) => {
             const searchTerm = props.scheme.scheme?.toLowerCase()
-            const brand = item.orgsch?.toLowerCase()
+            const inputScheme = item.orgsch?.toLowerCase()
             return (
               (searchTerm &&
-                brand.startsWith(searchTerm) &&
-                brand != searchTerm)
+                inputScheme.startsWith(searchTerm) &&
+                inputScheme != searchTerm)
             )
           })
           .map((item) => (

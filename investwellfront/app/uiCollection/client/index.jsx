@@ -4,7 +4,7 @@ import FilterArea from '../../../app/uiCollection/client/filterArea.jsx'
 import StocksTable from '../../../app/uiCollection/client/stocksTable.jsx'
 import PortfolioOverlap from '../../../app/uiCollection/client/portfolioOverlap.jsx'
 
-export default function Index() {
+export default function Index(){
   const [loading, setLoading] = useState(false)
   const [holdingsDetails, setHoldingsDetails] = useState()
   const [dropdownA, setDropdownA] = useState(true)
