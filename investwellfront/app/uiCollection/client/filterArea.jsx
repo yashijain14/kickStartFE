@@ -3,25 +3,10 @@ import DropDown from './dropDown.jsx'
 
 export default function FilterArea(props) {
     const date=props.launchDate
+    
 
-    const legend = () => {
-        props.setCount(props.count + 1)
-        return "SC" + props.count
-    }
-
-    const tableData = (obj) => {
-        obj['legend'] = legend()
-        obj['date'] = date
-        props.schemeArr.push(obj)
-
-        const index = props.schemeArr[props.count - 1].schid
-        props.setSchid(index)
-        return props.schemeArr
-    }
-
-    let abc = props.schemeArr
-    // props.SetObj(abc)
-
+    // let abc = props.schemeArr
+    props.setPeriod(props.timePeriod && props.timePeriod.value)
     return (
         <div className='contentArea'>
             <div className='selectionArea'>
@@ -33,6 +18,7 @@ export default function FilterArea(props) {
                     option={props.categoryOption}
                     selected={props.category}
                     setSelected={props.setCategory}
+                    check={true}
                 />
             </div>
 
@@ -43,19 +29,21 @@ export default function FilterArea(props) {
                     placeHolder='Select'
                     isSearchable
                     option={props.schemeOption}
+                    check={props.category}
                     selected={props.scheme}
                     setSelected={props.setScheme}
+                    
                 />
             </div>
 
             <div className='selectionArea' >
-                <input type='button' onClick={() => {tableData(props.scheme)}} className='goButton' value='GO' />
+                <input type='button' onClick={() => {props.tableData(props.scheme)}}  className='goButton' value='GO' />
 
             </div>
 
 
             <div className='schemeList'>
-                {abc.length > 0 && <div className='displayList'>
+                {props.schemeArr.length > 0 && <div className='displayList'>
                     <div className='listTitle'>
                         <label>
                             Schemes:
@@ -64,9 +52,9 @@ export default function FilterArea(props) {
 
 
 
-                    {abc.map(obj => (
+                    {props.schemeArr.map(obj => (
                         <div className='listBox'>
-                            <span className='date'>Launch Date: {obj.date}</span>
+                           <span className='date'>Launch Date: {obj.launchDate}</span>
 
                             <li className='list' >
 
@@ -79,7 +67,7 @@ export default function FilterArea(props) {
 
                         </div>
                     ))}
-                    <button className={abc.length%2==0?'clearBtnEvenList':'clearBtnOddList'} onClick={() => window.location.reload()}>Clear All<span className='deleteBtn'>X</span></button>
+                    <button className={props.schemeArr.length%2==0?'clearBtnEvenList':'clearBtnOddList'} onClick={() => window.location.reload()}>Clear All<span className='deleteBtn'>X</span></button>
 
                 </div>}
 
@@ -91,8 +79,10 @@ export default function FilterArea(props) {
                     placeHolder='Select'
                     option={props.timePeriodOption}
                     isSearchable
+                    // check={props.category}
                     selected={props.timePeriod}
                     setSelected={props.setTimePeriod}
+                    check={true}
                 />
             </div>
             <button className='applyButton' onClick={() => props.dataValue()}>Apply</button>

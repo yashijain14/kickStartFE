@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 
-const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, setSelected}) => {
+const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, setSelected,check}) => {
   const [showMenu, setShowMenu] = useState(false)
   const [currentMenu, setCurrentMenu] = useState()
   // const [selected, setSelected] = useState(null)
@@ -93,7 +93,7 @@ const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, 
 
   return (
     <div className="dropdownContainer">
-      <div ref={inputRef} onClick={() => menu()} className="dropdownInput">
+      <div ref={inputRef} onClick={() => {check && menu()}} className="dropdownInput">
         <div className="dropdownSelectedValue" >{getDisplay()}</div>
 
         <div className="dropdownTool">
@@ -104,7 +104,7 @@ const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, 
       </div>
       {showMenu && (<div className="dropdownMenu">
         {isSearchable && (<div className='searchBox'>
-          <input onChange={onSearch} value={searchValue} className='searchInput' ref={searchRef}></input>
+          {/* <input onChange={onSearch} value={searchValue} className='searchInput' ref={searchRef}></input> */}
         </div>)}
 
         {currentMenu && currentMenu.map((option) => (

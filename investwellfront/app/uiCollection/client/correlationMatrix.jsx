@@ -9,8 +9,6 @@ const correlationMatrix = (props) => {
     const xLabels = labels
     const yLabels = labels
 
-    console.log('mmmmmmmmmmm', props.navData)
-
     const data = new Array(yLabels.length)
   .fill()
   .map((_, yIndex) =>
@@ -18,8 +16,6 @@ const correlationMatrix = (props) => {
       .fill()
       .map((_, xIndex) =>  props.navData&&props.navData[yIndex][xIndex])
   );
-
-  console.log("vishaldclas")
      
 
     return (
