@@ -147,23 +147,23 @@ body {
           padding: 20px; }
           body .mainBox .rightMain .matrixArea .correlationMatrix .heatMap, body .mainBox .rightMainWithMatrix .matrixArea .correlationMatrix .heatMap {
             display: inline-flex; }
-        body .mainBox .rightMain .matrixArea .tableCollapse, body .mainBox .rightMainWithMatrix .matrixArea .tableCollapse {
+        body .mainBox .rightMain .matrixArea .descriptionTable, body .mainBox .rightMainWithMatrix .matrixArea .descriptionTable {
           border-collapse: collapse;
           width: auto;
           margin: auto; }
-          body .mainBox .rightMain .matrixArea .tableCollapse .lowerTableRow, body .mainBox .rightMainWithMatrix .matrixArea .tableCollapse .lowerTableRow {
+          body .mainBox .rightMain .matrixArea .descriptionTable .lowerTableRow, body .mainBox .rightMainWithMatrix .matrixArea .descriptionTable .lowerTableRow {
             border: 1px solid #f4f4f4;
             box-shadow: 0px 1px 1px 1px #f4f4f4;
             padding: 5px 5px; }
-            body .mainBox .rightMain .matrixArea .tableCollapse .lowerTableRow .colorGreen, body .mainBox .rightMainWithMatrix .matrixArea .tableCollapse .lowerTableRow .colorGreen {
+            body .mainBox .rightMain .matrixArea .descriptionTable .lowerTableRow .colorGreen, body .mainBox .rightMainWithMatrix .matrixArea .descriptionTable .lowerTableRow .colorGreen {
               background-color: #8aec31; }
-            body .mainBox .rightMain .matrixArea .tableCollapse .lowerTableRow .colorSkyBlue, body .mainBox .rightMainWithMatrix .matrixArea .tableCollapse .lowerTableRow .colorSkyBlue {
+            body .mainBox .rightMain .matrixArea .descriptionTable .lowerTableRow .colorSkyBlue, body .mainBox .rightMainWithMatrix .matrixArea .descriptionTable .lowerTableRow .colorSkyBlue {
               background-color: #87f3c1; }
-            body .mainBox .rightMain .matrixArea .tableCollapse .lowerTableRow .colorOrange, body .mainBox .rightMainWithMatrix .matrixArea .tableCollapse .lowerTableRow .colorOrange {
+            body .mainBox .rightMain .matrixArea .descriptionTable .lowerTableRow .colorOrange, body .mainBox .rightMainWithMatrix .matrixArea .descriptionTable .lowerTableRow .colorOrange {
               background-color: #e87710; }
-            body .mainBox .rightMain .matrixArea .tableCollapse .lowerTableRow .colorRed, body .mainBox .rightMainWithMatrix .matrixArea .tableCollapse .lowerTableRow .colorRed {
+            body .mainBox .rightMain .matrixArea .descriptionTable .lowerTableRow .colorRed, body .mainBox .rightMainWithMatrix .matrixArea .descriptionTable .lowerTableRow .colorRed {
               background-color: #e4450b; }
-          body .mainBox .rightMain .matrixArea .tableCollapse .lowerTableRow td, body .mainBox .rightMainWithMatrix .matrixArea .tableCollapse .lowerTableRow td {
+          body .mainBox .rightMain .matrixArea .descriptionTable .lowerTableRow td, body .mainBox .rightMainWithMatrix .matrixArea .descriptionTable .lowerTableRow td {
             padding: 5px 40px; }
 
 .dropdownContainer {
