@@ -5,85 +5,53 @@ body {
     height: 100vh;
     position: relative; }
     body .mainBox .logo {
-      height: 6%;
+      height: 8%;
       width: 12%;
       border: 1px solid #ede8ea;
       display: inline-block;
       position: absolute; }
     body .mainBox .navHeader {
       display: inline-block;
-      height: 6%;
+      height: 8%;
       width: 88%;
       border: 1px solid #ede8ea;
       position: absolute;
       margin: auto 0 0 12%; }
     body .mainBox .sideNav {
+      height: 94%; }
+    body .mainBox .sideNav, body .mainBox .sideNavWithMatrix {
       display: inline-block;
-      height: 94%;
       width: 12%;
-      margin-top: 3%;
+      margin: 3% 0 0 0;
       border: 1px solid #ede8ea;
       background-color: #526fe4;
       position: absolute; }
+    body .mainBox .sideNavWithMatrix {
+      height: 200%; }
     body .mainBox .rightMain {
+      height: 94%; }
+    body .mainBox .rightMainWithMatrix {
+      height: 200%; }
+    body .mainBox .rightMain, body .mainBox .rightMainWithMatrix {
       display: inline-block;
-      height: 94%;
       width: 88%;
       margin: 3% 0px 0px 12%;
       border: 1px solid #ede8ea;
       background-color: #f0f4fa;
       position: absolute; }
-      body .mainBox .rightMain .contentArea {
+      body .mainBox .rightMain .contentArea, body .mainBox .rightMainWithMatrix .contentArea {
         height: auto;
         width: 95%;
         background-color: #ffffff;
         margin: 2% auto;
         padding: 20px 5px 0 20px; }
-        body .mainBox .rightMain .contentArea .selectionArea {
+        body .mainBox .rightMain .contentArea .selectionArea, body .mainBox .rightMainWithMatrix .contentArea .selectionArea {
           display: inline-block;
           margin: 0 5px 0; }
-          body .mainBox .rightMain .contentArea .selectionArea .labels {
+          body .mainBox .rightMain .contentArea .selectionArea .labels, body .mainBox .rightMainWithMatrix .contentArea .selectionArea .labels {
             display: block;
             margin: 0 0 5px; }
-          body .mainBox .rightMain .contentArea .selectionArea .dropdownContainer {
-            text-align: left;
-            border: 1px solid #ccc;
-            position: relative;
-            border-radius: 5px;
-            width: 350px; }
-            body .mainBox .rightMain .contentArea .selectionArea .dropdownContainer .dropdownInput {
-              padding: 5px;
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              user-select: none; }
-            body .mainBox .rightMain .contentArea .selectionArea .dropdownContainer .dropdownMenu {
-              position: absolute;
-              transform: translateY(4px);
-              width: 100%;
-              overflow: auto;
-              max-height: 150px;
-              background-color: #c6cef5;
-              z-index: 99;
-              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif; }
-              body .mainBox .rightMain .contentArea .selectionArea .dropdownContainer .dropdownMenu .dropdownItem {
-                padding: 5px;
-                cursor: pointer; }
-              body .mainBox .rightMain .contentArea .selectionArea .dropdownContainer .dropdownMenu .dropdownItem.selected {
-                background-color: #86809c;
-                color: #ffffff; }
-              body .mainBox .rightMain .contentArea .selectionArea .dropdownContainer .dropdownMenu .dropdownItem:hover {
-                background-color: #9fc3f870; }
-              body .mainBox .rightMain .contentArea .selectionArea .dropdownContainer .dropdownMenu .searchBox {
-                padding: 5px;
-                background-color: #eee; }
-              body .mainBox .rightMain .contentArea .selectionArea .dropdownContainer .dropdownMenu .searchBox .searchInput {
-                width: 100%;
-                box-sizing: border-box;
-                padding: 5px;
-                border: 1px solid #ccc;
-                border-radius: 5px; }
-          body .mainBox .rightMain .contentArea .selectionArea .goButton {
+          body .mainBox .rightMain .contentArea .selectionArea .goButton, body .mainBox .rightMainWithMatrix .contentArea .selectionArea .goButton {
             border: 1px solid #585858;
             width: 60px;
             height: 38px;
@@ -92,45 +60,48 @@ body {
             color: #ffffff;
             font-weight: bold;
             font-size: large; }
-        body .mainBox .rightMain .contentArea .schemeList {
+        body .mainBox .rightMain .contentArea .schemeList, body .mainBox .rightMainWithMatrix .contentArea .schemeList {
           display: inline-block; }
-          body .mainBox .rightMain .contentArea .schemeList .date {
-            color: #35c0ae;
-            text-align: center;
-            font-style: italic;
-            width: 400px;
-            margin: 30px 0 4px;
-            display: block; }
-          body .mainBox .rightMain .contentArea .schemeList .displayList {
+          body .mainBox .rightMain .contentArea .schemeList .displayList, body .mainBox .rightMainWithMatrix .contentArea .schemeList .displayList {
             display: inline-block;
             position: relative; }
-            body .mainBox .rightMain .contentArea .schemeList .displayList .listTitle {
-              color: #86809c;
+            body .mainBox .rightMain .contentArea .schemeList .displayList .listTitle, body .mainBox .rightMainWithMatrix .contentArea .schemeList .displayList .listTitle {
+              color: #2e2b3a;
               margin: 56px 10px 0 5px;
               height: 500px;
               position: absolute;
               width: 10%; }
-            body .mainBox .rightMain .contentArea .schemeList .displayList .listBox {
+            body .mainBox .rightMain .contentArea .schemeList .displayList .listBox, body .mainBox .rightMainWithMatrix .contentArea .schemeList .displayList .listBox {
               display: inline-block;
               width: auto;
-              margin: 0 0 0 50px; }
-              body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .list {
-                color: #585858;
-                border: 1px solid #585858;
-                width: 400px;
-                list-style-type: none;
-                display: inline-block;
-                border-radius: 15px;
-                margin: 0 10px 10px 34px;
-                height: auto;
-                padding: 5px; }
-                body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .list .deleteBtn {
-                  border-left: 1px solid #585858;
-                  float: right;
-                  width: 20px;
+              margin: 0 0 0 60px;
+              font-weight: bold; }
+              body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .lists, body .mainBox .rightMainWithMatrix .contentArea .schemeList .displayList .listBox .lists {
+                display: inline-block; }
+                body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .lists .date, body .mainBox .rightMainWithMatrix .contentArea .schemeList .displayList .listBox .lists .date {
+                  color: #35c0ae;
                   text-align: center;
-                  height: 20px; }
-            body .mainBox .rightMain .contentArea .schemeList .displayList .clearBtnEvenList, body .mainBox .rightMain .contentArea .schemeList .displayList .clearBtnOddList {
+                  font-style: italic;
+                  width: 400px;
+                  margin: 30px 0 4px 10px;
+                  display: block; }
+                body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .lists .list, body .mainBox .rightMainWithMatrix .contentArea .schemeList .displayList .listBox .lists .list {
+                  color: #585858;
+                  border: 1px solid #585858;
+                  width: 400px;
+                  list-style-type: none;
+                  display: inline-block;
+                  border-radius: 15px;
+                  margin: 0 0 0 10px;
+                  height: auto;
+                  padding: 5px; }
+                  body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .lists .list .deleteBtn, body .mainBox .rightMainWithMatrix .contentArea .schemeList .displayList .listBox .lists .list .deleteBtn {
+                    border-left: 1px solid #585858;
+                    float: right;
+                    width: 20px;
+                    text-align: center;
+                    height: 20px; }
+            body .mainBox .rightMain .contentArea .schemeList .displayList .clearButton, body .mainBox .rightMainWithMatrix .contentArea .schemeList .displayList .clearButton {
               border: 1px solid #585858;
               border-radius: 15px;
               width: 90px;
@@ -138,63 +109,23 @@ body {
               color: #ffffff;
               background-color: #6e738b;
               height: 35px;
-              padding: 8px 2px 0 0; }
-              body .mainBox .rightMain .contentArea .schemeList .displayList .clearBtnEvenList .deleteBtn, body .mainBox .rightMain .contentArea .schemeList .displayList .clearBtnOddList .deleteBtn {
+              padding: 8px 2px 0 0;
+              display: inline-block;
+              margin: -8px 0 0 10px;
+              position: inherit; }
+              body .mainBox .rightMain .contentArea .schemeList .displayList .clearButton .deleteBtn, body .mainBox .rightMainWithMatrix .contentArea .schemeList .displayList .clearButton .deleteBtn {
                 float: right;
                 border-left: 1px solid #d1e0eb;
                 width: 16px;
                 height: 25px;
                 padding: 5px 0 0 0;
                 margin: -10px 0 0 0; }
-            body .mainBox .rightMain .contentArea .schemeList .displayList .clearBtnEvenList {
-              display: block;
-              margin: 20px 52px;
-              position: relative; }
-            body .mainBox .rightMain .contentArea .schemeList .displayList .clearBtnOddList {
-              display: inline-block;
-              margin: -8px 50px 0 60px;
-              position: inherit; }
-        body .mainBox .rightMain .contentArea .timePeriodBox {
+        body .mainBox .rightMain .contentArea .timePeriodBox, body .mainBox .rightMainWithMatrix .contentArea .timePeriodBox {
           display: block;
           margin: 15px 5px 0; }
-          body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer {
-            text-align: left;
-            border: 1px solid #ccc;
-            position: relative;
-            border-radius: 5px;
+          body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer, body .mainBox .rightMainWithMatrix .contentArea .timePeriodBox .dropdownContainer {
             width: 100px; }
-            body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer .dropdownInput {
-              padding: 5px;
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              user-select: none; }
-            body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer .dropdownMenu {
-              position: absolute;
-              transform: translateY(4px);
-              width: 100%;
-              overflow: auto;
-              max-height: 150px;
-              background-color: #c6cef5;
-              z-index: 99; }
-              body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer .dropdownMenu .dropdownItem {
-                padding: 5px;
-                cursor: pointer; }
-              body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer .dropdownMenu .dropdownItem.selected {
-                background-color: #86809c;
-                color: #ffffff; }
-              body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer .dropdownMenu .dropdownItem:hover {
-                background-color: #9fc3f870; }
-              body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer .dropdownMenu .searchBox {
-                padding: 5px;
-                background-color: #eee; }
-              body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer .dropdownMenu .searchBox .searchInput {
-                width: 100%;
-                box-sizing: border-box;
-                padding: 5px;
-                border: 1px solid #ccc;
-                border-radius: 5px; }
-        body .mainBox .rightMain .contentArea .applyButton {
+        body .mainBox .rightMain .contentArea .applyButton, body .mainBox .rightMainWithMatrix .contentArea .applyButton {
           border: 1px solid #585858;
           width: 80px;
           height: 40px;
@@ -203,34 +134,72 @@ body {
           color: #fff;
           border-radius: 3px;
           font-size: large; }
-      body .mainBox .rightMain .matrixArea {
-        height: 100vh;
+      body .mainBox .rightMain .matrixArea, body .mainBox .rightMainWithMatrix .matrixArea {
+        height: auto;
         width: 95%;
         background-color: #ffffff;
         margin: 2% auto;
-        padding: 20px 5px 0 20px; }
-        body .mainBox .rightMain .matrixArea .correlationMatrix {
+        padding: 20px 5px 25px 20px; }
+        body .mainBox .rightMain .matrixArea .correlationMatrix, body .mainBox .rightMainWithMatrix .matrixArea .correlationMatrix {
           width: 80%;
-          margin: 0 0 10px 500px;
+          margin: 10px auto;
           text-align: center;
-          padding-top: 20px; }
-        body .mainBox .rightMain .matrixArea .bottomTable .tableCollapse {
+          padding: 20px; }
+          body .mainBox .rightMain .matrixArea .correlationMatrix .heatMap, body .mainBox .rightMainWithMatrix .matrixArea .correlationMatrix .heatMap {
+            display: inline-flex; }
+        body .mainBox .rightMain .matrixArea .tableCollapse, body .mainBox .rightMainWithMatrix .matrixArea .tableCollapse {
           border-collapse: collapse;
           width: auto;
           margin: auto; }
-        body .mainBox .rightMain .matrixArea .bottomTable .lowerTableRow {
-          border: 1px solid #f4f4f4;
-          box-shadow: 0px 1px 3px 3px #f4f4f4;
-          width: 50px; }
-          body .mainBox .rightMain .matrixArea .bottomTable .lowerTableRow .colorGreen {
-            background-color: #8AEC31; }
-          body .mainBox .rightMain .matrixArea .bottomTable .lowerTableRow .colorSkyBlue {
-            background-color: #87F3C1; }
-          body .mainBox .rightMain .matrixArea .bottomTable .lowerTableRow .colorOrange {
-            background-color: #E87710; }
-          body .mainBox .rightMain .matrixArea .bottomTable .lowerTableRow .colorRed {
-            background-color: #E4450B; }
-        body .mainBox .rightMain .matrixArea .bottomTable .lowerTableRow td {
-          padding-right: 20px; }
+          body .mainBox .rightMain .matrixArea .tableCollapse .lowerTableRow, body .mainBox .rightMainWithMatrix .matrixArea .tableCollapse .lowerTableRow {
+            border: 1px solid #f4f4f4;
+            box-shadow: 0px 1px 1px 1px #f4f4f4;
+            padding: 5px 5px; }
+            body .mainBox .rightMain .matrixArea .tableCollapse .lowerTableRow .colorGreen, body .mainBox .rightMainWithMatrix .matrixArea .tableCollapse .lowerTableRow .colorGreen {
+              background-color: #8aec31; }
+            body .mainBox .rightMain .matrixArea .tableCollapse .lowerTableRow .colorSkyBlue, body .mainBox .rightMainWithMatrix .matrixArea .tableCollapse .lowerTableRow .colorSkyBlue {
+              background-color: #87f3c1; }
+            body .mainBox .rightMain .matrixArea .tableCollapse .lowerTableRow .colorOrange, body .mainBox .rightMainWithMatrix .matrixArea .tableCollapse .lowerTableRow .colorOrange {
+              background-color: #e87710; }
+            body .mainBox .rightMain .matrixArea .tableCollapse .lowerTableRow .colorRed, body .mainBox .rightMainWithMatrix .matrixArea .tableCollapse .lowerTableRow .colorRed {
+              background-color: #e4450b; }
+          body .mainBox .rightMain .matrixArea .tableCollapse .lowerTableRow td, body .mainBox .rightMainWithMatrix .matrixArea .tableCollapse .lowerTableRow td {
+            padding: 5px 40px; }
+
+.dropdownContainer {
+  text-align: left;
+  border: 1px solid #ccc;
+  position: relative;
+  border-radius: 5px;
+  width: 350px; }
+  .dropdownContainer .dropdownInput {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none; }
+  .dropdownContainer .dropdownMenu {
+    position: absolute;
+    transform: translateY(4px);
+    width: 100%;
+    overflow: auto;
+    max-height: 150px;
+    background-color: #c9d7f3;
+    z-index: 99;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif; }
+    .dropdownContainer .dropdownMenu .dropdownItem {
+      padding: 8px;
+      cursor: pointer; }
+    .dropdownContainer .dropdownMenu .dropdownItem:hover {
+      background-color: #98b9fa; }
+    .dropdownContainer .dropdownMenu .searchBox {
+      padding: 5px;
+      background-color: #eee; }
+    .dropdownContainer .dropdownMenu .searchBox .searchInput {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px; }
 
 /*# sourceMappingURL=loader.css.map */

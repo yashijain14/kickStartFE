@@ -5,9 +5,9 @@ import Dropdown from './dropDown.jsx'
 
 export default function RightMain(props) {
     return (
-        <div className="rightMain">
+        <div className={props.showMatrix?'rightMainWithMatrix':'rightMain'}>
             <FilterArea {...props} />
-            {props.showMatrix ?
+            {props.showMatrix && props.navData?
                 <MatrixArea
                     schemeArr={props.schemeArr}
                     navData={props.navData}

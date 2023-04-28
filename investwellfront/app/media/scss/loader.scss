@@ -1,6 +1,5 @@
 $inputBorder : 1px solid #585858;
 $divBorders : 1px solid #ede8ea;
-$dropdownButton: "data:image/svg+xml;utf8,<svg fill='black' height='26' viewBox='0 0 24 24' width='26' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>";
 
 body {
     margin: 0px;
@@ -11,7 +10,7 @@ body {
         position: relative;
 
         .logo {
-            height: 6%;
+            height: 8%;
             width: 12%;
             border: $divBorders;
             display: inline-block;
@@ -20,26 +19,34 @@ body {
 
         .navHeader {
             display: inline-block;
-            height: 6%;
+            height: 8%;
             width: 88%;
             border: $divBorders;
             position: absolute;
             margin: auto 0 0 12%;
         }
-
-        .sideNav {
-            display: inline-block;
+        .sideNav{
             height: 94%;
+        }
+        .sideNav, .sideNavWithMatrix {
+            display: inline-block;
             width: 12%;
-            margin-top: 3%;
+            margin: 3% 0 0 0;
             border: $divBorders;
             background-color: #526fe4;
             position: absolute;
         }
-
-        .rightMain {
-            display: inline-block;
+        .sideNavWithMatrix{
+            height: 200%;
+        }
+        .rightMain{
             height: 94%;
+        }
+        .rightMainWithMatrix{
+            height: 200%;
+        }
+        .rightMain, .rightMainWithMatrix {
+            display: inline-block;
             width: 88%;
             margin: 3% 0px 0px 12%;
             border: $divBorders;
@@ -62,64 +69,6 @@ body {
                         margin: 0 0 5px;
                     }
 
-                    .dropdownContainer {
-                        text-align: left;
-                        border: 1px solid #ccc;
-                        position: relative;
-                        border-radius: 5px;
-                        width: 350px;
-
-                        .dropdownInput {
-                            padding: 5px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            user-select: none;
-
-                            // opacity: 1;
-                        }
-
-                        .dropdownMenu {
-                            position: absolute;
-                            transform: translateY(4px);
-                            width: 100%;
-                            overflow: auto;
-                            max-height: 150px;
-                            background-color: #c6cef5;
-                            z-index: 99;
-                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif;
-                            // padding: 5px 10px;
-
-                            .dropdownItem {
-                                padding: 5px;
-                                cursor: pointer;
-
-                            }
-
-                            .dropdownItem.selected {
-                                background-color: #86809c;
-                                color: #ffffff;
-                            }
-
-                            .dropdownItem:hover {
-                                background-color: #9fc3f870;
-                            }
-
-                            .searchBox {
-                                padding: 5px;
-                                background-color: #eee;
-                            }
-
-                            .searchBox .searchInput {
-                                width: 100%;
-                                box-sizing: border-box;
-                                padding: 5px;
-                                border: 1px solid #ccc;
-                                border-radius: 5px;
-                            }
-                        }
-                    }
-
                     .goButton {
                         border: $inputBorder;
                         width: 60px;
@@ -135,24 +84,13 @@ body {
                 .schemeList {
                     display: inline-block;
 
-                    .date {
-                        color: #35c0ae;
-                        text-align: center;
-                        font-style: italic;
-                        width: 400px;
-                        margin: 30px 0 4px;
-                        display: block;
-                    }
-
                     .displayList {
                         display: inline-block;
-                            position: relative;
+                        position: relative;
 
                         .listTitle {
-                            color: #86809c;
+                            color: #2e2b3a;
                             margin: 56px 10px 0 5px;
-                            // display: inline-block;
-                            // border: 1px solid red;
                             height: 500px;
                             position: absolute;
                             width: 10%;
@@ -160,38 +98,45 @@ body {
 
                         .listBox {
                             display: inline-block;
-                            // position: inherit;
                             width: auto;
-                            margin: 0 0 0 50px;
-                
-                            // border: 1px solid greenyellow;
+                            margin: 0 0 0 60px;
+                            font-weight: bold;
 
-
-                            .list {
-                                color: #585858;
-                                border: 1px solid #585858;
-                                width: 400px;
-                                list-style-type: none;
+                            .lists {
                                 display: inline-block;
-                                border-radius: 15px;
-                                margin: 0 10px 10px 34px;
-                                height: auto;
-                                padding: 5px;
-                                // position: relative;
 
-                                .deleteBtn {
-                                    border-left: $inputBorder;
-                                    float: right;
-                                    width: 20px;
+                                .date {
+                                    color: #35c0ae;
                                     text-align: center;
-                                    height: 20px;
+                                    font-style: italic;
+                                    width: 400px;
+                                    margin: 30px 0 4px 10px;
+                                    display: block;
+                                }
 
+                                .list {
+                                    color: #585858;
+                                    border: 1px solid #585858;
+                                    width: 400px;
+                                    list-style-type: none;
+                                    display: inline-block;
+                                    border-radius: 15px;
+                                    margin: 0 0 0 10px;
+                                    height: auto;
+                                    padding: 5px;
+
+                                    .deleteBtn {
+                                        border-left: $inputBorder;
+                                        float: right;
+                                        width: 20px;
+                                        text-align: center;
+                                        height: 20px;
+                                    }
                                 }
                             }
-
-                            
                         }
-                        .clearBtnEvenList, .clearBtnOddList{
+
+                        .clearButton {
                             border: $inputBorder;
                             border-radius: 15px;
                             width: 90px;
@@ -200,6 +145,10 @@ body {
                             background-color: #6e738b;
                             height: 35px;
                             padding: 8px 2px 0 0;
+                            display: inline-block;
+                            margin: -8px 0 0 10px;
+                            position: inherit;
+
                             .deleteBtn {
                                 float: right;
                                 border-left: 1px solid #d1e0eb;
@@ -207,18 +156,7 @@ body {
                                 height: 25px;
                                 padding: 5px 0 0 0;
                                 margin: -10px 0 0 0;
-                                // text-align: center;
                             }
-                        }
-                        .clearBtnEvenList {
-                            display: block;
-                            margin: 20px 52px ;   
-                            position: relative;
-                        }
-                        .clearBtnOddList {
-                            display: inline-block;
-                            margin: -8px 50px 0 60px;
-                            position: inherit;
                         }
                     }
                 }
@@ -228,57 +166,7 @@ body {
                     margin: 15px 5px 0;
 
                     .dropdownContainer {
-                        text-align: left;
-                        border: 1px solid #ccc;
-                        position: relative;
-                        border-radius: 5px;
                         width: 100px;
-
-                        .dropdownInput {
-                            padding: 5px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            user-select: none;
-
-                        }
-
-                        .dropdownMenu {
-                            position: absolute;
-                            transform: translateY(4px);
-                            width: 100%;
-                            overflow: auto;
-                            max-height: 150px;
-                            background-color: #c6cef5;
-                            z-index: 99;
-
-                            .dropdownItem {
-                                padding: 5px;
-                                cursor: pointer;
-                            }
-
-                            .dropdownItem.selected {
-                                background-color: #86809c;
-                                color: #ffffff;
-                            }
-
-                            .dropdownItem:hover {
-                                background-color: #9fc3f870;
-                            }
-
-                            .searchBox {
-                                padding: 5px;
-                                background-color: #eee;
-                            }
-
-                            .searchBox .searchInput {
-                                width: 100%;
-                                box-sizing: border-box;
-                                padding: 5px;
-                                border: 1px solid #ccc;
-                                border-radius: 5px;
-                            }
-                        }
                     }
                 }
 
@@ -295,59 +183,104 @@ body {
             }
 
             .matrixArea {
-                height: 100vh;
+                height: auto;
                 width: 95%;
                 background-color: #ffffff;
                 margin: 2% auto;
-                padding: 20px 5px 0 20px;
-                // align-items: center;
-                // text-align: center;
-                .correlationMatrix{
-                    width: 80%;
-                    margin: 0 0 10px 500px;
-                    text-align: center;
-                    padding-top: 20px;
-                    // padding: ;
-                    // border: 1px solid greenyellow;
-                    
-                }
-                .bottomTable {
+                padding: 20px 5px 25px 20px;
 
-                    .tableCollapse {
-                        border-collapse: collapse;
-                        width: auto;
-                        margin: auto;
+                .correlationMatrix {
+                    width: 80%;
+                    margin: 10px auto;
+                    text-align: center;
+                    padding: 20px;
+
+                    .heatMap {
+                        display: inline-flex;
                     }
+                }
+
+                .tableCollapse {
+                    border-collapse: collapse;
+                    width: auto;
+                    margin: auto;
 
                     .lowerTableRow {
                         border: 1px solid rgb(244, 244, 244);
-                        box-shadow: 0px 1px 3px 3px rgb(244, 244, 244);
-                        width: 50px;
+                        box-shadow: 0px 1px 1px 1px rgb(244, 244, 244);
+                        padding: 5px 5px;
 
-                        .colorGreen{
-                            background-color: #8AEC31;
+                        .colorGreen {
+                            background-color: rgb(138, 236, 49);
                         }
 
-                        .colorSkyBlue{
-                            background-color: #87F3C1;
+                        .colorSkyBlue {
+                            background-color: rgb(135, 243, 193);
                         }
 
-                        .colorOrange{
-                            background-color: #E87710;
+                        .colorOrange {
+                            background-color: rgb(232, 119, 16);
                         }
 
-                        .colorRed{
-                            background-color: #E4450B;
+                        .colorRed {
+                            background-color: rgb(228, 69, 11);
                         }
                     }
 
-                    .lowerTableRow td{
-                        padding-right: 20px;
+                    .lowerTableRow td {
+                        padding: 5px 40px;
                     }
-
-
                 }
             }
+        }
+    }
+}
+
+.dropdownContainer {
+    text-align: left;
+    border: 1px solid #ccc;
+    position: relative;
+    border-radius: 5px;
+    width: 350px;
+
+    .dropdownInput {
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        user-select: none;
+    }
+
+    .dropdownMenu {
+        position: absolute;
+        transform: translateY(4px);
+        width: 100%;
+        overflow: auto;
+        max-height: 150px;
+        background-color: #c9d7f3;
+        z-index: 99;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif;
+
+        .dropdownItem {
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .dropdownItem:hover {
+            background-color: #98b9fa;
+        }
+
+        .searchBox {
+            padding: 5px;
+            background-color: #eee;
+        }
+
+        .searchBox .searchInput {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
     }
 }

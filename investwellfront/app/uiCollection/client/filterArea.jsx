@@ -43,7 +43,7 @@ export default function FilterArea(props) {
             </div>
 
 
-            <div className='schemeList'>
+            {/* <div className='schemeList'>
                 {props.schemeArr.length > 0 && <div className='displayList'>
                     <div className='listTitle'>
                         <label>
@@ -71,6 +71,36 @@ export default function FilterArea(props) {
                     <button className={props.schemeArr.length%2==0?'clearBtnEvenList':'clearBtnOddList'} onClick={() => window.location.reload()}>Clear All<span className='deleteBtn'>X</span></button>
 
                 </div>}
+
+            </div> */}
+            <div className='schemeList'>
+                {props.schemeArr.length > 0 &&
+                    <div className='displayList'>
+                        <div className='listTitle'>
+                            <label>
+                                Schemes:
+                            </label>
+                        </div>
+
+
+                        <div className='listBox'>
+                            {props.schemeArr.map(obj => (
+                                <div className='lists'>
+                                    <span className='date'>Launch Date: {obj.launchDate}</span>
+
+                                    <li className='list' >
+
+                                        {obj.name} &nbsp;&nbsp;&nbsp;{obj.legend}
+                                        <span className='deleteBtn' onClick={() => clearData('clearOne', obj)}>X</span>
+
+                                    </li>
+
+                                </div>
+                            ))}
+                            <button className='clearButton' onClick={() => window.location.reload()}>Clear All<span className='deleteBtn' onClick={() => clearData('clearAll', abc)}>X</span></button>
+
+                        </div>
+                    </div>}
 
             </div>
             <div className='timePeriodBox'>

@@ -39,7 +39,9 @@ export default function Index() {
           let updatedSchemeArray = Array.from(schemeArr)
           updatedSchemeArray.push(newObj)
           setSchemeArray(updatedSchemeArray)
-          setCount(count + 1)
+          setCount(count+1)
+          setScheme('')
+          // setCategory('')
         }
       })
       .catch(error => {
@@ -102,7 +104,7 @@ export default function Index() {
       <div className='navHeader'></div>
       <div className='logo'></div>
 
-      <div className='sideNav'></div>
+      <div className={showMatrix?'sideNavWithMatrix':'sideNav'}></div>
       <RightMain
         category={category}
         setSchemeOption={setSchemeOption}
