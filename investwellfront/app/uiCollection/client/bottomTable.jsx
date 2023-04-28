@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function BottomTable(props){
     return(
-        <div className='bottomTable'>
-                <table className='tableCollapse'>
+        <div className='descriptionTableDiv'>
+                <table className='descriptionTable'>
                     <tr>
                         <th>Cell Color</th>
                         <th>Description</th>

@@ -26,22 +26,19 @@ export default function Index() {
     })
       .then((response) => {
         if (response.data.status == -1) {
-          console.log("@@@@@@@",response.data.result )
           const newObj = { ...obj, launchDate: '' }
           let updatedSchemeArray = Array.from(schemeArr)
           updatedSchemeArray.push(newObj)
           setSchemeArray(updatedSchemeArray)
 
         }
-        else {
-          console.log("!!!!!!!!!!!!",response.data.result)
+        else{
           const newObj = { ...obj, launchDate: response.data && response.data.result, legend: `SC${count}` }
           let updatedSchemeArray = Array.from(schemeArr)
           updatedSchemeArray.push(newObj)
           setSchemeArray(updatedSchemeArray)
           setCount(count+1)
           setScheme('')
-          // setCategory('')
         }
       })
       .catch(error => {
@@ -82,7 +79,6 @@ export default function Index() {
   }
 
   useEffect(() => {
-    console.log("&&&&&&&&&&&&&&&&&7")
     axios.get("http://localhost:3000/getSchemes", {
       params: {
         category: category && category.value
@@ -90,7 +86,6 @@ export default function Index() {
     })
       .then((response) => {
         if (response.data && response.data.status == 0) {
-          console.log("**************",response.data.result)
           setSchemeOption(response.data.result)
         }
       })

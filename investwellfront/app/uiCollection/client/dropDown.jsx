@@ -4,21 +4,6 @@ const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, 
   const [showMenu, setShowMenu] = useState(false)
   const [currentMenu, setCurrentMenu] = useState()
   const inputRef = useRef()
- 
-
-  // useEffect(() => {
-  //   const handler = (e) => {
-  //     if (inputRef.current && !inputRef.current.contains(e.target)) {
-  //       setShowMenu(false)
-  //     }
-  //   }
-
-  //   window.addEventListener("click", handler)
-  //   return () => {
-  //     console.log(window.removeEventListener("click", handler))
-  //     window.removeEventListener("click", handler)
-  //   }
-  // })
 
   return (
     <div className="dropdownContainer">
@@ -48,69 +33,3 @@ const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, 
 }
 
 export default Dropdown
-
-
-
-
-
-//  console.log("*************MENU",showMenu,option)
-  // const handleInput = (event, option) => {
-  //   if (event == 'click')
-  //   {
-  //     console.log("***************",option)
-  //     setSelected(option)
-  //   }
-  //   else
-  //     setSelected(event.target.value)
-
-  // }
-
-  // const getDisplay = () => {
-  //   if (!selected || selected.length === 0) {
-  //     return placeHolder
-  //   }
-  //   return selected.name
-  // }
-
-  // const removeOption = (option) => {
-  //   return selected.filter((o) => o.value !== option.value)
-  // }
-
-  // const onItemClick = (option) => {
-  //   let newValue = option
-  //   setSelected(newValue)
-  //   onChange(newValue)
-  // }
-
-  
-
-  // const onSearch = (e) => {
-  //   setSearchValue(e.target.value)
-  //   if (!searchValue) {
-  //     return setCurrentMenu(option)
-  //   }
-
-  //   return setCurrentMenu(option.filter(
-  //     (option) =>
-  //       option.name.toLowerCase().startsWith(searchValue.toLowerCase()) >= 0
-  //   ))
-  // }
-
-  // const getOptions = () => {
-  //   if (!searchValue) {
-  //     return setCurrentMenu(option)
-  //   }
-  //   else
-  //     return option.filter(
-  //       (option) => {
-  //         option.name.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0
-  //       }
-  //     )
-      
-  // }
-  // useEffect(() => {
-  //   setSearchValue("")
-  //   if (showMenu && searchRef.current) {
-  //     searchRef.current.focus()
-  //   }
-  // }, [showMenu])
