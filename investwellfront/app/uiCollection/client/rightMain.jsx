@@ -1,6 +1,7 @@
 import React from 'react'
 import FilterArea from './filterArea.jsx'
 import MatrixArea from './matrixArea.jsx'
+import Dropdown from './dropDown.jsx'
 
 export default function RightMain(props) {
     return (

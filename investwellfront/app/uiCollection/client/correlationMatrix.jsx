@@ -3,6 +3,7 @@ import HeatMap from 'react-heatmap-grid'
 
 const correlationMatrix = (props) => {
     const labels=[]
+    console.log("***********navdata",props.navData)
 
     // making array for labels
     props.schemeArr.map((object) => (labels.push(object.legend)))
@@ -10,11 +11,13 @@ const correlationMatrix = (props) => {
     const yLabels = labels
 
     const data = new Array(yLabels.length)
+    // let abc = props.navData || []
+    // console.log(".......... data", abc)
   .fill()
   .map((_, yIndex) =>
     new Array(xLabels.length)
       .fill()
-      .map((_, xIndex) =>  props.navData&&props.navData[yIndex][xIndex])
+      .map((_, xIndex) =>  props.navData && props.navData[yIndex][xIndex])
   );
      
 
@@ -23,8 +26,8 @@ const correlationMatrix = (props) => {
             <HeatMap
                 xLabels={xLabels}
                 yLabels={yLabels}
-                xLabelsLocation={"bottom"}
-                xLabelWidth={100}
+                xLabelsLocation={"top"}
+                xLabelWidth={500}
                 data={data}
                 squares
                 onClick={(x, y) => alert(`Clicked ${x}, ${y}`)}

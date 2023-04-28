@@ -1,100 +1,29 @@
 import React, { useEffect, useRef, useState } from "react"
 
-const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, setSelected,check}) => {
+const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, setSelected,check,isSelected}) => {
   const [showMenu, setShowMenu] = useState(false)
   const [currentMenu, setCurrentMenu] = useState()
-  // const [selected, setSelected] = useState(null)
-  const [searchValue, setSearchValue] = useState("")
-  const searchRef = useRef()
   const inputRef = useRef()
-  const menu = (e) => {
-    setShowMenu(!showMenu)
-    setCurrentMenu(option)
-  }
+ 
 
-  const handleInput = (event, option) => {
-    if (event == 'click')
-    {
-      setSelected(option)
-    }
-    else
-      setSelected(event.target.value)
+  // useEffect(() => {
+  //   const handler = (e) => {
+  //     if (inputRef.current && !inputRef.current.contains(e.target)) {
+  //       setShowMenu(false)
+  //     }
+  //   }
 
-  }
-
-  const getDisplay = () => {
-    if (!selected || selected.length === 0) {
-      return placeHolder
-    }
-    return selected.name
-  }
-
-  const removeOption = (option) => {
-    return selected.filter((o) => o.value !== option.value)
-  }
-
-  const onItemClick = (option) => {
-    let newValue = option
-    setSelected(newValue)
-    onChange(newValue)
-  }
-
-  const isSelected = (option) => {
-    if (!selected) {
-      return false
-    }
-
-    return selected.value === option.value
-  }
-
-  const onSearch = (e) => {
-    setSearchValue(e.target.value)
-    if (!searchValue) {
-      return setCurrentMenu(option)
-    }
-
-    return setCurrentMenu(option.filter(
-      (option) =>
-        option.name.toLowerCase().startsWith(searchValue.toLowerCase()) >= 0
-    ))
-  }
-
-  const getOptions = () => {
-    if (!searchValue) {
-      return setCurrentMenu(option)
-    }
-    else
-      return option.filter(
-        (option) => {
-          option.name.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0
-        }
-      )
-      
-  }
-  useEffect(() => {
-    setSearchValue("")
-    if (showMenu && searchRef.current) {
-      searchRef.current.focus()
-    }
-  }, [showMenu])
-
-  useEffect(() => {
-    const handler = (e) => {
-      if (inputRef.current && !inputRef.current.contains(e.target)) {
-        setShowMenu(false)
-      }
-    }
-
-    window.addEventListener("click", handler)
-    return () => {
-      window.removeEventListener("click", handler)
-    }
-  })
+  //   window.addEventListener("click", handler)
+  //   return () => {
+  //     console.log(window.removeEventListener("click", handler))
+  //     window.removeEventListener("click", handler)
+  //   }
+  // })
 
   return (
     <div className="dropdownContainer">
-      <div ref={inputRef} onClick={() => {check && menu()}} className="dropdownInput">
-        <div className="dropdownSelectedValue" >{getDisplay()}</div>
+      <div ref={inputRef} onClick={() => {check && setShowMenu(!showMenu); setCurrentMenu(option)}} className="dropdownInput">
+        <div className="dropdownSelectedValue" >{(!selected || selected.length === 0)?placeHolder:selected.name}</div>
 
         <div className="dropdownTool">
           <svg height="20" width="20" viewBox="0 0 20 20">
@@ -108,7 +37,7 @@ const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, 
         </div>)}
 
         {currentMenu && currentMenu.map((option) => (
-          <div onClick={() => handleInput('click', option)} key={option.value} className={`dropdownItem ${isSelected(option) && "selected"}`} >
+          <div onClick={(e) =>{ ('click') ? setSelected(option) : setSelected(e.target.value);setShowMenu(false)}} key={option.value} className={`dropdownItem ${(!selected) ? false : selected.value === option.value && "selected"}`} >
             {option.name}
           </div>
         ))}
@@ -119,3 +48,69 @@ const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, 
 }
 
 export default Dropdown
+
+
+
+
+
+//  console.log("*************MENU",showMenu,option)
+  // const handleInput = (event, option) => {
+  //   if (event == 'click')
+  //   {
+  //     console.log("***************",option)
+  //     setSelected(option)
+  //   }
+  //   else
+  //     setSelected(event.target.value)
+
+  // }
+
+  // const getDisplay = () => {
+  //   if (!selected || selected.length === 0) {
+  //     return placeHolder
+  //   }
+  //   return selected.name
+  // }
+
+  // const removeOption = (option) => {
+  //   return selected.filter((o) => o.value !== option.value)
+  // }
+
+  // const onItemClick = (option) => {
+  //   let newValue = option
+  //   setSelected(newValue)
+  //   onChange(newValue)
+  // }
+
+  
+
+  // const onSearch = (e) => {
+  //   setSearchValue(e.target.value)
+  //   if (!searchValue) {
+  //     return setCurrentMenu(option)
+  //   }
+
+  //   return setCurrentMenu(option.filter(
+  //     (option) =>
+  //       option.name.toLowerCase().startsWith(searchValue.toLowerCase()) >= 0
+  //   ))
+  // }
+
+  // const getOptions = () => {
+  //   if (!searchValue) {
+  //     return setCurrentMenu(option)
+  //   }
+  //   else
+  //     return option.filter(
+  //       (option) => {
+  //         option.name.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0
+  //       }
+  //     )
+      
+  // }
+  // useEffect(() => {
+  //   setSearchValue("")
+  //   if (showMenu && searchRef.current) {
+  //     searchRef.current.focus()
+  //   }
+  // }, [showMenu])

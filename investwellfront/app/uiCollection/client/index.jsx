@@ -10,10 +10,14 @@ export default function Index() {
   const [timePeriod, setTimePeriod] = useState(null)
   const [scheme, setScheme] = useState([])
   const [count, setCount] = useState(1)
-  const [schemeArr , setSchemeArray] = useState([])
+  const [schemeArr, setSchemeArray] = useState([])
   const [showMatrix, setShowMatrix] = useState(false)
   const [navData, SetNavData] = useState()
-  const [period, setPeriod] = useState()
+  // const [showMenu, setShowMenu] = useState(false)
+
+  // const [period, setPeriod] = useState()
+
+
 
   const tableData = (obj) => {
 
@@ -24,18 +28,20 @@ export default function Index() {
     })
       .then((response) => {
         if (response.data.status == -1) {
-          const newObj = {...obj , launchDate : ''}
+          console.log("@@@@@@@",response.data.result )
+          const newObj = { ...obj, launchDate: '' }
           let updatedSchemeArray = Array.from(schemeArr)
           updatedSchemeArray.push(newObj)
           setSchemeArray(updatedSchemeArray)
-          
+
         }
         else {
-          const newObj = {...obj , launchDate : response.data && response.data.result , legend : `SC${count}` }
+          console.log("!!!!!!!!!!!!",response.data.result)
+          const newObj = { ...obj, launchDate: response.data && response.data.result, legend: `SC${count}` }
           let updatedSchemeArray = Array.from(schemeArr)
           updatedSchemeArray.push(newObj)
           setSchemeArray(updatedSchemeArray)
-          setCount(count+1)
+          setCount(count + 1)
         }
       })
       .catch(error => {
@@ -43,19 +49,19 @@ export default function Index() {
       })
   }
 
-  const dataValue = () => {
-    if(! (schemeArr.length >1 && period )){
-        return
+  const ApplyButton = () => {
+    if (!(schemeArr.length > 1)) {
+      return
     }
     let data = []
     schemeArr.map((object) => (
       data.push(object.schid)
     ))
-   
+
     axios.get("http://localhost:3000/getNavs", {
       params: {
         schid: { 'arr': data },
-        timePeriod: period
+        timePeriod: timePeriod && timePeriod.value
       }
     })
       .then((response) => {
@@ -76,6 +82,7 @@ export default function Index() {
   }
 
   useEffect(() => {
+    console.log("&&&&&&&&&&&&&&&&&7")
     axios.get("http://localhost:3000/getSchemes", {
       params: {
         category: category && category.value
@@ -83,6 +90,7 @@ export default function Index() {
     })
       .then((response) => {
         if (response.data && response.data.status == 0) {
+          console.log("**************",response.data.result)
           setSchemeOption(response.data.result)
         }
       })
@@ -111,12 +119,17 @@ export default function Index() {
         schemeArr={schemeArr}
         showMatrix={showMatrix}
         setShowMatrix={setShowMatrix}
-        dataValue={dataValue}
+        ApplyButton={ApplyButton}
         navData={navData}
-        setPeriod={setPeriod}
         tableData={tableData}
+        // showMenu ={showMenu}
+        // setShowMenu = {setShowMenu}
+      
       />
     </div>
   )
 }
 
+//timeperiod state kam 
+// time period validation name change line 51
+//ternary operators in drop
