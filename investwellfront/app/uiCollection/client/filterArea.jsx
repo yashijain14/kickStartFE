@@ -2,22 +2,18 @@ import React from 'react'
 import DropDown from './dropDown.jsx'
 
 export default function FilterArea(props) {
-    // console.log("props",props.timePeriod &&props.timePeriod.value)
-        // props.setPeriod(props.timePeriod && props.timePeriod.value)
+    console.log("scheme arr:",props.schemeArr)
     return (
         <div className='contentArea'>
             <div className='selectionArea'>
                 <label className='labels'>Category</label>
                 <DropDown
-                    // handleInput={props.handleInput}
                     field='category'
                     placeHolder='Select'
                     isSearchable
                     option={props.categoryOption}
                     selected={props.category}
                     setSelected={props.setCategory}
-                    // showMenu = {props.showMenu}
-                    // setShowMenu = {props.setShowMenu}
                     check={true}
                 />
             </div>
@@ -25,7 +21,6 @@ export default function FilterArea(props) {
             <div className='selectionArea'>
                 <label className='labels'>Scheme:</label>
                 <DropDown
-                    // isSelected={props.isSelected}
                     field='scheme'
                     placeHolder='Select'
                     isSearchable
@@ -117,6 +112,7 @@ export default function FilterArea(props) {
                     check={true}
                 />
             </div>
+            
             <button className='applyButton' onClick={() => props.ApplyButton(props.timeperiod && props.timePeriod.value)}>Apply</button>
         </div>
     )

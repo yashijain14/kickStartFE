@@ -57,7 +57,7 @@ export default function Index() {
     schemeArr.map((object) => (
       data.push(object.schid)
     ))
-
+      
     axios.get("http://localhost:3000/getNavs", {
       params: {
         schid: { 'arr': data },

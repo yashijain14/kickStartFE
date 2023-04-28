@@ -2,8 +2,8 @@ import React from 'react'
 import HeatMap from 'react-heatmap-grid'
 
 const correlationMatrix = (props) => {
+    
     const labels = []
-
     // making array for labels
     props.schemeArr.map((object) => (labels.push(object.legend)))
     const xLabels = labels
@@ -14,9 +14,9 @@ const correlationMatrix = (props) => {
         .map((_, yIndex) =>
             new Array(xLabels.length)
                 .fill()
-                .map((_, xIndex) => props.navData ? props.navData[xIndex][yIndex] : '')
+                .map((_, xIndex) => props.navData && props.navData[xIndex] && props.navData[yIndex] && props.navData[xIndex][yIndex])
+                
         );
-
 
     return (
         <div className='correlationMatrix'>
@@ -25,8 +25,7 @@ const correlationMatrix = (props) => {
                     xLabels={xLabels}
                     yLabels={yLabels}
                     xLabelsLocation={"top"}
-                    xLabelWidth={1000} // increase the width of the label container
-                    xLabelHeight={20}
+                    xLabelWidth={100}
                     data={data}
                     squares
                     onClick={(x, y) => alert(`Clicked ${x}, ${y}`)}
@@ -43,10 +42,7 @@ const correlationMatrix = (props) => {
                     })}
                     cellRender={(value) => value && `${value}`}
                     title={(value, unit) => `${value}`}
-                    xLabelsStyle={(index) => ({
-                        marginLeft: "15px", // set the marginLeft property to 10px except for the first label
-                        fontSize: '10px'
-                    })}
+                    xLabelsOffset = {100}
                 />
             </div>
         </div>
