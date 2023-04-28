@@ -13,9 +13,7 @@ export default function Index() {
   const [schemeArr, setSchemeArray] = useState([])
   const [showMatrix, setShowMatrix] = useState(false)
   const [navData, SetNavData] = useState()
-  // const [showMenu, setShowMenu] = useState(false)
-
-  // const [period, setPeriod] = useState()
+ 
 
 
 
@@ -122,14 +120,8 @@ export default function Index() {
         ApplyButton={ApplyButton}
         navData={navData}
         tableData={tableData}
-        // showMenu ={showMenu}
-        // setShowMenu = {setShowMenu}
       
       />
     </div>
   )
 }
-
-//timeperiod state kam 
-// time period validation name change line 51
-//ternary operators in drop
