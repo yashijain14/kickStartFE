@@ -2,16 +2,26 @@ import React, { useEffect } from 'react'
 import DropDown from './dropDown.jsx'
 
 export default function FilterArea(props) {
-    // useEffect(()=>{
-    //     console.log("Jinsf");
-    // }, [props.schemeArr])
+
+    // console.log("************count",props.count)
+    // let abla = props.count
+    
     const clearData = (field, data) => {
+        // let abcd = data.legend
+        // let result = abcd.replace(/[^0-9]/g, "");
+        
         switch (field) {
             case 'clearOne':
                 const index = props.schemeArr.findIndex((item) => item.schid === data.schid)
                 props.schemeArr.splice(index, 1)
+                for(let i=0;i<props.schemeArr.length;i++){
+                    props.schemeArr[i].legend = "SC" + (i+1)
+                    props.setCount(props.count-1)
                 
-                // console.log('Data deleted', props.schemeArr)
+                    
+                }
+                console.log("qwerty",props.schemeArr)
+                
                 break
             default:
         }
@@ -68,7 +78,7 @@ export default function FilterArea(props) {
                                     <li className='list' >
 
                                         {obj.name} &nbsp;&nbsp;&nbsp;{obj.legend}
-                                        <span className='deleteBtn' onClick={() => clearData('clearOne', obj)}>X</span>
+                                        <span className='deleteBtn' onClick={() => clearData('clearOne', obj,props.schemeArr)}>X</span>
 
                                     </li>
 

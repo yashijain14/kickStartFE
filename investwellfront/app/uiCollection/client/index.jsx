@@ -114,6 +114,8 @@ export default function Index() {
         matrixData={matrixData}
         navData={navData}
         drillDownData={drillDownData}
+        count = {count}
+        setCount ={setCount}
       
       />
     </div>

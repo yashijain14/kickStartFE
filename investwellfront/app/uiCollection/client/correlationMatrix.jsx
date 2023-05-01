@@ -38,7 +38,7 @@ const correlationMatrix = (props) => {
                                             'rgb(0, 0, 0)',
                         color: 'rgb(255, 255, 255)',
                         fontSize: "5px",
-                        padding: "2px"
+                        // padding: "2px"
                     })}
                     cellRender={(value) => value && `${value}`}
                     title={(value, unit) => `${value}`}

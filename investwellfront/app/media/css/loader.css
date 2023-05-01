@@ -71,7 +71,7 @@
               font-size: large; }
           * body .mainBox .rightMain .contentArea .schemeList,
           * body .mainBox .rightMainWithMatrix .contentArea .schemeList {
-            display: inline-block; }
+            display: block; }
             * body .mainBox .rightMain .contentArea .schemeList .displayList,
             * body .mainBox .rightMainWithMatrix .contentArea .schemeList .displayList {
               display: inline-block;
