@@ -14,10 +14,7 @@ export default function Index() {
   const [showMatrix, setShowMatrix] = useState(false)
   const [navData, SetNavData] = useState()
  
-
-
-
-  const tableData = (obj) => {
+  const drillDownData = (obj) => {
 
     axios.get("http://localhost:3000/getLaunchDate", {
       params: {
@@ -46,7 +43,7 @@ export default function Index() {
       })
   }
 
-  const ApplyButton = () => {
+  const matrixData = () => {
     if (!(schemeArr.length > 1)) {
       return
     }
@@ -114,9 +111,9 @@ export default function Index() {
         schemeArr={schemeArr}
         showMatrix={showMatrix}
         setShowMatrix={setShowMatrix}
-        ApplyButton={ApplyButton}
+        matrixData={matrixData}
         navData={navData}
-        tableData={tableData}
+        drillDownData={drillDownData}
       
       />
     </div>

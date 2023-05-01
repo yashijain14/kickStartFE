@@ -37,12 +37,12 @@ const correlationMatrix = (props) => {
                                         value >= 0.6 && value < 1.0 ? 'rgb(228, 69, 11)' :
                                             'rgb(0, 0, 0)',
                         color: 'rgb(255, 255, 255)',
-                        fontSize: "15px",
-                        padding: "12px"
+                        fontSize: "5px",
+                        padding: "2px"
                     })}
                     cellRender={(value) => value && `${value}`}
                     title={(value, unit) => `${value}`}
-                    xLabelsOffset = {100}
+                    // xLabelsOffset = {100}
                 />
             </div>
         </div>
