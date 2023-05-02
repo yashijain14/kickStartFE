@@ -3,7 +3,7 @@ $divBorders : 1px solid #ede8ea;
 
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    // font-size: large;
+
     body {
         margin: 0px;
         padding: 0px;
@@ -90,6 +90,7 @@ $divBorders : 1px solid #ede8ea;
                             color: #ffffff;
                             font-weight: bold;
                             font-size: large;
+                            cursor: pointer;
                         }
                     }
 
@@ -145,6 +146,7 @@ $divBorders : 1px solid #ede8ea;
                                             height: 20px;
                                             margin: -4px 0 0 8px;
                                             padding: 2px 0 0 0;
+                                            cursor: pointer;
                                         }
                                     }
                                 }
@@ -154,17 +156,14 @@ $divBorders : 1px solid #ede8ea;
                                 border: $inputBorder;
                                 border-radius: 15px;
                                 width: auto;
-                                // text-align: center;
                                 color: #ffffff;
                                 background-color: #6e738b;
                                 height: 25px;
-                                // padding: 0 3px 0 0;
                                 display: inline-block;
                                 margin: 0 0 0 10px;
                                 position: inherit;
-                                .clearText{
-                                    // border: 1px solid black;
-                                    // margin: 30px 0 0 0;
+
+                                .clearText {
                                     padding-right: 3px;
                                 }
 
@@ -175,6 +174,7 @@ $divBorders : 1px solid #ede8ea;
                                     height: auto;
                                     padding: 5px 2px;
                                     margin: -4px 0 0 0;
+                                    cursor: pointer;
                                 }
                             }
                         }
@@ -198,6 +198,7 @@ $divBorders : 1px solid #ede8ea;
                         color: #fff;
                         border-radius: 3px;
                         font-size: large;
+                        cursor: pointer;
                     }
                 }
 
@@ -215,7 +216,8 @@ $divBorders : 1px solid #ede8ea;
                         padding: 20px;
 
                         .heatMap {
-                            display: inline-flex;
+                            display: flex;
+                            justify-content: center;
                         }
                     }
 
@@ -269,6 +271,7 @@ $divBorders : 1px solid #ede8ea;
         align-items: center;
         justify-content: space-between;
         user-select: none;
+        cursor: pointer;
     }
 
     .dropdownMenu {
@@ -279,7 +282,6 @@ $divBorders : 1px solid #ede8ea;
         max-height: 150px;
         background-color: #c9d7f3;
         z-index: 99;
-        // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif;
 
         .dropdownItem {
             padding: 8px;
@@ -301,6 +303,65 @@ $divBorders : 1px solid #ede8ea;
             padding: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
+        }
+    }
+}
+
+@media (min-width:1000px) {
+    #root {
+        * {
+            font-size: 10px;
+        }
+    }
+}
+
+@media (max-width:768px) {
+    #root {
+        * {
+            font-size: small;
+        }
+
+        .mainBox {
+            padding: 0;
+            margin: 0;
+        }
+
+        .sideNav,
+        .sideNavWithMatrix,
+        .logo {
+            display: none;
+        }
+
+        .rightMain,
+        .rightMainWithMatrix,
+        .navHeader {
+            width: 110vh;
+            position: relative;
+            margin: 0;
+        }
+
+        .lowerTableRow td {
+            padding: 2px;
+        }
+    }
+}
+
+@media (max-height:500px) {
+    #root {
+
+        .logo,
+        .navHeader {
+            height: 5%;
+        }
+
+        .rightMain,
+        .rightMainWithMatrix {
+            height: 100vh;
+        }
+
+        .sideNav,
+        .sideNavWithMatrix {
+            height: 100vh;
         }
     }
 }

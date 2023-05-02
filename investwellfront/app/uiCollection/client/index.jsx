@@ -13,9 +13,26 @@ export default function Index() {
   const [schemeArr, setSchemeArray] = useState([])
   const [showMatrix, setShowMatrix] = useState(false)
   const [navData, SetNavData] = useState()
- 
-  const drillDownData = (obj) => {
 
+  const clearData = (field, data) => {
+    switch (field) {
+      case 'clearOne':
+        setCount(1)
+        const index = schemeArr.findIndex((item) => item.schid === data.schid)
+        schemeArr.splice(index, 1)
+        for (let i = 0; i < schemeArr.length; i++) {
+          schemeArr[i].legend = "SC" + (i + 1)
+          setCount(count - 1)
+        }
+        break
+      case 'clearAll':
+        setCount(1)
+        schemeArr.splice(0,)
+        break
+      default:
+    }
+  }
+  const drillDownData = (obj) => {
     axios.get("http://localhost:3000/getLaunchDate", {
       params: {
         schid: obj.schid
@@ -27,31 +44,34 @@ export default function Index() {
           let updatedSchemeArray = Array.from(schemeArr)
           updatedSchemeArray.push(newObj)
           setSchemeArray(updatedSchemeArray)
-
         }
-        else{
-          const newObj = { ...obj, launchDate: response.data && response.data.result, legend: `SC${count}` }
-          let updatedSchemeArray = Array.from(schemeArr)
-          updatedSchemeArray.push(newObj)
-          setSchemeArray(updatedSchemeArray)
-          setCount(count+1)
-          setScheme('')
+        else {
+          if (response.data.result == "Scheme ID doesn't exist") {
+            alert('Invalid Scheme!')
+            setScheme('')
+          }
+          else {
+            const newObj = { ...obj, launchDate: response.data && response.data.result, legend: `SC${count}` }
+            let updatedSchemeArray = Array.from(schemeArr)
+            updatedSchemeArray.push(newObj)
+            setSchemeArray(updatedSchemeArray)
+            setCount(count + 1)
+            setScheme('')
+          }
         }
       })
       .catch(error => {
         console.log("error", error)
       })
   }
-
   const matrixData = () => {
-    if (!(schemeArr.length > 1)) {
+    if (!(schemeArr.length > 1 && timePeriod.value > 1)) {
       return
     }
     let data = []
     schemeArr.map((object) => (
       data.push(object.schid)
     ))
-      
     axios.get("http://localhost:3000/getNavs", {
       params: {
         schid: { 'arr': data },
@@ -70,11 +90,9 @@ export default function Index() {
         }
       })
       .catch(error => {
-
         console.log("error", error)
       })
   }
-
   useEffect(() => {
     axios.get("http://localhost:3000/getSchemes", {
       params: {
@@ -95,8 +113,7 @@ export default function Index() {
     <div className='mainBox'>
       <div className='navHeader'></div>
       <div className='logo'></div>
-
-      <div className={showMatrix?'sideNavWithMatrix':'sideNav'}></div>
+      <div className={showMatrix ? 'sideNavWithMatrix' : 'sideNav'}></div>
       <RightMain
         category={category}
         setSchemeOption={setSchemeOption}
@@ -114,9 +131,9 @@ export default function Index() {
         matrixData={matrixData}
         navData={navData}
         drillDownData={drillDownData}
-        count = {count}
-        setCount ={setCount}
-      
+        count={count}
+        setCount={setCount}
+        clearData={clearData}
       />
     </div>
   )
