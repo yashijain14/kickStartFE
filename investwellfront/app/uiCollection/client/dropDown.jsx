@@ -1,14 +1,36 @@
 import React, { useEffect, useRef, useState } from "react"
 
-const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, setSelected,check,isSelected}) => {
+const Dropdown = ({ placeHolder, option, isSearchable, selected, setSelected, check }) => {
   const [showMenu, setShowMenu] = useState(false)
   const [currentMenu, setCurrentMenu] = useState()
   const inputRef = useRef()
+  const [dummyVar, setDummyVar] = useState(option)
+
+
+
+  function handleChangeSchemeOption(event) {
+    const arr = []
+    if(event.target.value==''){
+      setCurrentMenu(option)
+    }
+    for (let i = 0; i < option.length; i++) {
+      if ((option[i].name.toLowerCase()).startsWith(event.target.value.toLowerCase())) {
+        arr.push(option[i])
+      }
+    }
+    setCurrentMenu(arr)
+  }
+
+
+  useEffect(()=>{
+    setDummyVar(currentMenu)
+  },[currentMenu])
+
 
   return (
     <div className="dropdownContainer">
-      <div ref={inputRef} onClick={() => {check && setShowMenu(!showMenu); setCurrentMenu(option)}} className="dropdownInput">
-        <div className="dropdownSelectedValue" >{(!selected || selected.length === 0)?placeHolder:selected.name}</div>
+      <div ref={inputRef} onClick={() => { check && setShowMenu(!showMenu); setCurrentMenu(option) }} className="dropdownInput">
+        <div className="dropdownSelectedValue" >{(!selected || selected.length === 0) ? placeHolder : selected.name}</div>
 
         <div className="dropdownTool">
           <svg height="20" width="20" viewBox="0 0 20 20">
@@ -18,12 +40,12 @@ const Dropdown = ({ field,placeHolder, option, isSearchable, onChange,selected, 
       </div>
       {showMenu && (<div className="dropdownMenu">
         {isSearchable && (<div className='searchBox'>
-          {/* <input onChange={onSearch} value={searchValue} className='searchInput' ref={searchRef}></input> */}
+          <input className='searchInput' onChange={(event) => { handleChangeSchemeOption(event) }}></input>
         </div>)}
 
-        {currentMenu && currentMenu.map((option) => (
-          <div onClick={(e) =>{ ('click') ? setSelected(option) : setSelected(e.target.value);setShowMenu(false)}} key={option.value} className={`dropdownItem ${(!selected) ? false : selected.value === option.value && "selected"}`} >
-            {option.name}
+        {currentMenu && currentMenu.map((dummyVar) => (
+          <div onClick={(e) => { ('click') ? setSelected(dummyVar) : setSelected(e.target.value); setShowMenu(false) }} key={dummyVar.value} className={`dropdownItem ${(!selected) ? false : selected.value === dummyVar.value && "selected"}`} >
+            {dummyVar.name}
           </div>
         ))}
       </div>
