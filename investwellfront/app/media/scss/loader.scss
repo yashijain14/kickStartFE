@@ -3,7 +3,7 @@ $divBorders : 1px solid #ede8ea;
 
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+    
     body {
         margin: 0px;
         padding: 0px;
@@ -104,7 +104,7 @@ $divBorders : 1px solid #ede8ea;
                             .listTitle {
                                 color: #2e2b3a;
                                 margin: 56px 10px 0 5px;
-                                height: 500px;
+                                height: auto;
                                 position: absolute;
                                 width: 10%;
                             }
@@ -160,7 +160,7 @@ $divBorders : 1px solid #ede8ea;
                                 background-color: #6e738b;
                                 height: 25px;
                                 display: inline-block;
-                                margin: 0 0 0 10px;
+                                margin: 5px 0 0 10px;
                                 position: inherit;
 
                                 .clearText {
@@ -183,9 +183,12 @@ $divBorders : 1px solid #ede8ea;
                     .timePeriodBox {
                         display: block;
                         margin: 15px 5px 0;
-
+                        .labels{
+                            font-weight: 600;
+                        }
                         .dropdownContainer {
                             width: 100px;
+                            margin: 6px 0 0 0;
                         }
                     }
 
@@ -199,6 +202,9 @@ $divBorders : 1px solid #ede8ea;
                         border-radius: 3px;
                         font-size: large;
                         cursor: pointer;
+                    }
+                    .applyButton:hover{
+                        background-color: #929beb;
                     }
                 }
 

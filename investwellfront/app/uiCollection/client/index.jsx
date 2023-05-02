@@ -57,6 +57,7 @@ export default function Index() {
             setSchemeArray(updatedSchemeArray)
             setCount(count + 1)
             setScheme('')
+            setShowMatrix(false)
           }
         }
       })
@@ -87,6 +88,9 @@ export default function Index() {
           setShowMatrix(true)
           let responseData = response.data.result
           SetNavData(responseData)
+          // schemeArr.splice(0,)
+          setCategory('')
+          setScheme('')
         }
       })
       .catch(error => {
