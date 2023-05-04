@@ -12,7 +12,7 @@ export default function Index() {
   const [count, setCount] = useState(1)
   const [schemeArr, setSchemeArray] = useState([])
   const [showMatrix, setShowMatrix] = useState(false)
-  const [navData, SetNavData] = useState()
+  const [navData, setNavData] = useState()
 
   const clearData = (field, data) => {
     switch (field) {
@@ -23,11 +23,13 @@ export default function Index() {
         for (let i = 0; i < schemeArr.length; i++) {
           schemeArr[i].legend = "SC" + (i + 1)
           setCount(count - 1)
+          setShowMatrix(false)
         }
         break
       case 'clearAll':
         setCount(1)
         schemeArr.splice(0,)
+        setShowMatrix(false)
         break
       default:
     }
@@ -87,7 +89,7 @@ export default function Index() {
         else {
           setShowMatrix(true)
           let responseData = response.data.result
-          SetNavData(responseData)
+          setNavData(responseData)
           // schemeArr.splice(0,)
           setCategory('')
           setScheme('')

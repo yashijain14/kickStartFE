@@ -3,7 +3,7 @@ $divBorders : 1px solid #ede8ea;
 
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
+
     body {
         margin: 0px;
         padding: 0px;
@@ -52,7 +52,7 @@ $divBorders : 1px solid #ede8ea;
             }
 
             .rightMainWithMatrix {
-                height: 200%;
+                height: auto;
             }
 
             .rightMain,
@@ -73,7 +73,7 @@ $divBorders : 1px solid #ede8ea;
 
                     .selectionArea {
                         display: inline-block;
-                        margin: 0 30px 0 5px;
+                        margin: 0 30px 10px 5px;
 
                         .labels {
                             display: block;
@@ -103,7 +103,7 @@ $divBorders : 1px solid #ede8ea;
 
                             .listTitle {
                                 color: #2e2b3a;
-                                margin: 56px 10px 0 5px;
+                                margin: 30px 10px 0 5px;
                                 height: auto;
                                 position: absolute;
                                 width: 10%;
@@ -112,18 +112,19 @@ $divBorders : 1px solid #ede8ea;
                             .listBox {
                                 display: inline-block;
                                 width: auto;
-                                margin: 0 0 0 60px;
-                                font-weight: bold;
+                                margin: 0 0 0 70px;
+                                font-weight: 200;
 
                                 .lists {
                                     display: inline-block;
+                                    margin: 0 0 10px 0;
 
                                     .date {
                                         color: #35c0ae;
                                         text-align: center;
                                         font-style: italic;
                                         width: auto;
-                                        margin: 30px 0 4px 10px;
+                                        margin: 5px 0 4px 10px;
                                         display: block;
                                     }
 
@@ -134,7 +135,7 @@ $divBorders : 1px solid #ede8ea;
                                         list-style-type: none;
                                         display: inline-block;
                                         border-radius: 15px;
-                                        margin: 0 0 0 10px;
+                                        margin: 0 0 0 15px;
                                         height: auto;
                                         padding: 5px 2px 0 3px;
 
@@ -160,7 +161,7 @@ $divBorders : 1px solid #ede8ea;
                                 background-color: #6e738b;
                                 height: 25px;
                                 display: inline-block;
-                                margin: 5px 0 0 10px;
+                                margin: 0 0 0 10px;
                                 position: inherit;
 
                                 .clearText {
@@ -183,9 +184,11 @@ $divBorders : 1px solid #ede8ea;
                     .timePeriodBox {
                         display: block;
                         margin: 15px 5px 0;
-                        .labels{
+
+                        .labels {
                             font-weight: 600;
                         }
+
                         .dropdownContainer {
                             width: 100px;
                             margin: 6px 0 0 0;
@@ -203,7 +206,8 @@ $divBorders : 1px solid #ede8ea;
                         font-size: large;
                         cursor: pointer;
                     }
-                    .applyButton:hover{
+
+                    .applyButton:hover {
                         background-color: #929beb;
                     }
                 }
@@ -217,45 +221,65 @@ $divBorders : 1px solid #ede8ea;
 
                     .correlationMatrix {
                         width: 80%;
-                        margin: 10px auto;
-                        text-align: center;
+                        margin: auto;
                         padding: 20px;
 
                         .heatMap {
-                            display: flex;
-                            justify-content: center;
+                            text-align: center;
+                            width: inherit;
+                            margin: auto;
+
+                            .matrixTable {
+                                margin: auto;
+                                width: auto;
+                                .xLabel, .yLabel{
+                                    font-weight: 550;
+                                }
+                                .matrixCells {
+                                    width: 90px;
+                                    height: 50px;
+                                    font-size: 10px;
+                                }
+                            }
                         }
                     }
 
-                    .descriptionTable {
-                        border-collapse: collapse;
-                        width: auto;
+                    .descriptionTableDiv {
+                        width: 80%;
                         margin: auto;
+                        align-items: center;
+                        padding: 20px;
 
-                        .lowerTableRow {
-                            border: 1px solid rgb(244, 244, 244);
-                            box-shadow: 0px 1px 1px 1px rgb(244, 244, 244);
-                            padding: 5px 5px;
+                        .descriptionTable {
+                            border-collapse: collapse;
+                            width: auto;
+                            margin: auto;
 
-                            .colorGreen {
-                                background-color: rgb(138, 236, 49);
+                            .lowerTableRow {
+                                border: 1px solid rgb(244, 244, 244);
+                                box-shadow: 0px 1px 1px 1px rgb(244, 244, 244);
+                                padding: 5px 1px;
+
+                                .colorGreen {
+                                    background-color: rgb(138, 236, 49);
+                                }
+
+                                .colorSkyBlue {
+                                    background-color: rgb(135, 243, 193);
+                                }
+
+                                .colorOrange {
+                                    background-color: rgb(232, 119, 16);
+                                }
+
+                                .colorRed {
+                                    background-color: rgb(228, 69, 11);
+                                }
                             }
 
-                            .colorSkyBlue {
-                                background-color: rgb(135, 243, 193);
+                            .lowerTableRow td {
+                                padding: 5px 25px;
                             }
-
-                            .colorOrange {
-                                background-color: rgb(232, 119, 16);
-                            }
-
-                            .colorRed {
-                                background-color: rgb(228, 69, 11);
-                            }
-                        }
-
-                        .lowerTableRow td {
-                            padding: 5px 40px;
                         }
                     }
                 }
@@ -286,8 +310,9 @@ $divBorders : 1px solid #ede8ea;
         width: 100%;
         overflow: auto;
         max-height: 150px;
-        background-color: #c9d7f3;
+        background-color: #eef2fc;
         z-index: 99;
+        border-radius: 10px 5px 5px 10px;
 
         .dropdownItem {
             padding: 8px;
@@ -295,7 +320,8 @@ $divBorders : 1px solid #ede8ea;
         }
 
         .dropdownItem:hover {
-            background-color: #98b9fa;
+            background-color: #171c24;
+            color: #ffffff;
         }
 
         .searchBox {
@@ -315,8 +341,24 @@ $divBorders : 1px solid #ede8ea;
 
 @media (min-width:1000px) {
     #root {
+
+        .labels,
+        .dropdownContainer,
+        .schemeList {
+            font-size: large;
+        }
+
+        // .matrixCells {
+        //     width: 100px;
+        //     height: 50px;
+        // }
+    }
+}
+
+@media (max-width:1000px) {
+    #root {
         * {
-            font-size: 10px;
+            font-size: medium;
         }
     }
 }
@@ -344,6 +386,10 @@ $divBorders : 1px solid #ede8ea;
             width: 110vh;
             position: relative;
             margin: 0;
+        }
+
+        .listBox {
+            margin: 0 0 0 80px;
         }
 
         .lowerTableRow td {

@@ -1,8 +1,7 @@
 import React from 'react'
-import HeatMap from 'react-heatmap-grid'
 
 const correlationMatrix = (props) => {
-    
+
     const labels = []
     // making array for labels
     props.schemeArr.map((object) => (labels.push(object.legend)))
@@ -15,33 +14,50 @@ const correlationMatrix = (props) => {
             new Array(xLabels.length)
                 .fill()
                 .map((_, xIndex) => props.navData && props.navData[xIndex] && props.navData[yIndex] && props.navData[xIndex][yIndex])
-                
+
         )
 
     return (
         <div className='correlationMatrix'>
             <div className='heatMap'>
-                <HeatMap
-                    xLabels={xLabels}
-                    yLabels={yLabels}
-                    xLabelsLocation={"top"}
-                    xLabelWidth={100}
-                    data={data}
-                    squares
-                    onClick={(x, y) => alert(`Clicked ${x}, ${y}`)}
-                    cellStyle={(background, value, min, max, data, x, y) => ({
-                        background:
-                            value >= -1.0 && value < -0.4 ? 'rgb(138, 236, 49)' :
-                                value >= -0.4 && value < 0.0 ? 'rgb(135, 243, 193)' :
-                                    value >= 0.0 && value < 0.6 ? 'rgb(232, 119, 16)' :
-                                        value >= 0.6 && value < 1.0 ? 'rgb(228, 69, 11)' :
-                                            'rgb(0, 0, 0)',
-                        color: 'rgb(255, 255, 255)',
-                        fontSize: "5px"
-                    })}
-                    cellRender={(value) => value && `${value}`}
-                    title={(value, unit) => `${value}`}
-                />
+                <table className='matrixTable'>
+                    <thead className='xAxis'>
+                        <tr className='xLabel'>
+                            <td></td>
+                            {xLabels.map((label) => (
+                                <td key={label}>{label}</td>
+                            ))}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {data.map((row, rowIndex) => (
+                            <tr key={rowIndex}>
+                                <td className='yLabel'>{yLabels[rowIndex]}</td>
+                                {row.map((cell, colIndex) => (
+                                    <td
+                                        className='matrixCells'
+                                        key={`${rowIndex}-${colIndex}`}
+                                        style={{
+                                            background:
+                                                cell >= -1.0 && cell < -0.4
+                                                    ? 'rgb(138, 236, 49)'
+                                                    : cell >= -0.4 && cell < 0.0
+                                                        ? 'rgb(135, 243, 193)'
+                                                        : cell >= 0.0 && cell < 0.6
+                                                            ? 'rgb(232, 119, 16)'
+                                                            : cell >= 0.6 && cell < 1.0
+                                                                ? 'rgb(228, 69, 11)'
+                                                                : cell == 1.00 ? 'rgb(0, 0, 0)' : 'rgb(220,220,119)',
+                                            color: cell >= -1.0 && cell<1.0? 'rgb(0,0,0)':'rgb(255,255,255)'
+                                        }}
+                                    >
+                                        {cell && `${cell}`}
+                                    </td>
+                                ))}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </div>
     )
