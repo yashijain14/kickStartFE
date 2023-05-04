@@ -1,14 +1,33 @@
 import React from "react";
+
 const Taxes = (props) => {
     return (
         <table className="taxTable">
         <tbody className="highlight">
             {props.taxes && props.taxes.map((tax) => (
-                <tr>
-                    <td><input className="inputBox highlight" contentEditable="true" name="taxName" onChange={(event) => props.modifyTaxes("changeTax", event, tax.taxID)} value={tax.taxName}/></td>
-                    <td className="alignCenter">
-                        <input className="inputBox highlight taxPercentage" contentEditable="true" name="taxPercentage" onChange={(event) => props.modifyTaxes("changeTax", event, tax.taxID)} value={tax.taxPercentage}/>
-                        <span>%</span>
+                <tr key={tax.taxID}>
+                    <td>
+                        {
+                            props.currFocus==`${tax.taxID} taxName`?
+                            <input className="inputBox highlight" name="taxName" 
+                            onChange={(event) => props.modifyTaxes("changeTax", event, tax.taxID)}
+                            value={tax.taxName} maxLength="40" onBlur={()=>props.handleInputBlur()} autoFocus/>:
+                            <div onClick={()=>props.handleDivClick(`${tax.taxID} taxName`)}>{tax.taxName}</div>
+                        }   
+                    </td>
+                    <td>
+                        {
+                            props.currFocus==`${tax.taxID} taxPercentage`?
+                            <>
+                            <input className="highlight taxPercentage" name="taxPercentage" 
+                            onChange={(event) => props.modifyTaxes("changeTax", event, tax.taxID)} type="number"
+                            value={tax.taxPercentage} onBlur={()=>props.handleInputBlur()} autoFocus/>
+                            <span>%</span>
+                            </>:
+                            <>
+                            <div className="alignCenter"  onClick={()=>props.handleDivClick(`${tax.taxID} taxPercentage`)}>{tax.taxPercentage} %</div>
+                            </>
+                        }
                     </td>
                     <td className="highlight alignRight" name="taxAmount">{
                         props.price.currencySymbol} {tax.taxAmount}
@@ -24,7 +43,15 @@ const Taxes = (props) => {
                 </td>   
              </tr>
             <tr>
-                <td className="alignLeft" colspan="2" contentEditable="true" ref={(text) => props.contentEditableRef.current.push(text)}><b>Total</b></td>
+                <td className="alignLeft" colSpan="2">
+                    {
+                        props.currFocus=="totalWithTaxName"?
+                        <input className="inputBox highlight" maxLength="40"
+                        name="totalWithTaxName" value={props.data.totalWithTaxName} onChange={(event)=>props.handleChange(event)}
+                        onBlur={()=>props.handleInputBlur()}/>:
+                        <div onClick={()=>props.handleDivClick("totalWithTaxName")}>{props.data.totalWithTaxName}</div>
+                    }
+                    </td>
                 <td className="alignRight"><b>{props.price.currencySymbol} {props.totalWithTax}</b></td>
             </tr>
         </tfoot>

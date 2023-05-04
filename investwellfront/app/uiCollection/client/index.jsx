@@ -1,18 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState} from 'react'
 import { v4 as uuid } from 'uuid';
 import Items from './Items.jsx';
 import Taxes from './Taxes.jsx';
+import moment from 'moment'
+import "../../media/css/styles.css"
 
 export default function Index() {
 
-    const contentEditableRef = useRef([]);
-    const date = new Date();
-
-    const day = date.getDate();
-    const month = date.toLocaleString('en-us', { month: 'long' }); 
-    const year = date.getFullYear();
-    const currentDate = `${day} ${month} ${year}`;
-
+    const [currFocus, setCurrFocus] = useState(false);
+  
     const [items, setItems] = useState([{
         itemID: uuid(),
         description: "item",
@@ -20,22 +16,25 @@ export default function Index() {
         unitPrice: 100,
         lineTotal: 100
     }]);
-
     const [taxes, setTaxes] = useState([{
         taxID: uuid(),
         taxName: 'Tax Name',
         taxPercentage: 20,
         taxAmount: 20
     }])
-
     const [subTotal, setsubTotal] = useState(100)
     const [totalWithTax, setTotalWithTax] = useState(120)
-
     const [price, setPrice] = useState({
-        unitPriceName: 'Unit price (₹)',
-        currencySymbol: '₹'
+          unitPriceName: 'Unit price (₹)',
+          currencySymbol: '₹'
+      })
+  
+    const [address, setAddress] = useState({
+      addressLine1: '123 your street',
+      addressLine2: 'Your Town',
+      addressLine3: 'Address Line 3'
     })
-
+  
     useEffect(() => {
         const newSubTotal = items.reduce((accumulator, item) => accumulator + item.lineTotal, 0)
         setsubTotal(newSubTotal);
@@ -43,14 +42,15 @@ export default function Index() {
             return { ...tax, taxAmount: Math.round((tax.taxPercentage * newSubTotal) / 100) }
         }))
     }, [items])
-
-
+  
+  
     useEffect(() => {
         const newTotalWithTax = taxes.reduce((accumulator, tax) => accumulator + tax.taxAmount, 0)
         setTotalWithTax(newTotalWithTax + subTotal);
     }, [items, taxes])
-
-
+  
+    const currentDate = moment().format('ll')
+  
     const modifyItems = (eventName, event, currItemID) => {
         switch (eventName) {
             case "addItem":
@@ -74,10 +74,9 @@ export default function Index() {
                     items && items.map((item) => {
                         if (item.itemID == currItemID) {
                             if (fieldName == 'quantity' || fieldName == 'unitPrice') {
-                                const otherFieldName = fieldName == 'quantity' ? 'unitPrice' : 'quantity';
+                                const otherFieldName = (fieldName == 'quantity') ? 'unitPrice' : 'quantity';
                                 const newLineTotal = value * item[otherFieldName];
-                                return { ...item, ['lineTotal']: newLineTotal, [fieldName]: value };
-
+                                return { ...item, [fieldName]: value, ['lineTotal']: newLineTotal};
                             } else {
                                 return { ...item, [fieldName]: value };
                             }
@@ -90,7 +89,6 @@ export default function Index() {
                 break;
         }
     }
-
     const modifyTaxes = (eventName, event, currTaxID) => {
         switch (eventName) {
             case "addTax":
@@ -127,7 +125,7 @@ export default function Index() {
                 break;
         }
     }
-
+  
     const handlePriceChange = (event) => {
         const value = event.target.value
         const openingBracket = value.indexOf('(');
@@ -140,77 +138,207 @@ export default function Index() {
             currencySymbol: currSymbol
         })
     }
-
+  
+  
+    const [data, setData] = useState({
+      advisoryCompanyName: 'Company Name',
+      contactNo: '123456789',
+      email: 'youremail@gmail.com',
+      invoiceHeading: 'Invoice',
+      date: currentDate,
+      invoiceID: 'Invoice #234556',
+      poNumber: 'PO 123445',
+      clientName: 'Mr. Jane Doe',
+      clientCompanyName: 'Client Company Name',
+      userMessage: 'Dear Ms. Jane Doe\n\nPlease find below a cost-breakdown for the recent work completed. Please make payment at your earliest convenience, and do not hesitate to contact me with any questions\n\nMany thanks,\nYour Name\n',
+      subTotalName: 'Sub Total',
+      totalWithTaxName: 'Total',
+      conclusionMessage: 'Many thanks! I look forward to doing business with you again in due course.\n\nPayment terms: to be received within 60 days.\n'
+    })
+  
+    const handleChange = (event) => {
+      const name = event.target.name;
+      const value = event.target.value;
+      setData(prevVal=>{
+          return {
+              ...prevVal,
+              [name]: value
+          }
+      })
+    }
+  
+    const handleChangeAddress = (event) => {
+      const name = event.target.name;
+      const value = event.target.value;
+      setAddress((prevValue)=>{
+          return {
+              ...prevValue,
+              [name]: value
+          }
+      })
+    }
+  
+    const evalAddress = () => {
+      let currAddress = '';
+      if(address.addressLine1.length!=0){
+          currAddress = address.addressLine1 + '\n';
+      }
+      if(address.addressLine2.length!=0){
+          currAddress += address.addressLine2 + '\n';
+      }
+      if(address.addressLine3.length!=0){
+          currAddress += address.addressLine3;
+      }
+      return currAddress;
+    }
+  
+    const handleDivClick = (name) => {
+      setCurrFocus(name);
+    }
+  
+    const handleInputBlur = () => {
+      setCurrFocus(false);
+    }
+  
     const downloadPdf = () => {
-        const data = {
-            "advisoryCompanyName": contentEditableRef.current[0].innerText,
-            "address": contentEditableRef.current[1].innerText,
-            "contactNo": contentEditableRef.current[2].innerText,
-            "email": contentEditableRef.current[3].innerText,
-            "invoiceHeading": contentEditableRef.current[4].innerText,
-            "date": contentEditableRef.current[5].innerText,
-            "invoiceID": contentEditableRef.current[6].innerText,
-            "poNumber": contentEditableRef.current[7].innerText,
-            "clientName": contentEditableRef.current[8].innerText,
-            "clientCompanyName": contentEditableRef.current[9].innerText,
-            "userMessage": contentEditableRef.current[10].innerText,
-            "items": items,
-            "taxes": taxes,
-            "unitPriceName": price.unitPriceName,
-            "currencySymbol": price.currencySymbol,
-            "subTotal": subTotal,
-            "totalWithTax": totalWithTax,
-            "subTotalName": contentEditableRef.current[11].innerText,
-            "totalWithTaxName": contentEditableRef.current[12].innerText,
-            "conclusionMessage": contentEditableRef.current[13].innerText,
+  
+        const totalData = {
+          ...data,
+          items: items,
+          taxes: taxes,
+          unitPriceName: price.unitPriceName,
+          currencySymbol: price.currencySymbol,
+          subTotal: subTotal,
+          totalWithTax: totalWithTax,
+          address: evalAddress()
         }
-
-        let dataString = (JSON.stringify(data)).replaceAll("#", "hashSymbol")
+  
+        let dataString = (JSON.stringify(totalData)).replaceAll("#", "hashSymbol")
         dataString = dataString.replaceAll("&", "ampersandSymbol")
         dataString = dataString.replaceAll("%", "percentageSymbol")
         dataString = dataString.replaceAll("+", "plusSymbol")
-        window.open(`http://localhost:5000/downloadInvoice?data=${dataString}`)
+        window.open(`http://localhost:3000/downloadInvoice?data=${dataString}`)
     }
+  
     return (
         <div className="screenContainer">
             <h2 className="toolTitle">Advisory Invoice Generator</h2>
             <div className="mainContainer">
                 <div className="leftMainBox">
                     <div className="headerInfo">
-                        <div className="leftContainer">
-                            <div class="heading" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Company Name</div>
-                            <div ref={(text) => contentEditableRef.current.push(text)}>
-                                <div contentEditable="true">123 your street</div>
-                                <div contentEditable="true">Your town</div>
-                                <div contentEditable="true">Address Line 3</div>
-                            </div>
-                            <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>(123) 456 789</div>
-                            <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>email@yourcompany.com</div>
-                        </div>
-                        <div className="rightContainer alignRight">
-                            <div className="heading" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Invoice</div>
-                            <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>{currentDate}</div>
-                            <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Invoice #2334889</div>
-                            <div contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>PO 456001200</div>
-                            <div className="highlight" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Att: Ms. Jane Doe</div>
-                            <div className="highlight" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>Client Company Name</div>
-                        </div>
+                      <div className="headerInfoBox">
+                          <div className="companyName">
+                          {
+                              currFocus=="advisoryCompanyName"?
+                              <input className="heading inputBox" name="advisoryCompanyName" 
+                              value={data.advisoryCompanyName} onChange={(event)=>handleChange(event)} maxLength="50"
+                              onBlur={()=>handleInputBlur()} autoFocus/>:
+                              <div className="heading" onClick={()=>handleDivClick("advisoryCompanyName")}>
+                              {data.advisoryCompanyName}</div>
+                           }
+                          </div>
+                          <div className="invoiceHeading">
+                          {
+                              currFocus=="invoiceHeading"?
+                              <input className="heading alignRight inputBox" 
+                              name="invoiceHeading" value={data.invoiceHeading} onChange={(event)=>handleChange(event)} maxLength="30"
+                              onBlur={()=>handleInputBlur()} autoFocus/>:
+                              <div className="heading alignRight" onClick={()=>handleDivClick("invoiceHeading")}>{data.invoiceHeading}</div>
+                          }
+                          </div>
+                      </div>
+                      <div className="headerInfoBox">
+                          <div>
+                              {
+                                  currFocus=="addressLine1"?
+                                  <input className="inputBox" name="addressLine1" 
+                                  onChange={(event)=>handleChangeAddress(event)} value={address.addressLine1} maxLength="40"
+                                  onBlur={()=>handleInputBlur()} autoFocus/>:
+                                  <div onClick={()=>handleDivClick("addressLine1")}>{address.addressLine1}</div>
+                              }
+                              {
+                                  currFocus=="addressLine2"?
+                                  <input className="inputBox" name="addressLine2" 
+                                  onChange={(event)=>handleChangeAddress(event)} value={address.addressLine2} maxLength="40"
+                                  onBlur={()=>handleInputBlur()} autoFocus/>:
+                                  <div onClick={()=>handleDivClick("addressLine2")}>{address.addressLine2}</div>
+                              }
+                              {
+                                  currFocus=="addressLine3"?
+                                  <input className="inputBox" name="addressLine3" 
+                                  onChange={(event)=>handleChangeAddress(event)} value={address.addressLine3} maxLength="40"
+                                  onBlur={()=>handleInputBlur()} autoFocus/>:
+                                  <div onClick={()=>handleDivClick("addressLine3")}>{address.addressLine3}</div>
+                              }
+                          </div>
+  
+                          <div>
+                            {
+                              currFocus=="date"?
+                              <input className="inputBox alignRight" 
+                              name="date" value={data.date} onChange={(event)=>handleChange(event)} maxLength="25"
+                              onBlur={()=>handleInputBlur()} autoFocus/>:
+                              <div className="alignRight" onClick={()=>handleDivClick("date")}>{data.date}</div>
+                          }
+                          {
+                              currFocus=="invoiceID"?
+                              <input className="inputBox alignRight" 
+                              name="invoiceID" value={data.invoiceID} onChange={(event)=>handleChange(event)} maxLength="25"
+                              onBlur={()=>handleInputBlur()} autoFocus/>:
+                              <div className="alignRight" onClick={()=>handleDivClick('invoiceID')}>{data.invoiceID}</div>
+                          }
+                          {
+                              currFocus=="poNumber"?
+                              <input className="inputBox alignRight" 
+                              name="poNumber" value={data.poNumber} onChange={(event)=>handleChange(event)} maxLength="25"
+                              onBlur={()=>handleInputBlur()} autoFocus/>:
+                              <div className="alignRight" onClick={()=>handleDivClick("poNumber")}>{data.poNumber}</div>
+                          }  
+                          </div>
+                      </div>
+                      <div className="headerInfoBox">
+                          <div>
+                              {
+                                  currFocus=="contactNo"?
+                                  <input className="inputBox" name="contactNo" value={data.contactNo} 
+                                  onChange={(event)=>handleChange(event)} maxLength="25"
+                                  onBlur={()=>handleInputBlur()} autoFocus/>:
+                                  <div onClick={()=>handleDivClick("contactNo")}>{data.contactNo}</div>
+                              }
+                              {
+                                  currFocus=="email"?
+                                  <input className="inputBox" name="email" value={data.email} 
+                                  onChange={(event)=>handleChange(event)} maxLength="50"
+                                  onBlur={()=>handleInputBlur()} autoFocus/>:
+                                  <div onClick={()=>handleDivClick("email")}>{data.email}</div>
+                              }
+                          </div>
+                          <div className="highlight">
+                              {
+                                  currFocus=="clientName"?
+                                  <input className="inputBox alignRight highlight"
+                                  name="clientName" value={data.clientName} onChange={(event)=>handleChange(event)} maxLength="30"
+                                  onBlur={()=>handleInputBlur()} autoFocus/>:
+                                  <div className="alignRight" onClick={()=>handleDivClick("clientName")}>{data.clientName}</div>
+                              }
+                              {
+                                  currFocus=="clientCompanyName"?
+                                  <input className="inputBox alignRight highlight" 
+                                  name="clientCompanyName" value={data.clientCompanyName} onChange={(event)=>handleChange(event)} maxLength="50"
+                                  onBlur={()=>handleInputBlur()} autoFocus/>:
+                                  <div className="alignRight" onClick={()=>handleDivClick("clientCompanyName")}>{data.clientCompanyName}</div>
+                              }
+                          </div>
+                      </div>   
                     </div>
                     <hr/>
-                    <div className="userMessage" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>
-                        <span>Dear Ms. Jane Doe</span>
-                        <br />
-                        <br />
-                        <span>Please find below a cost-breakdown for the recent work completed. Please make payment at your
-                            earliest convenience, and do not hesitate to contact me with any questions.
-                        </span>
-                        <br />
-                        <br />
-                        <span>Many Thanks</span>
-                        <br />
-                        <span>Your Name</span>
-                    </div>
-
+                      {
+                          currFocus=="userMessage"?
+                          <textarea className="userMessageTextArea textAreaBox"
+                          name="userMessage" value={data.userMessage} onChange={(event)=>handleChange(event)} maxLength="350"
+                          onBlur={()=>handleInputBlur()} autoFocus/>:
+                          <div className="userMessageDiv" onClick={()=>handleDivClick("userMessage") }>{data.userMessage}</div>
+                      }
                     <Items 
                         items={items}
                         taxes={taxes}
@@ -220,7 +348,11 @@ export default function Index() {
                         totalWithTax={totalWithTax}
                         price={price}
                         handlePriceChange={handlePriceChange}
-                        contentEditableRef={contentEditableRef}
+                        data={data}
+                        handleChange={handleChange}
+                        currFocus={currFocus}
+                        handleDivClick={handleDivClick}
+                        handleInputBlur={handleInputBlur}
                     />
                     <Taxes
                         items={items}
@@ -231,19 +363,26 @@ export default function Index() {
                         totalWithTax={totalWithTax}
                         price={price}
                         handlePriceChange={handlePriceChange}
-                        contentEditableRef={contentEditableRef}
+                        data={data}
+                        handleChange={handleChange}
+                        currFocus={currFocus}
+                        handleDivClick={handleDivClick}
+                        handleInputBlur={handleInputBlur}
                     />
-                    <div className="conclusionMessage" contentEditable="true" ref={(text) => contentEditableRef.current.push(text)}>
-                        <span>Many thanks! I look forward to doing business with you again in due course. </span>
-                        <br />
-                        <br />
-                        <span> Payment terms: to be received within 60 days.</span>
-                    </div>
+                    {
+                      currFocus=="conclusionMessage"?
+                      <textarea className="conclusionMessageTextArea textAreaBox"
+                      name="conclusionMessage" value={data.conclusionMessage} onChange={(event)=>handleChange(event)} maxLength="200"
+                      onBlur={()=>handleInputBlur()} autoFocus/>:
+                      <div className="conclusionMessageDiv"
+                      onClick={()=>handleDivClick("conclusionMessage") }>{data.conclusionMessage}</div>
+                    }
                 </div>     
                 <div className="rightMainBox">
-                    <button className='rightBoxDownloadBtn' onClick={() => downloadPdf()}>Download this invoice</button>
+                    <button className="rightBoxDownloadBtn" onClick={() => downloadPdf()}>Download this invoice</button>
                 </div>
             </div>
         </div>
     )
-}
+  }   
+
