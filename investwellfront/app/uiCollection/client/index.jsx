@@ -35,6 +35,13 @@ export default function Index() {
     }
   }
   const drillDownData = (obj) => {
+    if(obj == null ){
+      alert("f")
+    }
+    if(schemeArr.some(obj => obj.schid == scheme.schid)){
+      alert("scheme already exist")
+    }
+    else {
     axios.get("http://localhost:3000/getLaunchDate", {
       params: {
         schid: obj.schid
@@ -67,6 +74,7 @@ export default function Index() {
         console.log("error", error)
       })
   }
+}
   const matrixData = () => {
     if (!(schemeArr.length > 1 && timePeriod.value > 1)) {
       return
@@ -142,5 +150,6 @@ export default function Index() {
         clearData={clearData}
       />
     </div>
+    
   )
 }
