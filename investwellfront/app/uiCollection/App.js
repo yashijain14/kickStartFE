@@ -1,13 +1,15 @@
 import React, { Component } from "react";
+import Index from "./client/index.jsx";
+import '../media/css/styles.css'
 
 class App extends Component {
 
     render() {
         return (
-            <div>
-               <h1>Hello world!!</h1>
-            </div>
-        );
+            < >
+              <Index/>
+            </>
+          );
     }
 }
 export default App;
