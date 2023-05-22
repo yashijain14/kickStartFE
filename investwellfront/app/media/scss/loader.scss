@@ -103,7 +103,7 @@ $divBorders : 1px solid #ede8ea;
 
                             .listTitle {
                                 color: #2e2b3a;
-                                margin: 30px 10px 0 5px;
+                                margin: 28px 0 0 5px;
                                 height: auto;
                                 position: absolute;
                                 width: 10%;
@@ -112,7 +112,7 @@ $divBorders : 1px solid #ede8ea;
                             .listBox {
                                 display: inline-block;
                                 width: auto;
-                                margin: 0 0 0 70px;
+                                padding: 0px 0 8px 50px;
                                 font-weight: 200;
 
                                 .lists {
@@ -183,7 +183,7 @@ $divBorders : 1px solid #ede8ea;
 
                     .timePeriodBox {
                         display: block;
-                        margin: 15px 5px 0;
+                        margin: 15px 6px 0;
 
                         .labels {
                             font-weight: 600;
@@ -310,8 +310,8 @@ $divBorders : 1px solid #ede8ea;
         width: 100%;
         overflow: auto;
         max-height: 150px;
-        background-color: #eef2fc;
-        z-index: 99;
+        background-color: #fff;
+        z-index: 9999;
         border-radius: 10px 5px 5px 10px;
 
         .dropdownItem {
@@ -320,13 +320,13 @@ $divBorders : 1px solid #ede8ea;
         }
 
         .dropdownItem:hover {
-            background-color: #171c24;
-            color: #ffffff;
+            background-color: #efeff0;
+            // color: #ffffff;
         }
 
         .searchBox {
             padding: 5px;
-            background-color: #eee;
+
         }
 
         .searchBox .searchInput {
