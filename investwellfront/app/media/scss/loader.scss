@@ -103,7 +103,7 @@ $divBorders : 1px solid #ede8ea;
 
                             .listTitle {
                                 color: #2e2b3a;
-                                margin: 28px 0 0 5px;
+                                margin: 30px 0 0 5px;
                                 height: auto;
                                 position: absolute;
                                 width: 10%;
@@ -135,9 +135,9 @@ $divBorders : 1px solid #ede8ea;
                                         list-style-type: none;
                                         display: inline-block;
                                         border-radius: 15px;
-                                        margin: 0 0 0 15px;
+                                        margin: 0 0 0 25px;
                                         height: auto;
-                                        padding: 5px 2px 0 3px;
+                                        padding: 5px 2px 4px 7px;
 
                                         .deleteBtn {
                                             border-left: $inputBorder;
@@ -188,8 +188,18 @@ $divBorders : 1px solid #ede8ea;
                         }
 
                         .dropdownContainer {
-                            width: 100px;
+                            width: 120px;
                             margin: 6px 0 0 0;
+                            display: flex;
+                            align-items: center;
+                            justify-content: first baseline;
+                            .searchInput{
+                                width: 80px;
+                            }
+                            
+                        }
+                        .dropdownMenu{
+                            width: 120px;
                         }
                     }
 
@@ -230,9 +240,12 @@ $divBorders : 1px solid #ede8ea;
                             .matrixTable {
                                 margin: auto;
                                 width: auto;
-                                .xLabel, .yLabel{
+
+                                .xLabel,
+                                .yLabel {
                                     font-weight: 550;
                                 }
+
                                 .matrixCells {
                                     width: 90px;
                                     height: 50px;
@@ -292,20 +305,53 @@ $divBorders : 1px solid #ede8ea;
     position: relative;
     border-radius: 20px;
     width: 350px;
-
-    .dropdownInput {
-        padding: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        user-select: none;
-        cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .searchInput:focus{
+        outline: none;
+        border: none;
     }
+    .searchInput {
+        width: inherit;
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        font-size: large;
+    }
+    .close {
+        position: absolute;
+        right: 8px;
+        top: 14px;
+        width: 32px;
+        height: 32px;
+        opacity: 0;
+      }
+      .close:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
+      .close:before, .close:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 15px;
+        width: 2px;
+        background-color: #333;
+      }
+      .close:before {
+        transform: rotate(45deg);
+      }
+      .close:after {
+        transform: rotate(-45deg);
+      }
+}
 
     .dropdownMenu {
         position: absolute;
         transform: translateY(4px);
-        width: 100%;
+        width: 350px;
         overflow: auto;
         max-height: 150px;
         background-color: #fff;
@@ -318,31 +364,19 @@ $divBorders : 1px solid #ede8ea;
         }
 
         .dropdownItem:hover {
-            background-color: #efeff0;
-            // color: #ffffff;
-        }
-
-        .searchBox {
-            padding: 5px;
-
-        }
-
-        .searchBox .searchInput {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            background-color: #4959e8;
+            color: #fff;
         }
     }
-}
+    
 
 @media (min-width:1000px) {
     #root {
         .listTitle {
             margin: 28px 0 0 5px;
         }
-        .listBox{
+
+        .listBox {
             padding: 0px 0 8px 60px;
         }
     }

@@ -35,46 +35,46 @@ export default function Index() {
     }
   }
   const drillDownData = (obj) => {
-    if(obj == null ){
-      alert("f")
+    if (obj == '') {
+      alert("Please select scheme!")
     }
-    if(schemeArr.some(obj => obj.schid == scheme.schid)){
+    else if (schemeArr.some(obj => obj.schid == scheme.schid)) {
       alert("scheme already exist")
     }
     else {
-    axios.get("http://localhost:3000/getLaunchDate", {
-      params: {
-        schid: obj.schid
-      }
-    })
-      .then((response) => {
-        if (response.data.status == -1) {
-          const newObj = { ...obj, launchDate: '' }
-          let updatedSchemeArray = Array.from(schemeArr)
-          updatedSchemeArray.push(newObj)
-          setSchemeArray(updatedSchemeArray)
+      axios.get("http://localhost:3000/getLaunchDate", {
+        params: {
+          schid: obj.schid
         }
-        else {
-          if (response.data.result == "Scheme ID doesn't exist") {
-            alert('Invalid Scheme!')
-            setScheme('')
-          }
-          else {
-            const newObj = { ...obj, launchDate: response.data && response.data.result, legend: `SC${count}` }
+      })
+        .then((response) => {
+          if (response.data.status == -1) {
+            const newObj = { ...obj, launchDate: '' }
             let updatedSchemeArray = Array.from(schemeArr)
             updatedSchemeArray.push(newObj)
             setSchemeArray(updatedSchemeArray)
-            setCount(count + 1)
-            setScheme('')
-            setShowMatrix(false)
           }
-        }
-      })
-      .catch(error => {
-        console.log("error", error)
-      })
+          else {
+            if (response.data.result == "Scheme ID doesn't exist") {
+              alert('Invalid Scheme!')
+              setScheme('')
+            }
+            else {
+              const newObj = { ...obj, launchDate: response.data && response.data.result, legend: `SC${count}` }
+              let updatedSchemeArray = Array.from(schemeArr)
+              updatedSchemeArray.push(newObj)
+              setSchemeArray(updatedSchemeArray)
+              setCount(count + 1)
+              setScheme('')
+              setShowMatrix(false)
+            }
+          }
+        })
+        .catch(error => {
+          console.log("error", error)
+        })
+    }
   }
-}
   const matrixData = () => {
     if (!(schemeArr.length > 1 && timePeriod.value > 1)) {
       return
@@ -98,9 +98,8 @@ export default function Index() {
           setShowMatrix(true)
           let responseData = response.data.result
           setNavData(responseData)
-          // schemeArr.splice(0,)
-          setCategory('')
           setScheme('')
+          setCategory('')
         }
       })
       .catch(error => {
@@ -108,19 +107,24 @@ export default function Index() {
       })
   }
   useEffect(() => {
-    axios.get("http://localhost:3000/getSchemes", {
-      params: {
-        category: category && category.value
-      }
-    })
-      .then((response) => {
-        if (response.data && response.data.status == 0) {
-          setSchemeOption(response.data.result)
+    if (category == null) {
+      setSchemeOption({})
+    }
+    else {
+      axios.get("http://localhost:3000/getSchemes", {
+        params: {
+          category: category && category.value
         }
       })
-      .catch(error => {
-        console.log("error", error)
-      })
+        .then((response) => {
+          response.data && response.data.status == 0 &&
+            setSchemeOption(response.data.result)
+
+        })
+        .catch(error => {
+          console.log("error", error)
+        })
+    }
   }, [category])
 
   return (
@@ -150,6 +154,6 @@ export default function Index() {
         clearData={clearData}
       />
     </div>
-    
+
   )
 }

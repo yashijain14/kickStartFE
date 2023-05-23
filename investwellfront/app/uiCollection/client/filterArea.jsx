@@ -7,24 +7,22 @@ function FilterArea(props) {
             <div className='selectionArea'>
                 <label className='labels'>Category:</label>
                 <DropDown
-                    field='category'
-                    placeHolder='Select'
+                    placeHolder='Search'
                     isSearchable
                     option={props.categoryOption}
                     selected={props.category}
                     setSelected={props.setCategory}
-                    check={true}
+                    clearData={props.clearData}
                 />
             </div>
             <div className='selectionArea'>
                 <label className='labels'>Scheme:</label>
                 <DropDown
-                    field='scheme'
-                    placeHolder='Select'
+                    placeHolder='Search'
                     isSearchable
                     option={props.schemeOption}
-                    check={props.category}
                     selected={props.scheme}
+                    clearData={props.clearData}
                     setSelected={props.setScheme}
                 />
             </div>
@@ -56,13 +54,12 @@ function FilterArea(props) {
             <div className='timePeriodBox'>
                 <label className='labels'>Period:</label>
                 <DropDown
-                    field='timePeriod'
-                    placeHolder='Select'
+                    placeHolder='Search'
                     option={props.timePeriodOption}
                     isSearchable
                     selected={props.timePeriod}
+                    clearData={props.clearData}
                     setSelected={props.setTimePeriod}
-                    check={true}
                 />
             </div>
             <button className='applyButton' onClick={() => props.matrixData(props.timePeriod && props.timePeriod.value)}>Apply</button>
