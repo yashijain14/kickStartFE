@@ -11,7 +11,7 @@ export const PortfolioOverlap = (props) => {
   { outerDiv: 'rightContainerD', imageDiv: 'unCommonStockDiv', image: LowerLogo, imageClass: 'unCommonStockIcon', spanAClass: 'unCommonStockB', spanAValue: values.unCommonHoldingsInB && values.unCommonHoldingsInB, textAValue: '#uncommon stocks in B', spanBClass: 'totalStockB', spanBValue: values.totalHoldingsInB && values.totalHoldingsInB, textBValue: '#total stocks in B' }]
   return (
     <div className='portfolioOverlap'>
-      <GraphArea values={props.holdingsDetails.vennDiagram} />
+      <GraphArea values={props.holdingsDetails.vennDiagram}/>
       <div className='rightDiv'>
         <div className='rightContainerA'><DonutChart values={props.holdingsDetails.overlapValue.overlapPercentage} /></div>
         {array.map((item) => (

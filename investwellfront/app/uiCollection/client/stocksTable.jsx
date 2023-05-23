@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import ProgressBar from '../../../app/uiCollection/client/progressBar.jsx'
 import SquareIcon from '@mui/icons-material/Square'
 
-export const StocksTable = (props) => {
+export const StocksTable = (props)=> {
   return (
     <Fragment>
       <span className='tableLabel'>Stocks Overlapping in mutual fund schemes</span>

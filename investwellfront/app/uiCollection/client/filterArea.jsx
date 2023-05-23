@@ -1,4 +1,4 @@
-import React,{Fragment} from 'react'
+import React, { Fragment } from 'react'
 import SearchField from '../../../app/uiCollection/shared/searchField.jsx'
 
 export const FilterArea = (props) => {

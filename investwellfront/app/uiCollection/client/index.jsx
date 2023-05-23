@@ -46,7 +46,7 @@ export default function Index() {
     axios.get(`http://localhost:3000/getPortfolioOverlap`, { params: { schid1: schemeA.id, schid2: schemeB.id } })
       .then(res => {
         if (res.data && res.data.status == 0) {
-          setHoldingsDetails({holding:res.data.result.holding, vennDiagram:res.data.result.vennDiagram, overlapValue:res.data.result.overlapValue, schemeAName:schemeA.scheme, schemeBName:schemeB.scheme})
+          setHoldingsDetails({ holding: res.data.result.holding, vennDiagram: res.data.result.vennDiagram, overlapValue: res.data.result.overlapValue, schemeAName: schemeA.scheme, schemeBName: schemeB.scheme })
           setLoading(false);
         }
       })
@@ -64,7 +64,7 @@ export default function Index() {
     holding == "A" && obj.sort((a, b) => (a.holdingsA > b.holdingsA) ? (sortTable.direction ? 1 : -1) : (sortTable.direction ? -1 : 1))
     holding == "B" && obj.sort((a, b) => (a.holdingsB > b.holdingsB) ? (sortTable.direction ? 1 : -1) : (sortTable.direction ? -1 : 1))
     holding == "asset" && obj.sort((a, b) => (Math.min(a.netAssetA, a.netAssetB) > Math.min(b.netAssetA, b.netAssetB)) ? (sortTable.direction ? 1 : -1) : (sortTable.direction ? -1 : 1))
-    setHoldingsDetails({ holding: obj, vennDiagram: holdingsDetails.vennDiagram, overlapValue: holdingsDetails.overlapValue, schemeAName:schemeA.scheme, schemeBName:schemeB.scheme })
+    setHoldingsDetails({ holding: obj, vennDiagram: holdingsDetails.vennDiagram, overlapValue: holdingsDetails.overlapValue, schemeAName: schemeA.scheme, schemeBName: schemeB.scheme })
     setSortTable({ name: holding, direction: !(sortTable.direction) })
   }
 
@@ -91,7 +91,7 @@ export default function Index() {
           />
         </div>
         {loading ? <div className='loader' /> : <>
-          {holdingsDetails && <PortfolioOverlap holdingsDetails={holdingsDetails} />}   {holdingsDetails && <StocksTable holdingsDetails={holdingsDetails} sort={sort} sortTable={sortTable}/>}
+          {holdingsDetails && <PortfolioOverlap holdingsDetails={holdingsDetails} />}   {holdingsDetails && <StocksTable holdingsDetails={holdingsDetails} sort={sort} sortTable={sortTable} />}
         </>}
       </div>
     </Fragment>

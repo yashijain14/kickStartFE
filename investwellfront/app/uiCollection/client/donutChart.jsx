@@ -26,7 +26,7 @@ export const DonutChart = (props) => {
                     <Label value="Portfolio overlap percentage" dy={20} style={{ textAnchor: "middle", fontSize: "100%", fontWeight: '500', fill: "#0000008e", }}></Label>
                 </Pie>
             </PieChart>
-        </ResponsiveContainer >
+        </ResponsiveContainer>
     )
 }
 export default DonutChart
