@@ -1,9 +1,9 @@
-import React from 'react'
+import React,{Fragment} from 'react'
 import SearchField from '../../../app/uiCollection/shared/searchField.jsx'
 
-export default function FilterArea(props) {
+export const FilterArea = (props) => {
   return (
-    <>
+    <Fragment>
       <SearchField
         label="Scheme A"
         setScheme={props.setSchemeA}
@@ -23,6 +23,7 @@ export default function FilterArea(props) {
         handleInputChange={props.handleInputChange}
       />
       <button className='proceedButton' disabled={props.proceedDisable()} onClick={() => props.handleSubmit()} >Go</button>
-    </>
+    </Fragment>
   )
 }
+export default FilterArea

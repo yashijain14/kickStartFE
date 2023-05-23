@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../media/scss/style.css";
+import "../media/css/loader.css";
 import Index from "./client/index.jsx";
 
 class App extends Component {

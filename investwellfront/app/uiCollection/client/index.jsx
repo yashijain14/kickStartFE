@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React, { useState, Fragment } from 'react'
 import axios from 'axios'
 import FilterArea from '../../../app/uiCollection/client/filterArea.jsx'
 import StocksTable from '../../../app/uiCollection/client/stocksTable.jsx'
 import PortfolioOverlap from '../../../app/uiCollection/client/portfolioOverlap.jsx'
 
-export default function Index(){
+export default function Index() {
   const [loading, setLoading] = useState(false)
   const [holdingsDetails, setHoldingsDetails] = useState()
   const [dropdownA, setDropdownA] = useState(true)
@@ -12,6 +12,7 @@ export default function Index(){
   const [schemeA, setSchemeA] = useState({})
   const [schemeB, setSchemeB] = useState({})
   const [mutualFunds, setMutualFunds] = useState('')
+  const [sortTable, setSortTable] = useState({ name: "", direction: true })
   const [debounce, setDebounce] = useState()
 
   const handleInputChange = (event, label) => {
@@ -20,7 +21,7 @@ export default function Index(){
     const name = event.target.value
     debounceTimer = setTimeout(() => {
       axios
-        .get(`http://localhost:3000/getSchemes`, { params: { name } })
+        .get(`http://localhost:3000/getSchemes`, { params: { schemeName: name } })
         .then((res) => {
           if (res.data && res.data.status == 0) {
             setMutualFunds(res.data.result);
@@ -40,17 +41,14 @@ export default function Index(){
     }
   }
 
-
   const handleSubmit = () => {
     setLoading(true);
     axios.get(`http://localhost:3000/getPortfolioOverlap`, { params: { schid1: schemeA.id, schid2: schemeB.id } })
       .then(res => {
         if (res.data && res.data.status == 0) {
-          setHoldingsDetails(res.data.result)
+          setHoldingsDetails({holding:res.data.result.holding, vennDiagram:res.data.result.vennDiagram, overlapValue:res.data.result.overlapValue, schemeAName:schemeA.scheme, schemeBName:schemeB.scheme})
           setLoading(false);
         }
-
-
       })
   }
 
@@ -61,28 +59,42 @@ export default function Index(){
       return true
   }
 
+  const sort = (holding) => {
+    let obj = [...holdingsDetails.holding]
+    holding == "A" && obj.sort((a, b) => (a.holdingsA > b.holdingsA) ? (sortTable.direction ? 1 : -1) : (sortTable.direction ? -1 : 1))
+    holding == "B" && obj.sort((a, b) => (a.holdingsB > b.holdingsB) ? (sortTable.direction ? 1 : -1) : (sortTable.direction ? -1 : 1))
+    holding == "asset" && obj.sort((a, b) => (Math.min(a.netAssetA, a.netAssetB) > Math.min(b.netAssetA, b.netAssetB)) ? (sortTable.direction ? 1 : -1) : (sortTable.direction ? -1 : 1))
+    setHoldingsDetails({ holding: obj, vennDiagram: holdingsDetails.vennDiagram, overlapValue: holdingsDetails.overlapValue, schemeAName:schemeA.scheme, schemeBName:schemeB.scheme })
+    setSortTable({ name: holding, direction: !(sortTable.direction) })
+  }
+
   return (
-    <div className='outerContainer '>
-      <h3 className='info'> Diversity the holding across different categories of fund investing in different asset classes after comparing the portfolio of various fund houses
-        to avoid portfolio overlap</h3>
-      <div className='filterArea'>
-        <FilterArea
-          mutualFunds={mutualFunds}
-          setSchemeA={setSchemeA}
-          schemeA={schemeA}
-          setSchemeB={setSchemeB}
-          schemeB={schemeB}
-          handleSubmit={handleSubmit}
-          proceedDisable={proceedDisable}
-          dropdownA={dropdownA}
-          setDropdownA={setDropdownA}
-          dropdownB={dropdownB}
-          setDropdownB={setDropdownB}
-          handleInputChange={handleInputChange}
-        />
+    <Fragment>
+      <title>Portfolio Overlap</title>
+      <div className='outerContainer '>
+        <h3 className='info'> Diversity the holding across different categories of fund investing in different asset classes after comparing the portfolio of various fund houses
+          to avoid portfolio overlap</h3>
+        <div className='filterArea'>
+          <FilterArea
+            handleSubmit={handleSubmit}
+            mutualFunds={mutualFunds}
+            setSchemeA={setSchemeA}
+            schemeA={schemeA}
+            setSchemeB={setSchemeB}
+            schemeB={schemeB}
+            proceedDisable={proceedDisable}
+            dropdownA={dropdownA}
+            setDropdownA={setDropdownA}
+            dropdownB={dropdownB}
+            setDropdownB={setDropdownB}
+            handleInputChange={handleInputChange}
+          />
+        </div>
+        {loading ? <div className='loader' /> : <>
+          {holdingsDetails && <PortfolioOverlap holdingsDetails={holdingsDetails} />}   {holdingsDetails && <StocksTable holdingsDetails={holdingsDetails} sort={sort} sortTable={sortTable}/>}
+        </>}
       </div>
-      {loading ? <div className='loader' /> : <>  {holdingsDetails && <PortfolioOverlap holdingsDetails={holdingsDetails} />}   {holdingsDetails && <StocksTable holdingsDetails={holdingsDetails} schemeA={schemeA} schemeB={schemeB} />} </>}
-    </div>
+    </Fragment>
   )
 }
 
