@@ -1,5 +1,6 @@
 * {
-  font-family: Verdana, Geneva, Tahoma, sans-serif; }
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large; }
   * body {
     margin: 0px;
     padding: 0px; }
@@ -80,7 +81,7 @@
               * body .mainBox .rightMain .contentArea .schemeList .displayList .listTitle,
               * body .mainBox .rightMainWithMatrix .contentArea .schemeList .displayList .listTitle {
                 color: #2e2b3a;
-                margin: 30px 10px 0 5px;
+                margin: 32px 0 0 5px;
                 height: auto;
                 position: absolute;
                 width: 10%; }
@@ -88,7 +89,8 @@
               * body .mainBox .rightMainWithMatrix .contentArea .schemeList .displayList .listBox {
                 display: inline-block;
                 width: auto;
-                margin: 0 0 0 70px;
+                margin: 0 0 0 25px;
+                padding: 0px 0 8px 50px;
                 font-weight: 200; }
                 * body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .lists,
                 * body .mainBox .rightMainWithMatrix .contentArea .schemeList .displayList .listBox .lists {
@@ -110,9 +112,9 @@
                     list-style-type: none;
                     display: inline-block;
                     border-radius: 15px;
-                    margin: 0 0 0 15px;
+                    margin: 0 0 0 10px;
                     height: auto;
-                    padding: 5px 2px 0 3px; }
+                    padding: 5px 3px 4px 7px; }
                     * body .mainBox .rightMain .contentArea .schemeList .displayList .listBox .lists .list .deleteBtn,
                     * body .mainBox .rightMainWithMatrix .contentArea .schemeList .displayList .listBox .lists .list .deleteBtn {
                       border-left: 1px solid #585858;
@@ -120,7 +122,7 @@
                       width: 20px;
                       text-align: center;
                       height: 20px;
-                      margin: -4px 0 0 8px;
+                      margin: -2px 0 0 8px;
                       padding: 2px 0 0 0;
                       cursor: pointer; }
               * body .mainBox .rightMain .contentArea .schemeList .displayList .clearButton,
@@ -133,30 +135,41 @@
                 height: 25px;
                 display: inline-block;
                 margin: 0 0 0 10px;
-                position: inherit; }
+                position: inherit;
+                text-align: center;
+                padding: 6px 5px 25px; }
                 * body .mainBox .rightMain .contentArea .schemeList .displayList .clearButton .clearText,
                 * body .mainBox .rightMainWithMatrix .contentArea .schemeList .displayList .clearButton .clearText {
-                  padding-right: 3px; }
+                  padding: 4px; }
                 * body .mainBox .rightMain .contentArea .schemeList .displayList .clearButton .deleteBtn,
                 * body .mainBox .rightMainWithMatrix .contentArea .schemeList .displayList .clearButton .deleteBtn {
                   float: right;
                   border-left: 1px solid #d1e0eb;
                   width: auto;
                   height: auto;
-                  padding: 5px 2px;
-                  margin: -4px 0 0 0;
+                  padding: 2px 2px 5px 5px;
+                  margin: -4px 0 0 5px;
                   cursor: pointer; }
           * body .mainBox .rightMain .contentArea .timePeriodBox,
           * body .mainBox .rightMainWithMatrix .contentArea .timePeriodBox {
             display: block;
-            margin: 15px 5px 0; }
+            margin: 15px 6px 0; }
             * body .mainBox .rightMain .contentArea .timePeriodBox .labels,
             * body .mainBox .rightMainWithMatrix .contentArea .timePeriodBox .labels {
               font-weight: 600; }
             * body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer,
             * body .mainBox .rightMainWithMatrix .contentArea .timePeriodBox .dropdownContainer {
-              width: 100px;
-              margin: 6px 0 0 0; }
+              width: 130px;
+              margin: 6px 0 0 0;
+              display: flex;
+              align-items: center;
+              justify-content: first baseline; }
+              * body .mainBox .rightMain .contentArea .timePeriodBox .dropdownContainer .searchInput,
+              * body .mainBox .rightMainWithMatrix .contentArea .timePeriodBox .dropdownContainer .searchInput {
+                width: 80px; }
+            * body .mainBox .rightMain .contentArea .timePeriodBox .dropdownMenu,
+            * body .mainBox .rightMainWithMatrix .contentArea .timePeriodBox .dropdownMenu {
+              width: 120px; }
           * body .mainBox .rightMain .contentArea .applyButton,
           * body .mainBox .rightMainWithMatrix .contentArea .applyButton {
             border: 1px solid #585858;
@@ -180,7 +193,7 @@
           padding: 20px 5px 25px 20px; }
           * body .mainBox .rightMain .matrixArea .correlationMatrix,
           * body .mainBox .rightMainWithMatrix .matrixArea .correlationMatrix {
-            width: 80%;
+            width: 86%;
             margin: auto;
             padding: 20px; }
             * body .mainBox .rightMain .matrixArea .correlationMatrix .heatMap,
@@ -192,7 +205,8 @@
               * body .mainBox .rightMainWithMatrix .matrixArea .correlationMatrix .heatMap .matrixTable {
                 margin: auto;
                 width: auto; }
-                * body .mainBox .rightMain .matrixArea .correlationMatrix .heatMap .matrixTable .xLabel, * body .mainBox .rightMain .matrixArea .correlationMatrix .heatMap .matrixTable .yLabel,
+                * body .mainBox .rightMain .matrixArea .correlationMatrix .heatMap .matrixTable .xLabel,
+                * body .mainBox .rightMain .matrixArea .correlationMatrix .heatMap .matrixTable .yLabel,
                 * body .mainBox .rightMainWithMatrix .matrixArea .correlationMatrix .heatMap .matrixTable .xLabel,
                 * body .mainBox .rightMainWithMatrix .matrixArea .correlationMatrix .heatMap .matrixTable .yLabel {
                   font-weight: 550; }
@@ -238,50 +252,72 @@
   border: 1px solid #ccc;
   position: relative;
   border-radius: 20px;
-  width: 350px; }
-  .dropdownContainer .dropdownInput {
+  width: 350px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .dropdownContainer .searchInput:focus {
+    outline: none;
+    border: none; }
+  .dropdownContainer .searchInput {
+    width: inherit;
     padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    user-select: none;
-    cursor: pointer; }
-  .dropdownContainer .dropdownMenu {
+    border: none;
+    border-radius: 5px;
+    font-size: large; }
+  .dropdownContainer .close {
     position: absolute;
-    transform: translateY(4px);
-    width: 100%;
-    overflow: auto;
-    max-height: 150px;
-    background-color: #eef2fc;
-    z-index: 99;
-    border-radius: 10px 5px 5px 10px; }
-    .dropdownContainer .dropdownMenu .dropdownItem {
-      padding: 8px;
-      cursor: pointer; }
-    .dropdownContainer .dropdownMenu .dropdownItem:hover {
-      background-color: #171c24;
-      color: #ffffff; }
-    .dropdownContainer .dropdownMenu .searchBox {
-      padding: 5px;
-      background-color: #eee; }
-    .dropdownContainer .dropdownMenu .searchBox .searchInput {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px; }
+    right: 8px;
+    top: 14px;
+    width: 32px;
+    height: 32px;
+    opacity: 0; }
+  .dropdownContainer .close:hover {
+    opacity: 1;
+    cursor: pointer; }
+  .dropdownContainer .close:before, .dropdownContainer .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 15px;
+    width: 2px;
+    background-color: #333; }
+  .dropdownContainer .close:before {
+    transform: rotate(45deg); }
+  .dropdownContainer .close:after {
+    transform: rotate(-45deg); }
+
+.dropdownMenu {
+  position: absolute;
+  transform: translateY(4px);
+  width: 360px;
+  overflow: auto;
+  max-height: 150px;
+  background-color: #fff;
+  z-index: 9999;
+  border-radius: 10px 5px 5px 10px; }
+  .dropdownMenu .dropdownItem {
+    padding: 8px;
+    cursor: pointer;
+    font-size: large; }
+  .dropdownMenu .dropdownItem:hover {
+    background-color: #4959e8;
+    color: #fff; }
 
 @media (min-width: 1000px) {
-  #root .labels,
-  #root .dropdownContainer,
-  #root .schemeList {
-    font-size: large; } }
+  #root * {
+    font-size: large; }
+  #root .listTitle {
+    margin: 32px 0 0 5px; }
+  #root .listBox {
+    padding: 0px 0 8px 60px; } }
 @media (max-width: 1000px) {
   #root * {
-    font-size: medium; } }
+    font-size: large; } }
 @media (max-width: 768px) {
   #root * {
-    font-size: small; }
+    font-size: medium; }
   #root .mainBox {
     padding: 0;
     margin: 0; }
