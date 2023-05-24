@@ -7,23 +7,33 @@ function FilterArea(props) {
             <div className='selectionArea'>
                 <label className='labels'>Category:</label>
                 <DropDown
+                    label='category'
                     placeHolder='Search'
                     isSearchable
                     option={props.categoryOption}
                     selected={props.category}
                     setSelected={props.setCategory}
                     clearData={props.clearData}
+                    setShowMenu={props.setShowMenu}
+                    showMenu={props.showMenu}
+                    setSchemeOption={props.setSchemeOption}
+                    // schemeArr={props.schemeArr}
                 />
             </div>
             <div className='selectionArea'>
                 <label className='labels'>Scheme:</label>
                 <DropDown
+                    label='scheme'
                     placeHolder='Search'
                     isSearchable
                     option={props.schemeOption}
                     selected={props.scheme}
                     clearData={props.clearData}
                     setSelected={props.setScheme}
+                    setShowMenu={props.setShowMenu}
+                    showMenu={props.showMenu}
+                    setSchemeOption={props.setSchemeOption}
+                    // schemeArr={props.schemeArr}
                 />
             </div>
             <div className='selectionArea' >
@@ -54,12 +64,16 @@ function FilterArea(props) {
             <div className='timePeriodBox'>
                 <label className='labels'>Period:</label>
                 <DropDown
+                    label='time'
                     placeHolder='Search'
                     option={props.timePeriodOption}
                     isSearchable
                     selected={props.timePeriod}
                     clearData={props.clearData}
                     setSelected={props.setTimePeriod}
+                    setShowMenu={props.setShowMenu}
+                    showMenu={props.showMenu}
+                    // schemeArr={props.schemeArr}
                 />
             </div>
             <button className='applyButton' onClick={() => props.matrixData(props.timePeriod && props.timePeriod.value)}>Apply</button>

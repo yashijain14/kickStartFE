@@ -13,6 +13,26 @@ export default function Index() {
   const [schemeArr, setSchemeArray] = useState([])
   const [showMatrix, setShowMatrix] = useState(false)
   const [navData, setNavData] = useState()
+  const [showMenu, setShowMenu] = useState('')
+
+  useEffect(()=>{
+    const temp = schemeOption;
+    const newSchemeOption = [];
+    temp && temp.forEach((option)=>{
+        let presentInSchemeArray = false;
+        for(let i=0; i<schemeArr.length; i++){
+          if(schemeArr[i].schid==option.schid){
+            presentInSchemeArray = true;
+            break;
+          }
+        }
+        if(!presentInSchemeArray){
+          newSchemeOption.push(option);
+        }
+    })
+    setSchemeOption(newSchemeOption);
+  },[schemeArr])
+
 
   const clearData = (field, data) => {
     switch (field) {
@@ -77,8 +97,13 @@ export default function Index() {
   }
   const matrixData = () => {
     if (!(schemeArr.length > 1 && timePeriod.value > 1)) {
-      return
+      alert('Please select atleast two schemes')
     }
+    else if(schemeArr.length > 15)
+    {
+      alert('Only 15 schemes can be selected!!')
+    }
+    else{
     let data = []
     schemeArr.map((object) => (
       data.push(object.schid)
@@ -99,18 +124,15 @@ export default function Index() {
           let responseData = response.data.result
           setNavData(responseData)
           setScheme('')
-          setCategory('')
         }
       })
       .catch(error => {
         console.log("error", error)
       })
+    }
   }
   useEffect(() => {
-    if (category == null) {
-      setSchemeOption({})
-    }
-    else {
+    if(category!=null){
       axios.get("http://localhost:3000/getSchemes", {
         params: {
           category: category && category.value
@@ -118,15 +140,17 @@ export default function Index() {
       })
         .then((response) => {
           response.data && response.data.status == 0 &&
-            setSchemeOption(response.data.result)
+            setSchemeOption(response.data.result) 
 
         })
         .catch(error => {
           console.log("error", error)
         })
-    }
+      }
   }, [category])
-
+  
+console.log(schemeArr);
+console.log(schemeOption);
   return (
     <div className='mainBox'>
       <div className='navHeader'></div>
@@ -152,6 +176,8 @@ export default function Index() {
         count={count}
         setCount={setCount}
         clearData={clearData}
+        showMenu={showMenu}
+        setShowMenu={setShowMenu}
       />
     </div>
 

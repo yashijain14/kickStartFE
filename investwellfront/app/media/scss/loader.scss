@@ -3,6 +3,7 @@ $divBorders : 1px solid #ede8ea;
 
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
 
     body {
         margin: 0px;
@@ -103,7 +104,7 @@ $divBorders : 1px solid #ede8ea;
 
                             .listTitle {
                                 color: #2e2b3a;
-                                margin: 30px 0 0 5px;
+                                margin: 32px 0 0 5px;
                                 height: auto;
                                 position: absolute;
                                 width: 10%;
@@ -112,6 +113,7 @@ $divBorders : 1px solid #ede8ea;
                             .listBox {
                                 display: inline-block;
                                 width: auto;
+                                margin: 0 0 0 25px;
                                 padding: 0px 0 8px 50px;
                                 font-weight: 200;
 
@@ -135,9 +137,9 @@ $divBorders : 1px solid #ede8ea;
                                         list-style-type: none;
                                         display: inline-block;
                                         border-radius: 15px;
-                                        margin: 0 0 0 25px;
+                                        margin: 0 0 0 10px;
                                         height: auto;
-                                        padding: 5px 2px 4px 7px;
+                                        padding: 5px 3px 4px 7px;
 
                                         .deleteBtn {
                                             border-left: $inputBorder;
@@ -145,7 +147,7 @@ $divBorders : 1px solid #ede8ea;
                                             width: 20px;
                                             text-align: center;
                                             height: 20px;
-                                            margin: -4px 0 0 8px;
+                                            margin: -2px 0 0 8px;
                                             padding: 2px 0 0 0;
                                             cursor: pointer;
                                         }
@@ -164,14 +166,17 @@ $divBorders : 1px solid #ede8ea;
                                 margin: 0 0 0 10px;
                                 position: inherit;
                                 text-align: center;
-                                padding: 4px 8px;
+                                padding: 6px 5px 25px;
+                                .clearText{
+                                    padding: 4px;
+                                }
 
                                 .deleteBtn {
                                     float: right;
                                     border-left: 1px solid #d1e0eb;
                                     width: auto;
                                     height: auto;
-                                    padding: 5px 2px 5px 5px;
+                                    padding: 2px 2px 5px 5px;
                                     margin: -4px 0 0 5px;
                                     cursor: pointer;
                                 }
@@ -188,7 +193,7 @@ $divBorders : 1px solid #ede8ea;
                         }
 
                         .dropdownContainer {
-                            width: 120px;
+                            width: 130px;
                             margin: 6px 0 0 0;
                             display: flex;
                             align-items: center;
@@ -228,7 +233,7 @@ $divBorders : 1px solid #ede8ea;
                     padding: 20px 5px 25px 20px;
 
                     .correlationMatrix {
-                        width: 80%;
+                        width: 86%;
                         margin: auto;
                         padding: 20px;
 
@@ -351,7 +356,7 @@ $divBorders : 1px solid #ede8ea;
     .dropdownMenu {
         position: absolute;
         transform: translateY(4px);
-        width: 350px;
+        width: 360px;
         overflow: auto;
         max-height: 150px;
         background-color: #fff;
@@ -361,6 +366,7 @@ $divBorders : 1px solid #ede8ea;
         .dropdownItem {
             padding: 8px;
             cursor: pointer;
+            font-size: large;
         }
 
         .dropdownItem:hover {
@@ -372,8 +378,11 @@ $divBorders : 1px solid #ede8ea;
 
 @media (min-width:1000px) {
     #root {
+        * {
+            font-size: large;
+        }
         .listTitle {
-            margin: 28px 0 0 5px;
+            margin: 32px 0 0 5px;
         }
 
         .listBox {
@@ -385,7 +394,7 @@ $divBorders : 1px solid #ede8ea;
 @media (max-width:1000px) {
     #root {
         * {
-            font-size: medium;
+            font-size: large;
         }
     }
 }
@@ -393,7 +402,7 @@ $divBorders : 1px solid #ede8ea;
 @media (max-width:768px) {
     #root {
         * {
-            font-size: small;
+            font-size: medium;
         }
 
         .mainBox {
