@@ -15,25 +15,6 @@ export default function Index() {
   const [navData, setNavData] = useState()
   const [showMenu, setShowMenu] = useState('')
 
-  useEffect(()=>{
-    const temp = schemeOption;
-    const newSchemeOption = [];
-    temp && temp.forEach((option)=>{
-        let presentInSchemeArray = false;
-        for(let i=0; i<schemeArr.length; i++){
-          if(schemeArr[i].schid==option.schid){
-            presentInSchemeArray = true;
-            break;
-          }
-        }
-        if(!presentInSchemeArray){
-          newSchemeOption.push(option);
-        }
-    })
-    setSchemeOption(newSchemeOption);
-  },[schemeArr])
-
-
   const clearData = (field, data) => {
     switch (field) {
       case 'clearOne':
